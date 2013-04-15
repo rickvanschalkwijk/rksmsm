@@ -7,3 +7,7 @@ autopublish
 insecure
 preserve-inputs
 bootstrap
+accounts-ui
+backbone
+jquery
+random
