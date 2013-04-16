@@ -2,6 +2,21 @@ rksmsm
 ====
 
 Webapplication Rijksmuseum
+Webbased application design and build for the Rijksmuseum. 
+Application exists of 3 or more mini-games which can be play during the queue.
+
+Meteor
+--------------
+Application is build on top of Meteor.
+Meteor is an ultra-simple environment for building modern web applications.
+
+With Meteor you write apps:
+
+in pure Javascript
+that send data over the wire, rather than HTML
+using your choice of popular open-source libraries
+Documentation is available at http://docs.meteor.com/
+
 
 Contributing
 ------------
