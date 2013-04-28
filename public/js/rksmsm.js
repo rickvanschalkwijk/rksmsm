@@ -1,4 +1,14 @@
 if (Meteor.isClient) {
+	
+  Meteor.Router.add({
+  	'/', 'home',
+  	'/signin',
+  	'/select_picture',
+  	'/games',
+  	'/games/:gameid',
+  	''
+  });		
+	
   Template.hello.greeting = function () {
     return "Welcome to rksmsm.";
   };
