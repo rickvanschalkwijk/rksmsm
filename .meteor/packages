@@ -6,8 +6,8 @@
 autopublish
 insecure
 preserve-inputs
-bootstrap
-accounts-ui
-backbone
+accounts-facebook
+accounts-base
+accounts-password
+router
 jquery
-random
