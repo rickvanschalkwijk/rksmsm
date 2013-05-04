@@ -1,0 +1,43 @@
+<template name="login">
+  {{> header}}
+
+  <div class="login">
+    <h2>Het spel is er klaar voor! En jij?</h2>
+
+    <a href="#facebooklogin" id="facebooklogin">Login met je Facebook</a>
+    <a href="accountlogin" id="accountlogin">login met je gebruikersnaam</a>
+    <div class="divider"></div>
+    <a href="registerAccount" id="registerAccount">Maak een account aan</a>
+  </div>
+  
+</template>
+
+<template name="loginacc">
+  {{> header}}
+  <div class="loginacc">
+    <h2>Inloggen</h2>
+    <p>Vul hier je gebruikersnaam en wachtwoord in.</p>
+    
+    <form id="customAccountLogin" action="action">
+      <input type="text" placeholder="Gebruikersnaam" id="username" class="input-large" />
+      <input type="password" placeholder="Wachtwoord" id="password" class="input-large" />
+      <input type="submit" value="Login" id="sendLogin" class="submit-button" />
+    </form>
+  </div>
+
+</template>
+
+<template name="register">
+  {{> header}}
+  <div class="register">
+    <h2>Hey, leuk dat je mee doet!</h2>
+    <p>Om je geweldige resultaten te tonen, hebben we een aantal gegevens van je nodig. Mogen we die?</p>
+
+    <form id="formCreateAccount" action="action">
+      <input type="email" placeholder="Email" id="email" class="input-large" />
+      <input type="text" placeholder="Gebruikersnaam" id="username" class="input-large" />
+      <input type="password" placeholder="Wachtwoord" id="password" class="input-large" />
+      <input type="submit" value="Aanmaken" id="sendAccount" class="submit-button" />
+    </form>
+  </div>
+</template>
