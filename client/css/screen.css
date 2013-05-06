@@ -22,7 +22,7 @@ h2, .beta {
   font-weight: 700; }
 
 body > header {
-  background: #fc3a51;
+ /* background: #fc3a51; */
   padding: 15px 0; }
   body > header h1 {
     text-align: center; }

@@ -5,6 +5,10 @@
 
 /*-------------------------------*/
 
+body > header {
+	background-image: url(../img/header-pattern2.png);
+	background-repeat: repeat-x;
+}
 
 .sub-header{
 	height:10%;
