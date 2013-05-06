@@ -1,0 +1,36 @@
+/*---------Basic setup ---------*/
+.footer{
+	background-color: #E3E3E3;
+}
+
+/*-------------------------------*/
+
+
+.sub-header{
+	height:10%;
+	background-color: #E3E3E3;
+	top:0px;
+	position: relative;
+}
+
+.sub-header .text{
+	padding:25px;
+}
+
+.sub-header .welcome{
+	color: red;
+	font-weight: bold;
+}
+
+#play-alone{
+	height:100%;
+	width:50%;
+	float:left;
+	border-right: 1px solid #E3E3E3;
+}
+
+#play-group{
+	height: 100%;
+	width: 50%;
+	float:left;
+}
