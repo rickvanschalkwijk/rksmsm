@@ -1,18 +1,42 @@
 /*---------Basic setup ---------*/
-.footer{
-	background-color: #E3E3E3;
+
+html, body{
+	height:100%;
+}
+
+body > #wrap > header {
+	background-image: url(/img/header-pattern2.png);
+	background-repeat: repeat-x;
+	padding: 15px 0; 
+}
+
+body > #wrap > header h1 {
+    text-align: center; 
+}
+
+
+body > footer{
+	background-color: rgb(243, 243, 243);
+	background-image: url(/img/rijksmuseum-logo-grey.png);
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: 50%;
+	height:50px;
+	padding:20px 0 20px 0;
+	position: relative;
+	margin-top: -105px; /* negative value of footer height */
+	clear:both;
 }
 
 /*-------------------------------*/
 
-body > header {
-	background-image: url(../img/header-pattern2.png);
-	background-repeat: repeat-x;
+#wrap{
+	min-height: 100%;
 }
 
 .sub-header{
 	height:10%;
-	background-color: #E3E3E3;
+	background-color: rgb(243, 243, 243);
 	top:0px;
 	position: relative;
 }
@@ -24,6 +48,12 @@ body > header {
 .sub-header .welcome{
 	color: red;
 	font-weight: bold;
+}
+
+#mid{
+	height:100%;
+	padding:0 0 150px 0;
+	overflow: auto;
 }
 
 #play-alone{

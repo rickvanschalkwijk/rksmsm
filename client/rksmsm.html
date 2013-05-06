@@ -18,25 +18,31 @@
 </template>
 
 <template name="home">
-  {{> header}}
-  <div class="sub-header">
-    <div class="sub-header text">
-      <img src="" />
-      <p class="welcome">Welkom,</p>
-      <p>{{user}}</p>
+  <div id="wrap">
+    {{> header}}
+    <div class="sub-header">
+      <div class="sub-header text">
+        <img src="" />
+        <p class="welcome">Welkom,</p>
+        <p>{{user}}</p>
+      </div>
+    </div>
+    <div id="mid">
+      <div id="play-alone">
+           <img src="" alt="" /> 
+           <h1>Speel alleen</h1>
+      </div>
+      <div id="play-group">
+            <img src="" alt="" />
+            <h1>Speel met een groep</h1>
+      </div>
     </div>
   </div>
-  <div id="play-alone">
-         <img src="" alt="" /> 
-  </div>
-  <div id="play-group">
-          <img src="" alt="" />
-  </div>
+  {{> footer}}
 </template>
 
 <template name="footer">
   <footer>
-    <img src="" alt="" />
   </footer>
 </template>
 
