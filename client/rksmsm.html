@@ -8,12 +8,6 @@
   {{renderPage}}
 </body>
 
-<template name="home">
-  {{> header}}
-  <p>home</p>
-  {{user}}
-</template>
-
 <template name="header">
   <header>
     <h1>Rksmsm</h1>
@@ -22,6 +16,30 @@
     {{/if}}   
   </header>
 </template>
+
+<template name="home">
+  {{> header}}
+  <div class="sub-header">
+    <div class="sub-header text">
+      <img src="" />
+      <p class="welcome">Welkom,</p>
+      <p>{{user}}</p>
+    </div>
+  </div>
+  <div id="play-alone">
+         <img src="" alt="" /> 
+  </div>
+  <div id="play-group">
+          <img src="" alt="" />
+  </div>
+</template>
+
+<template name="footer">
+  <footer>
+    <img src="" alt="" />
+  </footer>
+</template>
+
 
 
 
