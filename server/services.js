@@ -47,6 +47,11 @@ Accounts.onCreateUser(function(options, user) {
     }else if(user.services.google){
       options.profile.picture = "https://www.google.com/s2/photos/profile/"+user.services.google.id;
     }
+    var timestamp = (new Date()).getTime();
+    options.profile.created = timestamp;
+    options.profile.last_activity = timestamp;
+    options.profile.active = true;
+
 
     user.profile = options.profile;
   }else{
@@ -55,6 +60,11 @@ Accounts.onCreateUser(function(options, user) {
     user.profile.name = user.username;
     user.profile.email = user.emails[0].address;
     user.profile.emailverified = user.emails[0].verified;
+
+    var timestamp = (new Date()).getTime();
+    user.profile.created = timestamp;
+    user.profile.last_activity = timestamp;
+    user.profile.active = true;
   }
   // the stuff that gets saved
   // console.log(options);

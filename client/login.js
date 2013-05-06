@@ -16,16 +16,11 @@ Session.set('acclog', false);
 // event handler logins
 Template.login.events({
   'click #facebooklogin': facebookLogin,
-  'click #accountlogin': accountLogin,
-  'click #registerAccount': registerAccount
+  'click #accountlogin': accountLogin
 });
 
 Template.loginacc.events({
   'submit #customAccountLogin' : customLogin
-});
-
-Template.register.events({
-  'submit #formCreateAccount' :createAccount
 });
 
 // event handler logout
@@ -78,11 +73,18 @@ Template.home.user = function(){
 function logout(e,t){
   e.preventDefault();
   console.log("logging out");
+  
+  Meteor.call('setActive', (Meteor.userId()), false, function (err, res){
+    // console.log(res);
+  });
+  // console.log(Meteor.user().profile.active);
+
   Meteor.logout(function(err){
     if(err){
       console.log(err);
+    }else{
+      Session.set('logged_in', false);
     }
-    Session.set('logged_in', false);
   });
 }
 
@@ -110,30 +112,49 @@ function customLogin(e,t){
   console.log("customLogin init");
 
   var username = t.find('#username').value,
-      password = t.find('#password').value
+      password = 'rksmsm'
 
   console.log(username, password);
 
-  if(username != '' && password != ''){
+  if(username != ''){
     Meteor.loginWithPassword(username, password, function(err){
       if (err) {
         // Inform the user that account creation failed
         console.log(err);
+        if(err.error == 403 && err.reason == "User not found"){
+          console.log("User not found so we will create one!");
+
+          var email = ''+username+'@rksmsm.nl';
+          console.log(username, email, password);
+
+          Accounts.createUser({ 
+              email : email,
+              username : username,
+              password : password
+            }, function(err){
+              if (err) {
+                // Inform the user that account creation failed
+                console.log(err);
+              } else {
+                // Success. Account has been created and the user
+                console.log("account created");
+                Meteor.Router.to('/');
+              }
+          });
+
+        }
+
       } else {
         // Success. 
         console.log("logged in");
+        Meteor.call('setActive', (Meteor.userId()), true, function (err, res){
+          // console.log(res);
+        });
         Session.set('acclog', false);
         Meteor.Router.to('/');
       }
     });
   }
-}
-
-// go to register page
-function registerAccount(e,t){
-  e.preventDefault();
-  console.log("register init");
-  Meteor.Router.to('/register');
 }
 
 // create account
@@ -142,16 +163,16 @@ function createAccount(e,t){
   console.log("create init");
 
   var username = t.find('#username').value,
-      email = t.find('#email').value,
-      password = t.find('#password').value
+      password = 'rksmsm'
 
-  console.log(username, email, password);
+  if(username != ''){
+    var email = ''+username+'@rksmsm.nl';
+    console.log(username, password);
 
-  if(username != '' && email != '' && password != ''){
     console.log("creating account");
     Accounts.createUser({ 
-        username: username,
-        email: email,
+        email : email,
+        username : username,
         password : password
       }, function(err){
         if (err) {
@@ -163,10 +184,10 @@ function createAccount(e,t){
           Meteor.Router.to('/');
         }
     });
+    
   }else{
-    console.log("nothing")
+    console.log('No username')
   }
-  
 
 }
 
