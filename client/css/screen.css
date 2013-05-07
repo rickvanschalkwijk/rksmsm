@@ -21,6 +21,12 @@ h2, .beta {
   font-size: 2em;
   font-weight: 700; }
 
+body > header {
+  background: #fc3a51;
+  padding: 15px 0; }
+  body > header h1 {
+    text-align: center; }
+
 .login {
   margin-top: 20px; }
   .login h2 {
@@ -85,3 +91,14 @@ h2, .beta {
   padding: 15px 10%;
   border-radius: 5px;
   cursor: pointer; }
+
+#logout {
+  display: block;
+  float: right;
+  width: 32px;
+  height: 32px;
+  background: url(/img/icons/switch-white.png) no-repeat;
+  color: white;
+  margin-right: 15px;
+  margin-top: -33px;
+  text-indent: -9999px; }
