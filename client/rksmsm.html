@@ -12,8 +12,10 @@
   <header>
     <h1>Rksmsm</h1>
     {{#if loggedIn}}
-      <a href="#logout" id="logout">Logout</a>
-    {{/if}}   
+        <div id="logoutBtn">
+                <a href="#logout" id="logout"><img src="/img/icons/switch.png" alt="logout" /></a>
+        </div> 
+    {{/if}}
   </header>
 </template>
 
@@ -22,19 +24,19 @@
     {{> header}}
     <div class="sub-header">
       <div class="sub-header text">
-        <img src="" />
-        <p class="welcome">Welkom,</p>
-        <p>{{user}}</p>
+        <img src="/img/default-avatar.jpg" />
+        <h2 class="welcome">Welkom,</h2>
+        <h2>{{user}}</h2>
       </div>
     </div>
     <div id="mid">
       <div id="play-alone">
-           <img src="" alt="" /> 
-           <h1>Speel alleen</h1>
+           <img src="/img/icons/user.png" alt="users-icon" /> 
+           <h2>Speel alleen</h2>
       </div>
       <div id="play-group">
-            <img src="" alt="" />
-            <h1>Speel met een groep</h1>
+            <img src="/img/icons/users.png" alt="users-icon" />
+            <h2>Speel met een groep</h2>
       </div>
     </div>
   </div>
