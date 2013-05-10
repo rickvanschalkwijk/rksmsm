@@ -22,11 +22,11 @@ body > footer{
 	background-repeat: no-repeat;
 	background-position: center;
 	background-size: 50%;
-	height:50px;
-	padding:20px 0 20px 0;
+	height: 50px;
+	padding: 35px 0 33px 0;
 	position: relative;
-	margin-top: -105px; /* negative value of footer height */
-	clear:both;
+	margin-top: -118px;
+	clear: both;
 }
 
 /*-------------------------------*/
@@ -82,7 +82,7 @@ header > #logoutBtn > #logout >img{
 
 #mid{
 	height:100%;
-	padding:0 0 150px 0;
+	padding:0 0 111px 0;
 	overflow: auto;
 }
 
@@ -102,6 +102,7 @@ header > #logoutBtn > #logout >img{
 #play-alone > h2, #play-group > h2 {
 	text-align: center;
 	font-weight: 400;
+	margin:-50px 0 32px 0;
 }
 
 #play-alone > img, #play-group > img {

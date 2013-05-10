@@ -10,3 +10,7 @@ Template.home.user = function(){
     return username;
   }
 }
+
+Template.rksmsm.events({
+
+});
