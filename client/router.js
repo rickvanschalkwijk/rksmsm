@@ -7,7 +7,9 @@
         return 'login';
       }
     },
-  '/login' : 'login',
-  '/loginacc' : 'loginacc',
-  '/register' : 'register'
+  '/login'        : 'login',
+  '/loginacc'     : 'loginacc',
+  '/register'     : 'register',
+  '/singleplayer' : 'singleplayer',
+  '/multiplayer'  : 'multiplayer'
   });

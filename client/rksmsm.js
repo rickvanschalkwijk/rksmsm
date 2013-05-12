@@ -1,7 +1,3 @@
-console.log("rksmsm loaded");
-
-
-
 /* user */
 Template.home.user = function(){
   if(Meteor.user() != null){
