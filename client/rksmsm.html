@@ -8,6 +8,34 @@
   {{renderPage}}
 </body>
 
+<template name="home">
+  <div id="wrap">
+    {{> header}}
+    <div class="sub-header">
+      <div class="sub-header text">
+        <img src="/img/default-avatar.jpg" />
+        <h2 class="welcome">Welkom,</h2>
+        <h2>{{user}}</h2>
+      </div>
+    </div>
+    <div id="mid">
+      <a href="#play-alone" id="play-alone-btn">
+        <div id="play-alone">
+             <img src="/img/icons/user.png" alt="users-icon" /> 
+             <h2>Speel alleen</h2>
+        </div>
+      </a>
+      <a href="#play-group" id="play-group-btn">
+        <div id="play-group">
+              <img src="/img/icons/users.png" alt="users-icon" />
+              <h2>Speel met een groep</h2>
+        </div>
+      </a>
+    </div>
+  </div>
+  {{> footer}}
+</template>
+
 <template name="header">
   <header>
     <h1>Rksmsm</h1>
