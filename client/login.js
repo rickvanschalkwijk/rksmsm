@@ -91,10 +91,19 @@ function logout(e,t){
 // Facebook login
 function facebookLogin(e,t){
   e.preventDefault();
+
   Meteor.loginWithFacebook(function(err){
     if (err) {
       return console.log(err);
     }
+    console.log('facebook login', Meteor.user() );
+
+    Meteor.call('setActive', (Meteor.userId()), true, function (err, res){
+      // console.log(res);
+    });
+
+    
+
     Session.set('logged_in', true);
   });
 }
