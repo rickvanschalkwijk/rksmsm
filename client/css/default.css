@@ -1,9 +1,22 @@
-/*---------Basic setup ---------*/
+/*
+RICKS CSS
+*/
 
+/* =======
+  BASIC
+========== */
 html, body{
 	height:100%;
 }
 
+#wrap{
+	background: #eeeeee;
+	min-height: 100%;
+}
+
+/* =======
+  HEADERS
+========== */
 body > #wrap > header {
 	background-image: url(/img/header-pattern2.png);
 	background-repeat: repeat-x;
@@ -18,41 +31,19 @@ body > #wrap > header h1 {
   text-align: center; 
 }
 
-
-body > footer{
-	background-color: rgb(243, 243, 243);
-	background-image: url(/img/rijksmuseum-logo-grey.png);
-	background-repeat: no-repeat;
-	background-position: center;
-	background-size: 50%;
-	height: 50px;
-	padding: 35px 0 33px 0;
-	position: relative;
-	margin-top: -118px;
-	clear: both;
-}
-
-/*-------------------------------*/
-
-
-
-#wrap{
-	min-height: 100%;
-}
-
 .sub-header{
 	height:112px;
-	background-color: rgb(243, 243, 243);
+	background-color: #eeeeee;
 	top:0px;
 	position: relative;
 }
 
 .sub-header h2{
-  	color: #2f363f;
-  	font-family: "Source Sans Pro", sans-serif;
-  	font-size: 2em;
-  	font-weight: 400;
-  	position: relative;
+	color: #2f363f;
+	font-family: "Source Sans Pro", sans-serif;
+	font-size: 2em;
+	font-weight: 400;
+	position: relative;
 	top: -87px;
 	padding: 0 0 0 102px;
 }
@@ -71,31 +62,34 @@ body > footer{
 	color: red;
 }
 
+
+/* =======
+  FOOTER
+========== */
+body > footer{
+	background-color: #eeeeee;
+	background-image: url(/img/rijksmuseum-logo-grey.png);
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: 50%;
+	height: 50px;
+	/*padding: 35px 0 33px 0;*/
+	position: relative;
+	/*margin-top: -118px;*/
+	margin-top: -50px;
+	clear: both;
+}
+
+
+/* =======
+  CONTENT
+========== */
+
+/* HOME */
 #mid{
 	height:100%;
-	padding:0 0 111px 0;
-	overflow: auto;
+	border-top: 1px solid #e2e2e2;
+	border-bottom: 1px solid #e2e2e2;
+	
 }
 
-#play-alone{
-	height:100%;
-	width:49%;
-	float:left;
-	border-right: 1px solid #E3E3E3;
-}
-
-#play-group{
-	height: 100%;
-	width: 50%;
-	float:left;
-}
-
-#play-alone > h2, #play-group > h2 {
-	text-align: center;
-	font-weight: 400;
-	margin:-50px 0 32px 0;
-}
-
-#play-alone > img, #play-group > img {
-	padding:44%;
-}
