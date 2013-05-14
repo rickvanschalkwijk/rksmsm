@@ -1,67 +1,49 @@
-/*---------Basic setup ---------*/
+/*
+RICKS CSS
+*/
 
+/* =======
+  BASIC
+========== */
 html, body{
 	height:100%;
 }
 
+#wrap{
+	background: #eeeeee;
+	min-height: 100%;
+}
+
+/* =======
+  HEADERS
+========== */
 body > #wrap > header {
 	background-image: url(/img/header-pattern2.png);
 	background-repeat: repeat-x;
-	padding: 15px 0; 
-	border-bottom: 1px solid 
+	height: 60px;
 }
 
 body > #wrap > header h1 {
-    text-align: center; 
-}
-
-
-body > footer{
-	background-color: rgb(243, 243, 243);
-	background-image: url(/img/rijksmuseum-logo-grey.png);
-	background-repeat: no-repeat;
-	background-position: center;
-	background-size: 50%;
-	height: 50px;
-	padding: 35px 0 33px 0;
-	position: relative;
-	margin-top: -118px;
-	clear: both;
-}
-
-/*-------------------------------*/
-
-header > #logoutBtn{
-	float: right;
-	width: 65px;
-	top: -47px;
-	position: relative;
-	height: 88px;	
-	border-left:1px solid #E3E3E3;
-}
-
-header > #logoutBtn > #logout >img{
-	vertical-align: middle;
-	margin:14px;
-}
-
-#wrap{
-	min-height: 100%;
+	margin-top: 15px;
+	width: 75%;
+	display: block;
+	float: left;
+  text-align: center; 
 }
 
 .sub-header{
 	height:112px;
-	background-color: rgb(243, 243, 243);
+	background-color: #eeeeee;
 	top:0px;
 	position: relative;
 }
 
 .sub-header h2{
-  	color: #2f363f;
-  	font-family: "Source Sans Pro", sans-serif;
-  	font-size: 2em;
-  	font-weight: 400;
-  	position: relative;
+	color: #2f363f;
+	font-family: "Source Sans Pro", sans-serif;
+	font-size: 2em;
+	font-weight: 400;
+	position: relative;
 	top: -87px;
 	padding: 0 0 0 102px;
 }
@@ -80,29 +62,35 @@ header > #logoutBtn > #logout >img{
 	color: red;
 }
 
+
+/* =======
+  FOOTER
+========== */
+body > footer{
+	background-color: #eeeeee;
+	background-image: url(/img/rijksmuseum-logo-grey.png);
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: 50%;
+	height: 50px;
+	/*padding: 35px 0 33px 0;*/
+	position: relative;
+	/*margin-top: -118px;*/
+	margin-top: -50px;
+	clear: both;
+}
+
+
+/* =======
+  CONTENT
+========== */
+
+/* HOME */
 #mid{
 	height:100%;
-	padding:0 0 111px 0;
-	overflow: auto;
-}
-
-#play-alone{
-	height:100%;
-	width:49%;
-	float:left;
-	border-right: 1px solid #E3E3E3;
-}
-
-#play-group{
-	height: 100%;
-	width: 50%;
-	float:left;
-}
-
-#play-alone > h2, #play-group > h2 {
-	text-align: center;
-	font-weight: 400;
-	margin:-50px 0 32px 0;
+	border-top: 1px solid #e2e2e2;
+	border-bottom: 1px solid #e2e2e2;
+	
 }
 
 #play-alone > img, #play-group > img {
@@ -135,3 +123,4 @@ header > #logoutBtn > #logout >img{
 .right{
 	float:right;
 }
+

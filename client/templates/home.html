@@ -1,0 +1,35 @@
+<template name="home">
+  <div id="wrap">
+    {{> header}}
+    <div class="sub-header">
+      <div class="sub-header text">
+        <img src="/img/default-avatar.jpg" />
+        <h2 class="welcome">Welkom,</h2>
+        <h2>{{user}}</h2>
+      </div>
+    </div>
+    <div id="mid">
+      <div id="play-alone">
+        <div class="circle user"></div>
+        <h3>Speel alleen</h3>
+      </div>
+      <div id="play-group">
+        <div class="circle users"></div>
+        <h3>Speel met een groep</h3>        
+      </div>
+      <div class="clearfix"></div>
+    </div>
+  </div>
+  {{> footer}}
+</template>
+
+<template name="header">
+  <header>
+    <h1>Rksmsm</h1>
+    {{#if loggedIn}}
+      <div id="logoutBtn">
+        <a href="#logout" id="logout">Logout</a>
+      </div> 
+    {{/if}}
+  </header>
+</template>
