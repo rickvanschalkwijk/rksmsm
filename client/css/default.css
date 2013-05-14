@@ -108,3 +108,30 @@ header > #logoutBtn > #logout >img{
 #play-alone > img, #play-group > img {
 	padding:44%;
 }
+
+#wrap > .row{
+	height:100px;
+	width:100%;
+}
+
+#wrap > .row > .playGame{
+	height:200px;
+	width:200px;
+	background-color:blue;
+	position: relative;
+	-webkit-border-radius: 20px;
+	-moz-border-radius: 20px;
+	border-radius: 20px;
+}
+
+.left{
+	float: left;
+}
+
+#wrap > .row > .playGame{
+
+}
+
+.right{
+	float:right;
+}
