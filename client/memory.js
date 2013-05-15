@@ -1,4 +1,4 @@
-Template.memory.memoryGame = function(){
+Template.memoryGame.rendered = function(){
 	console.log("WAT");
 	$('#my-memorygame').quizyMemoryGame({
 		itemWidth: 156, 
