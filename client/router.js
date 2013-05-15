@@ -11,5 +11,6 @@
   '/loginacc'     : 'loginacc',
   '/register'     : 'register',
   '/singleplayer' : 'singleplayer',
-  '/multiplayer'  : 'multiplayer'
+  '/multiplayer'  : 'multiplayer',
+  '/memory'       : 'memory'
   });

@@ -1,22 +1,22 @@
 <template name="singleplayer">
 <div id="wrap">
 	{{> header}}
-	{{> singleGameScreen}}
+    	{{> singleGameScreen}}		
 </div>
 {{> footer}}
 </template>
 
 <template name="singleGameScreen">
 	<div class="row">
-		<div class="playGame left">
+		<div id="memory" class="playGame left memory">
 		</div>
-		<div class="arrow">
+		<div class="arrowRight">
 		</div>
 	</div>
 	<div class="row">
-		<div class="playGame right">
+		<div id="slidepuzzel" class="playGame right slidePuzzel">
 		</div>
-		<div class="arrow">
+		<div class="arrowLeft">
 		</div>
 	</div>
 </template>

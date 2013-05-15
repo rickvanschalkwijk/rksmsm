@@ -93,40 +93,25 @@ body > footer{
 	
 }
 
+<<<<<<< HEAD
 #play-alone > img, #play-group > img {
 	padding:44%;
 }
 
 #wrap > .row{
-	height:200px;
+	height:100px;
 	width:100%;
 }
 
 #wrap > .row > .playGame{
-	height:150px;
-	width:150px;
-	background-color:#FFF;
+	height:200px;
+	width:200px;
+	background-color:blue;
 	position: relative;
-	border:1px solid #888;
-	margin: 20px 20px 0px 20px;
 	-webkit-border-radius: 20px;
 	-moz-border-radius: 20px;
 	border-radius: 20px;
-	-moz-box-shadow: inset 0 0 5px #888;
-	-webkit-box-shadow: inset 0 0 5px #888;
-	box-shadow: inset 0 0 5px #888;
 }
-
-#wrap > .row > .arrowRight{
-	background-image: url('/img/arrow-red-right.png');
-	float: left;
-	height: 200px;
-	width: 49%;
-	background-repeat: no-repeat;
-	background-position: center;
-	background-size: 50%;
-}
-
 
 .left{
 	float: left;
@@ -139,16 +124,5 @@ body > footer{
 .right{
 	float:right;
 }
-
-.memory{
-	background-image: url('/img/game_icons/MemoryIcon.png');
-}
-
-.slidePuzzel{
-	background-image: url('/img/game_icons/SchuifpuzzelIcon.png');	
-}
-
-.memory, .slidePuzzel{
-	background-repeat: no-repeat;
-	background-position: center;
-}
+=======
+>>>>>>> fe6570aef23934a64a5b242ce2aae46333c8a945
