@@ -1,16 +1,20 @@
 // ROUTER
   Meteor.Router.add({
-    '/' : function() {
-      if (Session.get('logged_in')) {
-        return 'home';
-      } else {
-        return 'login';
-      }
-    },
+    '/'           : routeTo('home'),
   '/login'        : 'login',
   '/loginacc'     : 'loginacc',
   '/register'     : 'register',
-  '/singleplayer' : 'singleplayer',
-  '/multiplayer'  : 'multiplayer',
-  '/memory'       : 'memory'
+  '/singleplayer' : routeTo('singleplayer'),
+  '/multiplayer'  : routeTo('multiplayer'),
+  '/memory'       : routeTo('memory')
   });
+
+  function routeTo(routing){
+    return function(){
+      if(Session.get('logged_in')){
+        return routing;
+      }else{
+        return 'login';
+      }
+    }
+  }
