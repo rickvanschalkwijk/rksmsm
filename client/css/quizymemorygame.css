@@ -6,13 +6,13 @@
 /* the stle for the wrapper element */
 .quizy-memorygame{
   position:relative;
-  width:100%;
+  margin: 15px 0 0 15px;
 }
 
 /* styles of the card to show */
 .quizy-memorygame .mgcard-show{
-  width:156px;
-  height:156px;
+  width:100px;
+  height:100px;
   background:url('/img/mg-mcard.png');
 }
 
@@ -30,7 +30,7 @@
 }
 
 .quizy-mg-item .quizy-mg-item-top{
-  background:url('/img/quizy-mg-item-top.png');
+  background:url('/img/memory-back.png');
 }
 
 /* styles for the popup notifications */

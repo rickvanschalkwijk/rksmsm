@@ -1,5 +1,3 @@
-console.log("login js loaded");
-
 /**
  * LOGIN CONTROLLER
  */

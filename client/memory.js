@@ -1,8 +1,8 @@
 Template.memoryGame.rendered = function(){
 	console.log("WAT");
 	$('#my-memorygame').quizyMemoryGame({
-		itemWidth: 156, 
-		itemHeight: 156, 
+		itemWidth: 100, 
+		itemHeight: 100, 
 		itemsMargin:40, 
 		colCount:3, 
 		animType:'flip' , 
