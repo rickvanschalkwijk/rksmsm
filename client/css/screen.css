@@ -58,7 +58,7 @@ h4, .delta {
   display: block;
   float: left;
   width: 50%;
-  height: 170px;
+  height: 260px;
   background: white;
   text-align: center;
   overflow: hidden;
@@ -70,8 +70,8 @@ h4, .delta {
 
 .circle {
   margin: 20px auto;
-  width: 75px;
-  height: 75px;
+  width: 165px;
+  height: 165px;
   background: #556270;
   border: 1px solid #46525f;
   border-radius: 100px;
