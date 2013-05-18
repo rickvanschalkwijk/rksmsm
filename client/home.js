@@ -10,6 +10,18 @@ Template.home.events({
   'click #play-group': playgroup
 });
 
+Template.home.profilepic = function (){
+  if(Meteor.user() != null){
+    var user = Meteor.user();
+
+    if(user.profile.picture){
+      var picture = Meteor.user().profile.picture;
+      return picture;
+    }else{
+      return "/img/default-avatar.jpg";
+    }
+  }
+}
 
 /**
  * FUNCTIONS
