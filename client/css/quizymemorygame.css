@@ -5,16 +5,17 @@
 
 /* the stle for the wrapper element */
 .quizy-memorygame{
-  width: 345px;
-  margin: auto;
+  width: 90%;
+  /*margin: 30px auto 50px auto;*/
+  margin:auto;
+  margin-top: 30px;
   position: relative;
-  top: 30px;
 }
 
 /* styles of the card to show */
 .quizy-memorygame .mgcard-show{
-  width:100px;
-  height:100px;
+  width:80px;
+  height:80px;
 }
 
 .mgcard-show img{
@@ -32,6 +33,10 @@
   -webkit-border-radius: 10px;
   -moz-border-radius: 10px;
   border-radius: 10px;
+}
+.quizy-memorygame .quizy-mg-item img {
+  width: 80px;
+  height: 80px;
 }
 
 .quizy-memorygame .quizy-mg-item .quizy-mg-item-bottom, .quizy-memorygame .quizy-mg-item .quizy-mg-item-top{
