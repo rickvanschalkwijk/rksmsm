@@ -11,8 +11,7 @@ Template.memoryGame.rendered = function(){
 		textSummaryTitle:'Goed gedaan, je hebt het spel voltooit!',
 		textSummaryClicks: '',
 		textSummaryTime: '',
-		onFinishCall : function(param){
-									
+		onFinishCall : function(param){	
 									setTimeout(function(){Meteor.Router.to('/singleplayer')}, 7000);
 								}
 	});

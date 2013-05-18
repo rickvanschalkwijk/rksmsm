@@ -3,6 +3,6 @@ Template.singleGameScreen.events({
 		Meteor.Router.to('/memory');
 	},
 	'click #slidepuzzel' : function(e, t){
-		
+		Meteor.Router.to('/puzzel');
 	}
 });

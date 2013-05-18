@@ -6,7 +6,8 @@
   '/register'     : 'register',
   '/singleplayer' : routeTo('singleplayer'),
   '/multiplayer'  : routeTo('multiplayer'),
-  '/memory'       : routeTo('memory')
+  '/memory'       : routeTo('memory'),
+  '/puzzel'       : routeTo('puzzel')
   });
 
   function routeTo(routing){
