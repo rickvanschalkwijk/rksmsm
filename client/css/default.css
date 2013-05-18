@@ -149,3 +149,12 @@ body > footer{
 	background-repeat: no-repeat;
 	background-position: center;
 }
+
+/* ------------ Slide Puzzle Begin -----------------*/
+#Puzzle{
+	position: relative;
+	margin: 0 auto;
+	width: 400px;
+	top: 33px;
+}
+/* ------------ Slide Puzzle End -----------------*/

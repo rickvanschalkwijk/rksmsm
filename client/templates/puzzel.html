@@ -1,7 +1,6 @@
 <template name="puzzel">
 	<div id="wrap">
 		{{> header}}
-		<a href="#miep" onclick="return Puzzle.make(3)">start</a>
     	{{> puzzelGame}}		
 	</div>
 {{> footer}}
@@ -9,6 +8,6 @@
 
 <template name="puzzelGame">
 	<div id="puzzle">
-		<img src="/img/400.jpg" alt="cage" width="5" height="5" />
+		<img id="gamePuzzle" src="/img/slide_puzzel/400.jpg" alt="cage" height="300px" width="300px" />
 	</div>
 </template>
