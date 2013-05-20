@@ -1,5 +1,16 @@
 Template.puzzelGame.rendered = function(){
 	 $(document).ready(function() {
+            var images = new Array(
+                                '/img/slide_puzzel/painting1.jpg',
+                                '/img/slide_puzzel/painting2.jpg',
+                                '/img/slide_puzzel/painting3.jpg', 
+                                '/img/slide_puzzel/painting4.jpg', 
+                                '/img/slide_puzzel/painting5.jpg'
+                            );
+            var l = images.length;
+            var randomElement = Math.floor(l * Math.random());
+            document.getElementById("gamePuzzle").src = images[randomElement];
+            
 		       var settings = { 
     				rows: 3,                    // number of rows [3 ... 9] 
     				cols: 3,                    // number of columns [3 ... 9] 

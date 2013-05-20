@@ -134,7 +134,7 @@ body > footer{
 }
 
 .right{
-	float:right;
+	float:right;  
 }
 
 .memory{
@@ -154,7 +154,11 @@ body > footer{
 #puzzle{
 	position: relative;
 	margin: 0 auto;
+<<<<<<< HEAD
 	width: 300px;
+=======
+	width:100%;
+>>>>>>> 0e2bc52f27a09185cfa8e84244011e84e71863b6
 	top: 33px;
 }
 /* ------------ Slide Puzzle End -----------------*/
