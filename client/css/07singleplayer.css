@@ -92,7 +92,6 @@ div.game:nth-child(2n){
 .arrow-red:after{
   content: url('/img/arrow-red-right.png');
   position:relative; /*or absolute*/
-  z-index:100000; /*a number that's more than the modal box*/
   left: 120px;
   top: -80px;
 }
@@ -100,7 +99,6 @@ div.game:nth-child(2n){
 .arrow-red:nth-child(2n):after {
   content: url('/img/arrow-red-left.png');
   position:relative; /*or absolute*/
-  z-index:100000; /*a number that's more than the modal box*/
   left: -85px;
   top: -80px;
 }
@@ -108,7 +106,6 @@ div.game:nth-child(2n){
 .arrow-grey:after{
   content: url('/img/arrow-grey-right.png');
   position:relative; /*or absolute*/
-  z-index:100000; /*a number that's more than the modal box*/
   left: 120px;
   top: -80px;
 }
@@ -116,7 +113,6 @@ div.game:nth-child(2n){
 .arrow-grey:nth-child(2n):after {
   content: url('/img/arrow-grey-left.png');
   position:relative; /*or absolute*/
-  z-index:100000; /*a number that's more than the modal box*/
   left: -85px;
   top: -80px;
 }
