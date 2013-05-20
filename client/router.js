@@ -4,9 +4,9 @@
   '/login'        : 'login',
   '/loginacc'     : 'loginacc',
   '/register'     : 'register',
-  '/singleplayer' : 'singleplayer',
+  '/singleplayer' : routeTo('singleplayer'),
   '/multiplayer'  : routeTo('multiplayer'),
-  '/memory'       : 'memory',
+  '/memory'       : routeTo('memory'),
   '/puzzel'       : routeTo('puzzel')
   });
 
