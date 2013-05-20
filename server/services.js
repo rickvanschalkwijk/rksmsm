@@ -21,8 +21,8 @@ for(i; i < services.length; i++) {
  */
 Accounts.loginServiceConfiguration.insert({
   service: "facebook",
-  appId: "466417016772314",
-  secret: "74fdf07fb35b298cdb7a538e99344c0c"
+  appId: "295545233913371",
+  secret: "b9f936e979f82c823be74d1117c10fdc"
 });
 
 

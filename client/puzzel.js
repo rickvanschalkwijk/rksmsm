@@ -1,11 +1,10 @@
 Template.puzzelGame.rendered = function(){
 	 $(document).ready(function() {
             var images = new Array(
-                                '/img/slide_puzzel/painting1.jpg',
-                                '/img/slide_puzzel/painting2.jpg',
-                                '/img/slide_puzzel/painting3.jpg', 
-                                '/img/slide_puzzel/painting4.jpg', 
-                                '/img/slide_puzzel/painting5.jpg'
+                                '/rijksimg/small/painting2.jpg',
+                                '/rijksimg/small/painting3.jpg',
+                                '/rijksimg/small/painting5.jpg',
+                                '/rijksimg/small/bucolia.jpg'
                             );
             var l = images.length;
             var randomElement = Math.floor(l * Math.random());
