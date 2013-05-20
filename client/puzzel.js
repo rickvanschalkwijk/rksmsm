@@ -5,8 +5,7 @@ Template.puzzelGame.rendered = function(){
                                 '/img/slide_puzzel/painting2.jpg',
                                 '/img/slide_puzzel/painting3.jpg', 
                                 '/img/slide_puzzel/painting4.jpg', 
-                                '/img/slide_puzzel/painting5.jpg', 
-                                '/img/slide_puzzel/400.jpg'
+                                '/img/slide_puzzel/painting5.jpg'
                             );
             var l = images.length;
             var randomElement = Math.floor(l * Math.random());
