@@ -5,9 +5,9 @@
 
 /* the stle for the wrapper element */
 .quizy-memorygame{
-  width: 90%;
+  width: 300px;
   /*margin: 30px auto 50px auto;*/
-  margin:auto;
+  margin:0 auto;
   margin-top: 30px;
   position: relative;
 }
