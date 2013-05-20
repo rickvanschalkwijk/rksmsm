@@ -12,8 +12,9 @@
 
   function routeTo(routing){
     return function(){
-      if(Session.get('logged_in')){
-        return routing;
+      
+      if(Meteor.userId() != null){
+        return ''+routing+'';
       }else{
         return 'login';
       }
