@@ -1,0 +1,3 @@
+Template.triviaGame.rendered = function(){
+	
+};
