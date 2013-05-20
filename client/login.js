@@ -18,6 +18,7 @@ Template.login.events({
 });
 
 Template.loginacc.events({
+  'keyup #username' : checkinputfield,
   'submit #customAccountLogin' : customLogin
 });
 
@@ -113,6 +114,18 @@ function accountLogin(e,t){
   Meteor.Router.to('/loginacc');
 }
 
+// check input field
+function checkinputfield(e,t){
+  var username = t.find('#username').value;
+  var loginbtn = t.find('#sendLogin');
+  
+  if(username.length >= 5){
+    $(loginbtn).attr('disabled', false);
+  }else{
+    $(loginbtn).attr('disabled', true);
+  }
+}
+
 // custom login
 function customLogin(e,t){
   e.preventDefault();
@@ -161,6 +174,8 @@ function customLogin(e,t){
         Meteor.Router.to('/');
       }
     });
+  }else{
+    console.log("field is empty");
   }
 }
 

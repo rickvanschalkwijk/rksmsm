@@ -44,6 +44,26 @@ body > #wrap > header h1 {
 }
 
 
+
+#logout {
+  display: block;
+  width: 100%;
+  height: 60px;
+  background: url(/img/icons/switch-white.png) center no-repeat;
+  margin: 0 auto;
+  text-indent: -9999px;
+  box-shadow: -1px 0px #ff7484;
+}
+
+#logoutBtn {
+  display: block;
+  float: right;
+  width: 25%;
+  /*padding: 15px 0;*/
+  box-shadow: -2px 0px #bc1023;
+}
+
+
 /* =======
   FOOTER
 ========== */
