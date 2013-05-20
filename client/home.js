@@ -6,8 +6,7 @@ console.log("home js loaded");
 
 // event handler logins
 Template.home.events({
-  'click #play-alone': playalone,
-  'click #play-group': playgroup
+  
 });
 
 Template.home.profilepic = function (){

@@ -100,7 +100,7 @@ body > footer{
 	width:100%;
 }
 
-#wrap > .row > .playGame{
+#wrap > .row .playGame{
 	height:150px;
 	width:150px;
 	background-color:#FFF;
@@ -115,7 +115,7 @@ body > footer{
 	box-shadow: inset 0 0 5px #888;
 }
 
-#wrap > .row > .arrowRight{
+#wrap > .row .arrowRight{
 	background-image: url('/img/arrow-red-right.png');
 	float: left;
 	height: 200px;
@@ -129,7 +129,7 @@ body > footer{
 	float: left;
 }
 
-#wrap > .row > .playGame{
+#wrap > .row .playGame{
 
 }
 
