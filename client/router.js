@@ -4,10 +4,10 @@
   '/login'        : 'login',
   '/loginacc'     : 'loginacc',
   '/register'     : 'register',
-  '/singleplayer' : routeTo('singleplayer'),
+  '/singleplayer' : 'singleplayer',
   '/multiplayer'  : routeTo('multiplayer'),
-  '/memory'       : routeTo('memory'),
-  '/puzzel'       : routeTo('puzzel')
+  '/memory'       : 'memory',
+  '/puzzel'       : 'puzzel'
   });
 
   function routeTo(routing){

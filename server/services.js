@@ -16,8 +16,8 @@ for(i; i < services.length; i++) {
   secret: "b9f936e979f82c823be74d1117c10fdc"
 
  *  rksmsm.meteor.com ids
- appId: "466417016772314",
- secret: "74fdf07fb35b298cdb7a538e99344c0c"
+   appId: "466417016772314",
+   secret: "74fdf07fb35b298cdb7a538e99344c0c"
  */
 Accounts.loginServiceConfiguration.insert({
   service: "facebook",
