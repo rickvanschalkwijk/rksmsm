@@ -8,7 +8,7 @@ Template.puzzelGame.rendered = function(){
                                 '/img/slide_puzzel/painting5.jpg'
                             );
             var l = images.length;
-            var randomElement = Math.floor(l * Math.random());
+            var randomElement = Math.floor( l * Math.random() );
             document.getElementById("gamePuzzle").src = images[randomElement];
             
 		       var settings = { 

@@ -5,4 +5,7 @@ Template.singleGameScreen.events({
 	'click #slidepuzzel' : function(e, t){
 		Meteor.Router.to('/puzzel');
 	}
+	'click #trivia' : function(e, t){
+		Meteor.Router.to('/trivia');
+	}
 });

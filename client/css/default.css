@@ -125,6 +125,16 @@ body > footer{
 	background-size: 50%;
 }
 
+#wrap > .row > .arrowLeft{
+	background-image: url('/img/arrow-red-left.png');
+	float: left;
+	height: 200px;
+	width: 49%;
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: 50%;	
+}
+
 .left{
 	float: left;
 }
@@ -145,7 +155,11 @@ body > footer{
 	background-image: url('/img/game_icons/SchuifpuzzelIcon.png');	
 }
 
-.memory, .slidePuzzel{
+.trivia{
+	background-image: url('/img/game_icons/TriviaIcon.png');
+}
+
+.memory, .slidePuzzel, .trivia{
 	background-repeat: no-repeat;
 	background-position: center;
 }
