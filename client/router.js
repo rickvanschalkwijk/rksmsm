@@ -7,7 +7,8 @@
   '/singleplayer' : routeTo('singleplayer'),
   '/multiplayer'  : routeTo('multiplayer'),
   '/memory'       : routeTo('memory'),
-  '/puzzel'       : routeTo('puzzel')
+  '/puzzel'       : routeTo('puzzel'),
+  '/trivia'       : routeTo('trivia')
   });
 
   function routeTo(routing){
