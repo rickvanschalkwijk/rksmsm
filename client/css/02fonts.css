@@ -43,5 +43,22 @@ i.facebook-white {
   background-size: 25px 25px;
 }
 
+i.house-white {
+  display: block;
+  float: left;
+  width: 25px;
+  height: 25px;
+  background: url("/img/icons/house-white.png") no-repeat;
+  background-size: 25px 25px;
+}
+
+i.star {
+  display: block;
+  float: left;
+  width: 25px;
+  height: 25px;
+  background: url("/img/icons/star.png") no-repeat;
+  background-size: 25px 25px;
+}
 
 

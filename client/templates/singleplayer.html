@@ -1,34 +1,71 @@
 <template name="singleplayer">
-<div id="wrap">
-	{{> header}}
-    	{{> singleGameScreen}}		
+<div id="wrap" class="wrap-white">
+	{{> singleGameScreen}}		
 </div>
-{{> footer}}
+	{{> userMenu}}
+</template>
+
+<template name="userMenu">
+	<div id="usermenu">
+		<div id="average-stars">
+			<i class="star"></i>
+			<i class="star"></i>
+			<i class="star"></i>
+		</div>
+		<div id="totalscore">
+			<span>totaal: </span><span>36</span>
+		</div>
+	</div>
+	<a id="homeBtn" href="/" title="home">
+		<i class="house-white"></i>
+	</a>
 </template>
 
 <template name="singleGameScreen">
-	<div class="row">
-		<a href="/memory">
-			<div id="memory" class="playGame left memory">
-			</div>
-		</a>
-		<div class="arrowRight">
+	<div class="wrap-games">
+		<div class="game memory arrow-red">
+			<a href="/memory">
+				<div>
+				</div>
+			</a>
 		</div>
-	</div>
-	<div class="row">
-		<a href="/puzzel">
-			<div id="slidepuzzel" class="playGame right slidePuzzel">
-			</div>
-		</a>
-		<div class="arrowLeft">
+
+		<div class="game puzzel arrow-red">
+			<a href="/puzzel">
+				<div>
+				</div>
+			</a>
 		</div>
-	</div>
-	<div class="row">
-		<a href="/trivia">
-			<div id="trivia" class="playGame left trivia">
-			</div>
-		</a>
-		<div class="arrowRight">
+	
+
+		<div class="game trivia arrow-grey">
+			<a href="/trivia">
+				<div>
+				</div>
+			</a>
 		</div>
+
+		<div class="game arrow-grey locked">
+			<a href="/">
+				<div>
+				</div>
+			</a>
+		</div>
+
+		<div class="game arrow-grey locked">
+			<a href="/">
+				<div>
+				</div>
+			</a>
+		</div>
+
+		<div class="game arrow-grey locked">
+			<a href="/">
+				<div>
+				</div>
+			</a>
+		</div>
+
+		<div class="clearfix"></div>
 	</div>
 </template>

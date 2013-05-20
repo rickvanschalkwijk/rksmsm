@@ -58,8 +58,14 @@ Template.header.loggedIn = function(){
 
 Template.home.user = function(){
   if(Meteor.user() != null){
-    var username = Meteor.user().username;
+    var username = Meteor.user();
     return username;
+  }
+}
+
+Template.home.firstname = function(){
+  if(Meteor.user() != null){
+    return Meteor.user().profile.first_name;
   }
 }
 

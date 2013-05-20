@@ -22,11 +22,12 @@ body > #wrap > header h1 {
 .sub-header h2{
   color: #2f363f;
   font-family: "Source Sans Pro", sans-serif;
-  font-size: 2em;
+  font-size: 1.5em;
   font-weight: 400;
   position: relative;
   top: -87px;
   padding: 0 0 0 102px;
+  margin-bottom: 5px;
 }
 
 .sub-header > img {
@@ -44,23 +45,24 @@ body > #wrap > header h1 {
 }
 
 
+#logoutBtn {
+  display: block;
+  position: fixed;
+  width: 50px;
+  height: 44px;
+  top: 0;
+  right: 0;
+  box-shadow: -2px 0px #bc1023;
+}
 
 #logout {
   display: block;
   width: 100%;
-  height: 60px;
+  height: 44px;
   background: url(/img/icons/switch-white.png) center no-repeat;
-  margin: 0 auto;
+  background-size: 55%;
   text-indent: -9999px;
   box-shadow: -1px 0px #ff7484;
-}
-
-#logoutBtn {
-  display: block;
-  float: right;
-  width: 25%;
-  /*padding: 15px 0;*/
-  box-shadow: -2px 0px #bc1023;
 }
 
 
@@ -68,6 +70,20 @@ body > #wrap > header h1 {
   FOOTER
 ========== */
 body footer {
+  clear: both;
+}
+
+footer.footer-white {
+  width: 100%;
+  height: 65px;
+  margin-top: -65px;
+  background: #eeeeee url(/img/rijksmuseum-logo-grey.png) center center no-repeat;
+  background-size: 50%;
+  position: fixed;
+  clear: both;
+}
+
+footer.footer-dark {
   width: 100%;
   height: 65px;
   background: #556270 url(/img/rijksmuseum-logo-darkgrey.png) center center no-repeat;
@@ -75,4 +91,8 @@ body footer {
   position: fixed;
   margin-top: -80px;
   clear: both;
-}
+} 
+
+
+
+
