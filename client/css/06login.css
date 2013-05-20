@@ -2,6 +2,7 @@
   margin-top: 20px; 
 }
 .login h2 {
+  text-align: center;
   padding: 20px;
   line-height: 1.5; 
 }
@@ -10,8 +11,9 @@
   clear: both;
   margin: 15px 20px;
   padding: 15px 10px;
+  text-align: center;
   font-family: "Source Sans Pro", sans-serif;
-  font-size: 1.5em;
+  font-size: 1.3em;
   font-weight: 400;
   text-decoration: none;
   border-radius: 5px; 
