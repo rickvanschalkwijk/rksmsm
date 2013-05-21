@@ -1,0 +1,64 @@
+/* =======
+  FONTS
+========== */
+@import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,900);
+
+h1, .alpha {
+  color: white;
+  font-family: "Source Sans Pro", sans-serif;
+  font-size: 1.5em;
+  font-weight: 700;
+  text-transform: uppercase; 
+}
+
+h2, .beta {
+  color: #2f363f;
+  font-family: "Source Sans Pro", sans-serif;
+  font-size: 1.5em;
+  font-weight: 700; 
+}
+
+h3, .gamma {
+  color: #2f363f;
+  font-family: "Source Sans Pro", sans-serif;
+  font-size: 1.5em;
+  font-weight: 400; 
+}
+
+h4, .delta {
+  color: #2f363f;
+  font-family: "Source Sans Pro", sans-serif;
+  font-size: 1.2em;
+  font-weight: 400; 
+}
+
+/*ICONS*/
+
+i.facebook-white {
+  display: block;
+  float: left;
+  width: 25px;
+  height: 25px;
+  background: url("/img/icons/facebook-white.png") no-repeat;
+  background-size: 25px 25px;
+}
+
+i.house-white {
+  display: block;
+  float: left;
+  width: 25px;
+  height: 25px;
+  background: url("/img/icons/house-white.png") no-repeat;
+  background-size: 25px 25px;
+}
+
+i.star {
+  display: block;
+  float: left;
+  width: 25px;
+  height: 25px;
+  background: url("/img/icons/star.png") no-repeat;
+  background-size: 25px 25px;
+}
+
+

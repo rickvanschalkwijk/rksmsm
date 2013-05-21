@@ -1,27 +1,32 @@
 <template name="login">
-  <div id="wrap">
+  <div id="wrap" class="wrap-white">
   {{> header}}
     <div class="login">
       <h2>Het spel is er klaar voor! En jij?</h2>
-      <a href="#facebooklogin" id="facebooklogin">Login met je Facebook</a>
-      <a href="accountlogin" id="accountlogin">login met je gebruikersnaam</a>
+      <a href="#facebooklogin" id="facebooklogin"><i class="facebook-white"></i>Login met je Facebook</a>
+      <a href="accountlogin" id="accountlogin">Of voer je naam in</a>
     </div>
+    
   </div>
-  {{> footer}}
+  {{> footer-dark}}
 </template>
 
 <template name="loginacc">
-  <div id="wrap">
+  <div id="wrap" class="wrap-white">
     {{> header}}
     <div class="loginacc">
-      <h2>Hey, leuk dat je mee doet!</h2>
-      <p>Om je geweldige resultaten te tonen, hebben we een aantal gegevens van je nodig. Mogen we die?</p>
+      <h2>Hey, leuk dat je meedoet!</h2>
+      <p>Om je geweldige resultaten te tonen, hebben we je naam nodig. Mogen we die?</p>
     
       <form id="customAccountLogin" action="action">
-        <input type="text" placeholder="Gebruikersnaam" id="username" class="input-large" />
-        <input type="submit" value="Begin" id="sendLogin" class="submit-button" />
+        <input type="text" placeholder="Voer nickname in..." id="username" class="input-large" />
+        <div class="backwrap">
+          <a class="back-button" href="/" title="back">Terug</a>
+        </div>
+        <div class="submitwrap">
+          <input type="submit" value="Start" id="sendLogin" class="submit-button" disabled="disabled" />
+        </div>
       </form>
     </div>
   </div>
-  {{> footer}}
 </template>

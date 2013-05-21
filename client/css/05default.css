@@ -1,0 +1,30 @@
+/*
+RICKS CSS
+*/
+
+/* =======
+  CONTENT
+========== */
+
+/* HOME */
+#mid{
+	height:260px;
+	border-top: 1px solid #e2e2e2;
+	border-bottom: 1px solid #e2e2e2;
+	
+}
+
+#play-alone > img, #play-group > img {
+	padding:44%;
+}
+
+
+
+/* ------------ Slide Puzzle Begin -----------------*/
+#puzzle{
+	position: relative;
+	margin: 0 auto;
+	width: 300px;
+	top: 33px;
+}
+/* ------------ Slide Puzzle End -----------------*/

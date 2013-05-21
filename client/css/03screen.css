@@ -1,53 +1,27 @@
-/* 
-JEROENS CSS
-*/
-@import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,900);
-
 /* =======
   BASIC
 ========== */
 html {
+  height:100%;
   background: white;
   color: #2f363f; 
 }
 
 body {
+  height:100%;
   font-family: "Source Sans Pro", sans-serif;
   font-size: 1em;
   font-weight: 400; 
 }
-
-/* =======
-  FONTS
-========== */
-h1, .alpha {
-  color: white;
-  font-family: "Source Sans Pro", sans-serif;
-  font-size: 2em;
-  font-weight: 700;
-  text-transform: uppercase; 
+#wrap{
+  background: #eee;
+  min-height: 100%;
 }
 
-h2, .beta {
-  color: #2f363f;
-  font-family: "Source Sans Pro", sans-serif;
-  font-size: 2em;
-  font-weight: 700; 
+.wrap-white{
+  background: #fff !important; 
 }
 
-h3, .gamma {
-  color: #2f363f;
-  font-family: "Source Sans Pro", sans-serif;
-  font-size: 1.5em;
-  font-weight: 400; 
-}
-
-h4, .delta {
-  color: #2f363f;
-  font-family: "Source Sans Pro", sans-serif;
-  font-size: 1.2em;
-  font-weight: 400; 
-}
 
 /* =======
   CONTENT
