@@ -2,7 +2,7 @@
   SINGLEPLAYER MENU
 ========== */
 
-#usermenu {
+#usermenu, #gamemenu {
   display: block;
   position: fixed;
   bottom: 0px;

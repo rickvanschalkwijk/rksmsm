@@ -1,9 +1,31 @@
 <template name="memory">
 	<div id="wrap">
-		{{> header}}
-    	{{> memoryGame}}		
+  	{{> memoryHome}}		
 	</div>
-{{> footer-white}}
+{{> gameMenu}}
+</template>
+
+<template name="gameMenu">
+  <div id="gamemenu">
+    <div id="average-stars">
+      <i class="star"></i>
+      <i class="star"></i>
+      <i class="star"></i>
+    </div>
+    <div id="totalscore">
+      <span>totaal: </span><span>36</span>
+    </div>
+  </div>
+  <a id="homeBtn" href="/" title="home">
+    <i class="house-white"></i>
+  </a>
+</template>
+
+<template name="memoryHome">
+  <h2>Memory</h2>
+  <p>Ik heb snel een potje memory voor je klaar gezet. Weet je hoe memory gaat?</p>
+  <a href="/">Ja, starten maar</a>
+  <a href="/">Nee, leg me uit</a>
 </template>
 
 <template name="memoryGame">
