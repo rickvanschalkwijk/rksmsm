@@ -5,6 +5,20 @@
 {{> gameMenu}}
 </template>
 
+<template name="gamememory">
+  <div id="wrap">
+    {{> memoryGame}}    
+  </div>
+{{> gameMenu}}
+</template>
+
+<template name="intromemory">
+  <div id="wrap">
+    {{> memoryIntro}}    
+  </div>
+{{> gameMenu}}
+</template>
+
 <template name="gameMenu">
   <div id="gamemenu">
     <div id="average-stars">
@@ -24,8 +38,8 @@
 <template name="memoryHome">
   <h2>Memory</h2>
   <p>Ik heb snel een potje memory voor je klaar gezet. Weet je hoe memory gaat?</p>
-  <a href="/">Ja, starten maar</a>
-  <a href="/">Nee, leg me uit</a>
+  <a href="/gamememory">Ja, starten maar</a>
+  <a href="/intromemory">Nee, leg me uit</a>
 </template>
 
 <template name="memoryGame">
@@ -57,4 +71,23 @@
         </li>
 		</ul>
 	</div>	
+</template>
+
+<template name="memoryIntro">
+  <div id="my-memoryintro" class="quizy-memorygame">
+    <ul>
+        <li class="match1">
+          <img src="/rijksimg/small/nachtwacht.jpg" alt="memory_picture" />
+        </li>
+        <li class="match2">
+          <img src="../rijksimg/small/simon_alpen.jpg" alt="memory_picture" />
+        </li>
+        <li class="match1">
+          <img src="../rijksimg/small/nachtwacht.jpg" alt="memory_picture" />
+        </li>
+        <li class="match2">
+          <img src="../rijksimg/small/simon_alpen.jpg" alt="memory_picture" />
+        </li>
+    </ul>
+  </div>  
 </template>
