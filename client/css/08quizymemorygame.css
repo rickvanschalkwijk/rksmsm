@@ -5,10 +5,9 @@
 
 /* the stle for the wrapper element */
 .quizy-memorygame{
-  width: 300px;
-  /*margin: 30px auto 50px auto;*/
+  width: 284px;
   margin:0 auto;
-  margin-top: 30px;
+  top: 45px;
   position: relative;
 }
 
@@ -29,7 +28,7 @@
   position:absolute;
   cursor:pointer;
   text-align:center;
-  border:1px solid #888;
+  border:1px solid rgb(194, 194, 194);
   -webkit-border-radius: 10px;
   -moz-border-radius: 10px;
   border-radius: 10px;
@@ -44,7 +43,7 @@
   top:0;
   left:0;
   text-align:center;
-  border:1px solid #888;
+  border:1px solid rgb(194, 194, 194);
   -webkit-border-radius: 10px;
   -moz-border-radius: 10px;
   border-radius: 10px;

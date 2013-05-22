@@ -2,7 +2,7 @@ Template.memoryGame.rendered = function(){
 	$('#my-memorygame').quizyMemoryGame({
 		itemWidth: 80,
 		itemHeight: 80, 
-		itemsMargin:20,
+		itemsMargin:15,
 		colCount:3,
 		animType:'flip',
 		flipAnim:'tb',
