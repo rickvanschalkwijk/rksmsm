@@ -11,19 +11,22 @@
   margin-top: -51px;
   background: #dadada;
   background-image: linear-gradient(top, #f1f1f1 25%, #dadada 75%);
-background-image: -o-linear-gradient(top, #f1f1f1 25%, #dadada 75%);
-background-image: -moz-linear-gradient(top, #f1f1f1 25%, #dadada 75%);
-background-image: -webkit-linear-gradient(top, #f1f1f1 25%, #dadada 75%);
-background-image: -ms-linear-gradient(top, #f1f1f1 25%, #dadada 75%);
-background-image: -webkit-gradient(
-  linear,
-  left top,
-  left bottom,
-  color-stop(0.25, #f1f1f1),
-  color-stop(0.75, #dadada)
-);
-
+  background-image: -o-linear-gradient(top, #f1f1f1 25%, #dadada 75%);
+  background-image: -moz-linear-gradient(top, #f1f1f1 25%, #dadada 75%);
+  background-image: -webkit-linear-gradient(top, #f1f1f1 25%, #dadada 75%);
+  background-image: -ms-linear-gradient(top, #f1f1f1 25%, #dadada 75%);
+  background-image: -webkit-gradient(
+    linear,
+    left top,
+    left bottom,
+    color-stop(0.25, #f1f1f1),
+    color-stop(0.75, #dadada)
+  );
   border-top: 1px solid #d1d1d1;
+  font-family: "Source Sans Pro", sans-serif;
+  font-size: 1.5em;
+  font-weight: 400;
+  color: #353d46;
 }
 
 #average-stars, #points, #totalscore {
@@ -38,7 +41,17 @@ background-image: -webkit-gradient(
 }
 #totalscore {
   float: right;
+  color: #a9a9a9;
+  font-weight: 600;
 }
+#average-stars span, #points span {
+  float: left;
+}
+#totalscore span {
+  float: right;
+}
+
+
 
 #homeBtn {
   bottom: 0px;

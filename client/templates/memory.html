@@ -37,8 +37,8 @@
 <template name="memoryViewscore">
   <div class="memoryviewscore">
     <h2>Gefeliciteerd</h2>
-    <p class="intro">Deze uitdaging heb je afgesloten met:</p>
-    <p></p>
+    <p class="intro">Deze uitdaging heb je afgesloten in:</p>
+    <p>{{gamesummary}}</p>
     <a class="btn-large" href="/singleplayer">Naar het overzicht</a>
   </div>
 </template>
@@ -52,7 +52,7 @@
       <i class="star"></i>
     </div>
     <div id="totalscore">
-      <span>totaal: </span><span>36</span>
+      <span>totaal: 36</span>
     </div>
   </div>
   <a id="homeBtn" href="/" title="home">
@@ -64,10 +64,10 @@
 <template name="gameMenuMemory">
   <div id="gamemenu">
     <div id="points">
-      0 Clicks
+      <span>30</span><i class="diamond"></i>
     </div>
     <div id="totalscore">
-      <span>totaal: </span><span>36</span>
+      <span>totaal: 36</span>
     </div>
   </div>
   <a id="homeBtn" href="/" title="home">

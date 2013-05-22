@@ -1,3 +1,5 @@
+Session.set("memorySummary", {clicks: 0, time: 0, items: 0} );
+
 Template.memoryGame.rendered = function(){
 	$('#my-memorygame').quizyMemoryGame({
 		itemWidth: 80,
@@ -40,6 +42,12 @@ Template.memoryIntro.rendered = function(){
 	});
 }
 
+Template.memoryViewscore.gamesummary = function(){
+	console.log( Session.get("memorySummary") );
+	var summary = Session.get("memorySummary");
+	var points = 30 - ( (summary.clicks-summary.items) * 0.5 );
+	return ''+summary.time+' seconden en '+summary.clicks+' vakjes omgedraaid. Wat neer komt op een score van '+points+' punten.';
+}
 
 
 

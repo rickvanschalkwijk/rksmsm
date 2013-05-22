@@ -61,4 +61,14 @@ i.star {
   background-size: 25px 25px;
 }
 
+i.diamond {
+  display: block;
+  float: left;
+  width: 20px;
+  height: 20px;
+  margin-top: 2px;
+  background: url("/img/new_game_icons/DiamondIcon.png") no-repeat;
+  background-size: 20px 20px;
+}
+
 
