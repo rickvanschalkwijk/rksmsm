@@ -20,6 +20,7 @@ p.intro {
 .quizy-memorygame{
   width: 284px;
   margin:0 auto;
+  top: 45px;
   position: relative;
 }
 
@@ -52,7 +53,7 @@ p.intro {
   position:absolute;
   cursor:pointer;
   text-align:center;
-  border:1px solid #888;
+  border:1px solid rgb(194, 194, 194);
   -webkit-border-radius: 10px;
   -moz-border-radius: 10px;
   border-radius: 10px;
@@ -67,7 +68,11 @@ p.intro {
   top:0;
   left:0;
   text-align:center;
+<<<<<<< HEAD
+  border:1px solid rgb(194, 194, 194);
+=======
   /*border:1px solid #888;*/
+>>>>>>> aedd639e2a6cafce29db058fbf633f8c44efa770
   -webkit-border-radius: 10px;
   -moz-border-radius: 10px;
   border-radius: 10px;
