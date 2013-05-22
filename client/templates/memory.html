@@ -1,23 +1,48 @@
 <template name="memory">
-	<div id="wrap">
+	<div id="wrap" class="wrap-white">
   	{{> memoryHome}}		
 	</div>
 {{> gameMenu}}
 </template>
 
 <template name="gamememory">
-  <div id="wrap">
+  <div id="wrap" class="wrap-white">
     {{> memoryGame}}    
+  </div>
+{{> gameMenuMemory}}
+</template>
+
+<template name="intromemory">
+  <div id="wrap" class="wrap-white">
+    {{> memoryIntro}}    
+  </div>
+{{> gameMenuMemory}}
+</template>
+
+<template name="introendmemory">
+  <div id="wrap" class="wrap-white">
+    {{> memoryIntroend}}    
   </div>
 {{> gameMenu}}
 </template>
 
-<template name="intromemory">
-  <div id="wrap">
-    {{> memoryIntro}}    
+<template name="viewscorememory">
+  <div id="wrap" class="wrap-white">
+    {{> memoryViewscore}}    
   </div>
 {{> gameMenu}}
 </template>
+
+
+<template name="memoryViewscore">
+  <div class="memoryviewscore">
+    <h2>Gefeliciteerd</h2>
+    <p class="intro">Deze uitdaging heb je afgesloten met:</p>
+    <p></p>
+    <a class="btn-large" href="/singleplayer">Naar het overzicht</a>
+  </div>
+</template>
+
 
 <template name="gameMenu">
   <div id="gamemenu">
@@ -35,14 +60,32 @@
   </a>
 </template>
 
+
+<template name="gameMenuMemory">
+  <div id="gamemenu">
+    <div id="points">
+      0 Clicks
+    </div>
+    <div id="totalscore">
+      <span>totaal: </span><span>36</span>
+    </div>
+  </div>
+  <a id="homeBtn" href="/" title="home">
+    <i class="house-white"></i>
+  </a>
+</template>
+
 <template name="memoryHome">
-  <h2>Memory</h2>
-  <p>Ik heb snel een potje memory voor je klaar gezet. Weet je hoe memory gaat?</p>
-  <a href="/gamememory">Ja, starten maar</a>
-  <a href="/intromemory">Nee, leg me uit</a>
+  <div class="memoryhome">
+    <h2>Memory</h2>
+    <p class="intro">Ik heb snel een potje memory voor je klaar gezet. Weet je hoe memory gaat?</p>
+    <a class="btn-large" href="/gamememory">Ja, starten maar</a>
+    <a class="btn-large" href="/intromemory">Nee, leg me uit</a>
+  </div>
 </template>
 
 <template name="memoryGame">
+  <div class="divider-height"> </div>
 	<div id="my-memorygame" class="quizy-memorygame">
 		<ul>
   			<li class="match1">
@@ -57,6 +100,13 @@
         <li class="match4">
           <img src="../rijksimg/small/vrouw_kolen.jpg" alt="memory_picture" />
         </li>
+        <li class="match5">
+          <img src="/rijksimg/small/memory5.jpg" alt="memory_picture" />
+        </li>
+        <li class="match6">
+          <img src="../rijksimg/small/memory6.jpg" alt="memory_picture" />
+        </li>
+
         <li class="match1">
           <img src="../rijksimg/small/nachtwacht.jpg" alt="memory_picture" />
         </li>
@@ -69,12 +119,21 @@
         <li class="match4">
           <img src="../rijksimg/small/vrouw_kolen.jpg" alt="memory_picture" />
         </li>
+        <li class="match5">
+          <img src="/rijksimg/small/memory5.jpg" alt="memory_picture" />
+        </li>
+        <li class="match6">
+          <img src="../rijksimg/small/memory6.jpg" alt="memory_picture" />
+        </li>
 		</ul>
 	</div>	
 </template>
 
 <template name="memoryIntro">
-  <div id="my-memoryintro" class="quizy-memorygame">
+
+  <p class="intro">Zoek dezelfde plaatjes bij elkaar.</p>
+
+  <div id="my-memoryintro" class="quizy-memorygame memoryintro">
     <ul>
         <li class="match1">
           <img src="/rijksimg/small/nachtwacht.jpg" alt="memory_picture" />
@@ -91,3 +150,14 @@
     </ul>
   </div>  
 </template>
+
+<template name="memoryIntroend">
+  <div class="memoryhome">
+    <h2>Super gedaan!</h2>
+    <p class="intro">Goed gedaan! Er staat nu een echte uitdagende versie voor je klaar. Ben je er klaar voor?</p>
+    <a class="btn-large" href="/gamememory">Start maar</a>
+  </div>
+</template>
+
+
+

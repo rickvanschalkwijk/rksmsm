@@ -58,6 +58,21 @@ body {
 }
 
 
+.btn-large {
+  display: block;
+  background: #b3babe;
+  clear: both;
+  margin: 15px 20px;
+  padding: 15px 10px;
+  border: 1px solid #798893;
+  text-align: center;
+  font-family: "Source Sans Pro", sans-serif;
+  font-size: 1.3em;
+  font-weight: 400;
+  text-decoration: none;
+  color: white;
+  border-radius: 5px;
+}
 
 
 /* =======

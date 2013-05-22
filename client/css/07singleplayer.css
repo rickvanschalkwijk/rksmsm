@@ -26,14 +26,14 @@ background-image: -webkit-gradient(
   border-top: 1px solid #d1d1d1;
 }
 
-#average-stars, #totalscore {
+#average-stars, #points, #totalscore {
   display: block;
   width: 35%;
   height: 20px;
   padding: 15px 7%;
   text-align: center;
 }
-#average-stars {
+#average-stars, #points {
   float: left;
 }
 #totalscore {
