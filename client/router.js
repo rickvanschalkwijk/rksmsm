@@ -1,14 +1,18 @@
 // ROUTER
   Meteor.Router.add({
-    '/'           : routeTo('home'),
-  '/login'        : 'login',
-  '/loginacc'     : 'loginacc',
-  '/register'     : 'register',
-  '/singleplayer' : routeTo('singleplayer'),
-  '/multiplayer'  : routeTo('multiplayer'),
-  '/memory'       : routeTo('memory'),
-  '/puzzel'       : routeTo('puzzel'),
-  '/trivia'       : routeTo('trivia')
+    '/'               : routeTo('home'),
+  '/login'            : 'login',
+  '/loginacc'         : 'loginacc',
+  '/register'         : 'register',
+  '/singleplayer'     : routeTo('singleplayer'),
+  '/multiplayer'      : routeTo('multiplayer'),
+  '/memory'           : routeTo('memory'),
+  '/gamememory'       : routeTo('gamememory'),
+  '/intromemory'      : routeTo('intromemory'),
+  '/introendmemory'   : routeTo('introendmemory'),
+  '/viewscorememory'   : routeTo('viewscorememory'),
+  '/puzzel'           : routeTo('puzzel'),
+  '/trivia'           : routeTo('trivia')
   });
 
   function routeTo(routing){
