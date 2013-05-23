@@ -12,7 +12,8 @@
   '/introendmemory'   : routeTo('introendmemory'),
   '/viewscorememory'   : routeTo('viewscorememory'),
   '/puzzel'           : routeTo('puzzel'),
-  '/trivia'           : routeTo('trivia')
+  '/trivia'           : routeTo('trivia'),
+  '/highscore'           : routeTo('highscore')
   });
 
   function routeTo(routing){
