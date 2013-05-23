@@ -1,6 +1,14 @@
 Template.highscore.rendered = function(){
-  console.log('highscore template rendered');
+  // console.log('highscore template rendered');
 
+};
+
+Template.userMenu.rendered = function(){
+  // console.log('getTotalUserscore');
+  var elem = $('#totalscore span');
+  Meteor.call('getTotalUserscore', Meteor.userId(), function (err, res){
+    elem.html(res);
+  });
 };
 
 // event handler logins
@@ -11,7 +19,7 @@ Template.highscore.events({
 });
 
 function insertcall(){
-  Meteor.call('insertHighscore', 'asdfjklhg', 'test', 1, 30);
+  Meteor.call('insertHighscore', 'asdfjklhg', 'test', 1, 32);
 };
 
 function updatescall(){
@@ -21,6 +29,6 @@ function updatescall(){
 };
 
 function removecollection(){
-  console.log('removecollection');
+  // console.log('removecollection');
   Meteor.call('removeHighscore');
 };

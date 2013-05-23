@@ -65,7 +65,13 @@ Template.home.user = function(){
 
 Template.home.firstname = function(){
   if(Meteor.user() != null){
-    return Meteor.user().profile.first_name;
+    
+    if(Meteor.user().profile.first_name){
+      return Meteor.user().profile.first_name;
+    }else{
+      return Meteor.user().username;
+    }
+
   }
 }
 
