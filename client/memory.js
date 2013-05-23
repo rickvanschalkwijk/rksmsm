@@ -15,6 +15,8 @@ Template.memoryGame.rendered = function(){
 		textSummaryTime: '',
 		onFinishCall : function(param){
 			console.log(param);
+			var score = 30 - ( (param.clicks-param.items) * 0.5 );
+			Meteor.call('insertHighscore', Meteor.userId(), 'memory', 1, score);
 			Session.set("memorySummary", param);
 			setTimeout(function(){Meteor.Router.to('/viewscorememory')}, 7000);
 		}
@@ -36,6 +38,8 @@ Template.memoryIntro.rendered = function(){
 		textSummaryTime: '',
 		onFinishCall : function(param){
 			console.log(param);
+			var score = 30 - ( (param.clicks-param.items) * 0.5 );
+			Meteor.call('insertHighscore', Meteor.userId(), 'memory', 0, score);
 			 Session.set("memorySummary", param);
 			setTimeout(function(){Meteor.Router.to('/introendmemory')}, 7000);
 		}
