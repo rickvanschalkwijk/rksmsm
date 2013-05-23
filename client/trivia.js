@@ -87,9 +87,11 @@ var questions = quizJSON.questions;
     function checkAnswers(){
     	$(":submit").live('click', function(e){
     		var questionLI = $($('#' + e.currentTarget.id).parents('li.question')[0]);
+    		//disable buttons
+    		//$(questionLI + " input[type=submit]").attr('disabled','disabled');
     		var answerInputs = $(this).val();
     		var answers = questions[parseInt(questionLI.attr('id').replace(/(question)/, ''))].a;
-    		//console.log(answerInputs);
+    		
     		var trueAnswers = [];
     		for(i in answers){
 				if(answers.hasOwnProperty(i)){
@@ -111,8 +113,10 @@ var questions = quizJSON.questions;
     		}else{
     			questionLI.find('.incorrect').fadeIn(500);
     		}
+    		nextQuestion(questionLI.first('li').get(0).id);
     	});
     	
+    //	nextQuestion($('#' + e.currentTarget.id));	
     	//answers = questions[parseInt(quiestionLI)]
     };
 
@@ -127,6 +131,16 @@ var questions = quizJSON.questions;
     	}
 
     	return true;
+    }
+
+    function nextQuestion(currentQuestion){
+    	var nextQuestion = $('#' + currentQuestion).next('.question');
+
+    	if(nextQuestion.length){
+    		$('#' + currentQuestion).delay(5000).fadeOut(300, function(){
+    			nextQuestion.fadeIn(300);
+    		})
+    	}
     }
 
     function startTrivia(){
