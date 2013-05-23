@@ -48,24 +48,31 @@ Meteor.methods({
     console.log(scores);
     return scores;
   },
+  getTotalUserscore: function(userid){
+    console.log('getTotalUserscore');
+    var scores = Highscores.find({userid: userid}).fetch();
+
+    var totalScore = 0;
+
+    _.each(scores, function(score){
+      totalScore += score.score;
+    });
+
+
+    return totalScore;
+  },
   insertHighscore: function(userid, game, level, score){
     console.log('insertHighscore');
     var scores = Highscores.findOne({userid: userid, game: game, level: level});
-    // console.log(scores);
-
+    
     if(scores){
-      // console.log('not empty', scores);
       if(score >= scores.score){
-        console.log('het is groter of gelijk aan');
-        Highscores.update({_id: scores._id}, {$set:{'score': score}});
-      }else{
-        console.log('het is lager');
+        var timestamp = ( new Date() ).getTime();
+        Highscores.update({_id: scores._id}, {$set:{'score': score, 'timestamp': timestamp}});
       }
-
-
     }else{
-      console.log('empty, so create a new one');
-      Highscores.insert({userid: userid, game: game, level: level, score: score});
+      var timestamp = ( new Date() ).getTime();
+      Highscores.insert({userid: userid, game: game, level: level, score: score, timestamp: timestamp});
     }
     return 'insertHighscore';
   },
