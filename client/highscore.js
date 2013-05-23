@@ -11,6 +11,22 @@ Template.userMenu.rendered = function(){
   });
 };
 
+Template.gameMenu.rendered = function(){
+  // console.log('getTotalUserscore');
+  var elem = $('#totalscore span');
+  Meteor.call('getTotalUserscore', Meteor.userId(), function (err, res){
+    elem.html(res);
+  });
+};
+
+Template.gameMenuMemory.rendered = function(){
+  // console.log('getTotalUserscore');
+  var elem = $('#totalscore span');
+  Meteor.call('getTotalUserscore', Meteor.userId(), function (err, res){
+    elem.html(res);
+  });
+};
+
 // event handler logins
 Template.highscore.events({
   'click #inserting': insertcall,

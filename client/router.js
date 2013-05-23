@@ -12,6 +12,10 @@
   '/introendmemory'   : routeTo('introendmemory'),
   '/viewscorememory'   : routeTo('viewscorememory'),
   '/puzzel'           : routeTo('puzzel'),
+  '/gamepuzzel'       : routeTo('gamepuzzel'),
+  '/intropuzzel'      : routeTo('intropuzzel'),
+  '/introendpuzzel'   : routeTo('introendpuzzel'),
+  '/viewscorepuzzel'   : routeTo('viewscorepuzzel'),
   '/trivia'           : routeTo('trivia'),
   '/highscore'           : routeTo('highscore')
   });
