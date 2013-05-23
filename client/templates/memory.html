@@ -37,8 +37,8 @@
 <template name="memoryViewscore">
   <div class="memoryviewscore">
     <h2>Gefeliciteerd</h2>
-    <p class="intro">Deze uitdaging heb je afgesloten met:</p>
-    <p></p>
+    <p class="intro">Deze uitdaging heb je afgesloten in:</p>
+    <p>{{gamesummary}}</p>
     <a class="btn-large" href="/singleplayer">Naar het overzicht</a>
   </div>
 </template>
@@ -52,7 +52,7 @@
       <i class="star"></i>
     </div>
     <div id="totalscore">
-      <span>totaal: </span><span>36</span>
+      <span>totaal: 36</span>
     </div>
   </div>
   <a id="homeBtn" href="/" title="home">
@@ -64,10 +64,10 @@
 <template name="gameMenuMemory">
   <div id="gamemenu">
     <div id="points">
-      0 Clicks
+      <span>30</span><i class="diamond"></i>
     </div>
     <div id="totalscore">
-      <span>totaal: </span><span>36</span>
+      <span>totaal: 36</span>
     </div>
   </div>
   <a id="homeBtn" href="/" title="home">
@@ -82,11 +82,11 @@
     <a class="btn-large" href="/gamememory">Ja, starten maar</a>
     <a class="btn-large" href="/intromemory">Nee, leg me uit</a>
   </div>
->>>>>>> aedd639e2a6cafce29db058fbf633f8c44efa770
+
 </template>
 
 <template name="memoryGame">
-  <div class="divider-height"> </div>
+  <!-- <div class="divider-height"> </div> -->
 	<div id="my-memorygame" class="quizy-memorygame">
 		<ul>
   			<li class="match1">
@@ -120,18 +120,13 @@
         <li class="match4">
           <img src="../rijksimg/small/vrouw_kolen.jpg" alt="memory_picture" />
         </li>
-         <li class="match5">
-          <img src="../rijksimg/small/painting2.jpg" alt="memory_picture" />
-        </li>
         <li class="match5">
-          <img src="../rijksimg/small/painting2.jpg" alt="memory_picture" />
+          <img src="/rijksimg/small/memory5.jpg" alt="memory_picture" />
         </li>
         <li class="match6">
-          <img src="../rijksimg/small/painting5.jpg" alt="memory_picture" />
+          <img src="../rijksimg/small/memory6.jpg" alt="memory_picture" />
         </li>
-        <li class="match6">
-          <img src="../rijksimg/small/painting5.jpg" alt="memory_picture" />
-        </li>
+         
 		</ul>
 	</div>	
 </template>

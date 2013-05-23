@@ -20,7 +20,7 @@ Accounts.loginServiceConfiguration.insert({
   secret: "b9f936e979f82c823be74d1117c10fdc"
 });
 
-// /* online */
+/* online */
 // Accounts.loginServiceConfiguration.insert({
 //   service: "facebook",
 //   appId: "466417016772314",
