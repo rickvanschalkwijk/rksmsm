@@ -1,0 +1,31 @@
+.questions  li.question,
+.questions li.question .responses,
+.responses .correct,
+.responses .incorrect,
+.quizeResults{
+	display: none;
+}
+
+.answer > li,
+.quiestion li{
+	list-style-type: none;
+}
+
+.button{
+  line-height: 1;
+  display: block;
+  float: left;
+  width: 100%;
+  margin: 0;
+  padding: 15px 0%;
+  font-family: "Source Sans Pro", sans-serif;
+  font-size: 1.3em;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  border-radius: 5px;
+  -webkit-appearance:none;
+   background: #ced5dc;
+  border: 1px solid #b7b8b8;
+  color: #556270;
+}
