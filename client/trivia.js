@@ -37,38 +37,72 @@ var quizJSON = {
     ]
 };	
 
-    var questions = quizJSON.questions;
-    var count = 1;
-    for(i in questions){
-    	if(questions.hasOwnProperty(i)){
-    		var question = questions[i];
-    		var questionHTML = $('<h3>' + question.q + '</h3>');
-    	}
-    	var inputName = 'question' + (count - 1);
+	function setupQuiz(){
+    	var questions = quizJSON.questions;
+    	var quiz = $('<ol class="questions"></ol>'),
+    	count = 1;
 
-    	var answerHTML = $('<div class="answer"></div>');
-    	var answers = question.a;
-    	for(i in answers){
-    		if(answers.hasOwnProperty(i)){
-    			var answer = answers[i];
-    			var optionId = inputName + '_' + i.toString();
+    	for(i in questions){
+    		
+    		if(questions.hasOwnProperty(i)){
     			
-    			var input = '<input id="' + optionId + 'name="' + inputName +'" type="submit" />';  			
-                var optionLabel = '<lable for="' + optionId + '">' + answer.option + '</lable>';
+    			var question = questions[i];
+    			var questionHTML = $('<li class="question" id="question' + (count - 1) + '"></li>');
+    			questionHTML.append('<h3>' + question.q + '</h3>');
+    		
+    			var inputName = 'question' + (count - 1);
 
-                var answerContent = $('<li></li>')
-                            .append(input)
-                            .append(optionLabel);
-                
-                answerHTML.append(answerContent);	
+    			var answerHTML = $('<div class="answer"></div>');
+    			var answers = question.a;
+
+    			for(i in answers){
+    				if(answers.hasOwnProperty(i)){
+    					var answer = answers[i];
+    					var optionId = inputName + '_' + i.toString();
+    			
+    					var input = '<input id="' + optionId + '" name="' + inputName +'" class="button" value="' + answer.option + '" type="submit" />';  			
+                	
+                		var answerContent = $('<li></li>')
+                        	    .append(input);
+                          
+                		answerHTML.append(answerContent);	
+    				}
+    			}
+    			questionHTML.append(answerHTML);
+
+    			var responceHTML = $('<ul class="responses"></ul>');
+    			responceHTML.append('<li class="correct">' + question.correct + '</li>');
+    			responceHTML.append('<li class="incorrect">' + question.incorrect + '</li>');
+
+    			questionHTML.append(responceHTML);
+    			quiz.append(questionHTML);
+
+    			count++;
     		}
     	}
-    	questionHTML.append(answerHTML);
+    
+    	$('#triviaWrapper').append(quiz);
+       
+	};
 
-    	var responceHTML = $('<ul class="responces"></ul>');
-    	responceHTML.append('<li class="correct">' + question.correct + '</li>');
-    	responceHTML.append('<li class="incorrect">' + question.incorrect + '</li>');
+    function checkAnswers(){
+    	var quiestionLI = $($())
+    	$(":submit").live('click', function(){
+    		var answerInputs = $(this).val();
+    	});
 
-    	questionHTML.append(responceHTML);
-    }      
+    	//answers = questions[parseInt(q)]
+    };
+
+    function startTrivia(){
+    	var firstQuestion = $('.questions li').first();
+    	console.log(firstQuestion);
+    	if(firstQuestion.length){
+    		firstQuestion.fadeIn(500);
+    	}
+    }
+
+    setupQuiz();
+    startTrivia();
+    checkAnswers();
 };
