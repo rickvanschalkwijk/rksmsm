@@ -37,17 +37,21 @@ var quizJSON = {
     ]
 };	
 var questions = quizJSON.questions;
+var score = 0;
 	function setupQuiz(){
+        $('#points').prepend('<div class="point">' + score + '</div>');
     	var quiz = $('<ol class="questions"></ol>'),
-    	count = 1;
+    	questionBlock = $('<div></div>');
+        count = 1;
 
     	for(i in questions){
-    		
+    		questionBlock.append('<div class="questionNumber">' + count + '</div>');
+           
     		if(questions.hasOwnProperty(i)){
     			
     			var question = questions[i];
     			var questionHTML = $('<li class="question" id="question' + (count - 1) + '"></li>');
-    			questionHTML.append('<h3>' + question.q + '</h3>');
+    			questionHTML.append('<h3 id="questionTxt">' + question.q + '</h3>');
     		
     			var inputName = 'question' + (count - 1);
 
@@ -59,7 +63,7 @@ var questions = quizJSON.questions;
     					var answer = answers[i];
     					var optionId = inputName + '_' + i.toString();
     			
-    					var input = '<input id="' + optionId + '" name="' + inputName +'" class="button" value="' + answer.option + '" type="submit" />';  			
+    					var input = '<input id="' + optionId + '" name="' + inputName +'" class="button questionBtn" value="' + answer.option + '" type="submit" />';  			
                 	
                 		var answerContent = $('<li></li>')
                         	    .append(input);
@@ -79,10 +83,14 @@ var questions = quizJSON.questions;
     			count++;
     		}
     	}
-    
+        $('#headWrap').prepend(questionBlock);
     	$('#triviaWrapper').append(quiz);
        
 	};
+
+    function setupHeader(questionNumber){
+        
+    }
 
     function checkAnswers(){
     	$(":submit").live('click', function(e){
@@ -105,6 +113,9 @@ var questions = quizJSON.questions;
     		selectedAnswers.push(answerInputs);
     		var correctResponce = compareAnswers(trueAnswers, selectedAnswers);
     		if(correctResponce){
+                score += 10;
+                $('.point').empty();
+                $('.point').prepend(score).fadeIn(300);
     			questionLI.addClass('correctResponce');
     		}
     		questionLI.find('.responses').show();
@@ -113,7 +124,7 @@ var questions = quizJSON.questions;
     		}else{
     			questionLI.find('.incorrect').fadeIn(500);
     		}
-    		nextQuestion(questionLI.first('li').get(0).id);
+    		//nextQuestion(questionLI.first('li').get(0).id);
     	});
     	
     //	nextQuestion($('#' + e.currentTarget.id));	
@@ -137,7 +148,7 @@ var questions = quizJSON.questions;
     	var nextQuestion = $('#' + currentQuestion).next('.question');
 
     	if(nextQuestion.length){
-    		$('#' + currentQuestion).delay(5000).fadeOut(300, function(){
+    		$('#' + currentQuestion).delay(5000 ).fadeOut(300, function(){
     			nextQuestion.fadeIn(300);
     		})
     	}
