@@ -43,26 +43,25 @@ Meteor.methods({
     }
   },
   getHighscores: function(){
-    console.log('getHighscores');
+    // console.log('getHighscores');
     var scores = Highscores.find({}).fetch();
     console.log(scores);
     return scores;
   },
   getTotalUserscore: function(userid){
-    console.log('getTotalUserscore');
+    // console.log('getTotalUserscore');
     var scores = Highscores.find({userid: userid}).fetch();
-
     var totalScore = 0;
 
     _.each(scores, function(score){
       totalScore += score.score;
     });
-
+    totalScore = 'totaal: '+totalScore;
 
     return totalScore;
   },
   insertHighscore: function(userid, game, level, score){
-    console.log('insertHighscore');
+    // console.log('insertHighscore');
     var scores = Highscores.findOne({userid: userid, game: game, level: level});
     
     if(scores){
@@ -74,10 +73,9 @@ Meteor.methods({
       var timestamp = ( new Date() ).getTime();
       Highscores.insert({userid: userid, game: game, level: level, score: score, timestamp: timestamp});
     }
-    return 'insertHighscore';
   },
   removeHighscore: function(){
-    console.log('removeHighscore');
+    // console.log('removeHighscore');
     Highscores.remove({});
     return 'removeHighscore';
   },
