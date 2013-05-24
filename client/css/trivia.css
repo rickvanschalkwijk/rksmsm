@@ -1,9 +1,28 @@
+#triviaWrapper{
+  background-color: #FFF;
+  margin:40px 0 0 0;
+}
+
 .questions  li.question,
 .questions li.question .responses,
 .responses .correct,
 .responses .incorrect,
 .quizeResults{
 	display: none;
+}
+
+.responses{
+  margin-top: -80px;
+  text-align: center;
+  color: #2f363f;
+  font-family: "Source Sans Pro", sans-serif;
+  font-size: 1.5em;
+  font-weight: 400;
+}
+
+#questionTxt{
+  text-align: center;
+  padding: 40px;
 }
 
 .answer > li,
@@ -15,7 +34,7 @@
   line-height: 1;
   display: block;
   float: left;
-  width: 100%;
+  width: 95%;
   margin: 0;
   padding: 15px 0%;
   font-family: "Source Sans Pro", sans-serif;
@@ -25,7 +44,63 @@
   cursor: pointer;
   border-radius: 5px;
   -webkit-appearance:none;
-   background: #ced5dc;
+   background: #556270;
   border: 1px solid #b7b8b8;
-  color: #556270;
+  color: #FFF;
+  font-weight: bold;
+}
+
+.questionBtn{
+    margin:10px 0px 10px 13px;
+}
+
+#headWrap{
+  display: block;
+  position: fixed;
+  top: 0px;
+  width: 100%;
+  height: 50px;
+  margin-top: 0px;
+  background: #dadada;
+  background-image: linear-gradient(bottom, #f1f1f1 25%, #dadada 75%);
+  background-image: -o-linear-gradient(bottom, #f1f1f1 25%, #dadada 75%);
+  background-image: -moz-linear-gradient(bottom, #f1f1f1 25%, #dadada 75%);
+  background-image: -webkit-linear-gradient(bottom, #f1f1f1 25%, #dadada 75%);
+  background-image: -ms-linear-gradient(bottom, #f1f1f1 25%, #dadada 75%);
+  background-image: -webkit-gradient( linear, left bottom, left top, color-stop(0.15, #f1f1f1), color-stop(0.90, #dadada) );
+  border-bottom: 1px solid #d1d1d1;
+  font-family: "Source Sans Pro", sans-serif;
+  font-size: 1.5em;
+  font-weight: 400;
+  color: #353d46;
+  float: left;
+  text-align: justify;
+  -ms-text-justify:distribute-all-lines;
+  text-justify:distribute-all-lines;
+}
+
+.questionNumber{
+  height:100%;
+  width:30%;
+  vertical-align: top;
+  line-height: 2em;
+  text-align: center;
+  border-left:1px solid #D1D1D1;
+  display: inline-block;
+  *display: inline;
+  zoom:1;
+  color:#556270;
+  font-weight: bold;
+}
+
+.active{
+  background-color: #4ECDC4;
+  color:#FFF;
+}
+
+.stretch{
+  width: 100%;
+  display: inline-block;
+  font-size: 0;
+  line-height: 0;
 }

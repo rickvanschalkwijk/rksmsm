@@ -71,4 +71,14 @@ i.diamond {
   background-size: 20px 20px;
 }
 
+i.plus {
+  display: block;
+  float: left;
+  width: 20px;
+  height: 20px;
+  margin: 2px 5px 0 0;
+  background: url("/img/new_game_icons/ScoreActive.png") no-repeat;
+  background-size: 20px 20px;
+}
+
 
