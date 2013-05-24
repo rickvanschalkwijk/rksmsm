@@ -77,6 +77,29 @@ Meteor.methods({
   removeHighscore: function(){
     // console.log('removeHighscore');
     Highscores.remove({});
+  },
+  rankingGame: function(game){
+    console.log('rankingGame');
+    var scores = Highscores.find({game: game},{sort: {score: -1}}).fetch();
+    return scores;
+  },
+  rankingLevel: function(game, level){
+    console.log('rankingLevel');
+
+    var scores = Highscores.find({game: game, level: level}).fetch();
+    return scores;
+  },
+  rankingUser: function(){
+    console.log('rankingUser');
+
+    var scores = Highscores.find({}).fetch();
+
+    var uniqUsers = _.uniq(_.map(scores, function(item){ return item.userid; }));
+    // var uniqUsers = _.uniq(scores, false, function(item){ return item.userid; });
+
+    var test = uniqUsers;
+
+    return test;
   }
 
 });

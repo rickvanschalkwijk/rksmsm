@@ -1,4 +1,4 @@
-Session.set("memorySummary", {clicks: 0, time: 0, items: 0} );
+Session.set("memorySummary", {clicks: 0, time: 0, items: 0, score: 0} );
 
 Template.memoryGame.rendered = function(){
 	$('#my-memorygame').quizyMemoryGame({
@@ -46,10 +46,29 @@ Template.memoryIntro.rendered = function(){
 	});
 }
 
-Template.memoryViewscore.gamesummary = function(){
+Template.gameMenuMemory.rendered = function(){
+  // console.log('getTotalUserscore');
+  var elem = $('#totalscore span');
+  Meteor.call('getTotalUserscore', Meteor.userId(), function (err, res){
+    elem.html(res);
+  });
+};
+
+
+Template.memoryViewscore.score = function(){
 	console.log( Session.get("memorySummary") );
 	var summary = Session.get("memorySummary");
-	return ''+summary.time+' seconden en '+summary.clicks+' vakjes omgedraaid. Wat neer komt op een score van '+summary.score+' punten.';
+	return summary.score;
+}
+
+Template.memoryViewscore.clicks = function(){
+	var summary = Session.get("memorySummary");
+	return summary.clicks;
+}
+
+Template.memoryViewscore.time = function(){
+	var summary = Session.get("memorySummary");
+	return summary.time;
 }
 
 

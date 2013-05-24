@@ -1,4 +1,4 @@
-Session.set("puzzelSummary", {moves: 0, seconds: 0} );
+Session.set("puzzelSummary", {moves: 0, seconds: 0, score: 0} );
 
 Template.puzzelGame.rendered = function(){
   $(document).ready(function() {
@@ -114,6 +114,29 @@ Template.puzzelIntro.rendered = function(){
   });
 }
 
+Template.gameMenuPuzzel.rendered = function(){
+  // console.log('getTotalUserscore');
+  var elem = $('#totalscore span');
+  Meteor.call('getTotalUserscore', Meteor.userId(), function (err, res){
+    elem.html(res);
+  });
+};
+
+Template.puzzelViewscore.score = function(){
+  console.log( Session.get("puzzelSummary") );
+  var summary = Session.get("puzzelSummary");
+  return summary.score;
+}
+
+Template.puzzelViewscore.moves = function(){
+  var summary = Session.get("puzzelSummary");
+  return summary.moves;
+}
+
+Template.puzzelViewscore.seconds = function(){
+  var summary = Session.get("puzzelSummary");
+  return summary.seconds;
+}
 
 
 

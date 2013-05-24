@@ -27,6 +27,26 @@
 </template>
 
 
+<template name="viewscorepuzzel">
+  <div id="wrap" class="wrap-white">
+    {{> puzzelViewscore}}    
+  </div>
+{{> gameMenu}}
+</template>
+
+
+<template name="puzzelViewscore">
+  <div class="puzzelviewscore">
+    <h2 class="intro">Gefeliciteerd!</h2>
+    <p class="intro">Deze uitdaging heb je afgesloten met:</p>
+    <div class="score">
+      <span>{{score}}</span><i class="diamond"></i>
+      <div class="clearfix"></div>
+    </div>
+    <p class="gamesummary">Je hebt daarbij {{moves}} vakjes verschoven en dit binnen {{seconds}} seconden.</p>
+    <a class="btn-large" href="/singleplayer">Naar het overzicht</a>
+  </div>
+</template>
 
 
 <template name="gameMenuPuzzel">

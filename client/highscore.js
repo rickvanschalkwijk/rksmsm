@@ -3,42 +3,18 @@ Template.highscore.rendered = function(){
 
 };
 
-Template.userMenu.rendered = function(){
-  // console.log('getTotalUserscore');
-  var elem = $('#totalscore span');
-  Meteor.call('getTotalUserscore', Meteor.userId(), function (err, res){
-    elem.html(res);
-  });
-};
 
-Template.gameMenu.rendered = function(){
-  // console.log('getTotalUserscore');
-  var elem = $('#totalscore span');
-  Meteor.call('getTotalUserscore', Meteor.userId(), function (err, res){
-    elem.html(res);
-  });
-};
 
-Template.gameMenuMemory.rendered = function(){
-  // console.log('getTotalUserscore');
-  var elem = $('#totalscore span');
-  Meteor.call('getTotalUserscore', Meteor.userId(), function (err, res){
-    elem.html(res);
-  });
-};
 
-Template.gameMenuPuzzel.rendered = function(){
-  // console.log('getTotalUserscore');
-  var elem = $('#totalscore span');
-  Meteor.call('getTotalUserscore', Meteor.userId(), function (err, res){
-    elem.html(res);
-  });
-};
+
 
 // event handler logins
 Template.highscore.events({
   'click #inserting': insertcall,
   'click #update': updatescall,
+  'click #rankingMemory': rankingGame,
+  'click #rankingMemoryLevel': rankingLevel,
+  'click #rankingUsers': rankingUser,
   'click #remove': removecollection
 });
 
@@ -52,6 +28,27 @@ function insertcall(){
 
 function updatescall(){
   Meteor.call('getHighscores', function (err, res){
+    console.log(res);
+  });
+};
+
+function rankingGame(){
+  console.log('rankingGame');
+  Meteor.call('rankingGame', 'memory', function (err, res){
+    console.log(res);
+  });
+};
+
+function rankingLevel(){
+  console.log('rankingLevel');
+  Meteor.call('rankingLevel', 'memory', 1, function (err, res){
+    console.log(res);
+  });
+};
+
+function rankingUser(){
+  console.log('rankingUser');
+  Meteor.call('rankingUser', function (err, res){
     console.log(res);
   });
 };
