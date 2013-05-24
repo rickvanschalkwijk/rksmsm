@@ -93,6 +93,8 @@ Meteor.methods({
   rankingUser: function(){
     console.log('rankingUser');
 
+    var ranking = [];
+
     // get all highscores
     var scores = Highscores.find({}).fetch();
 
@@ -102,24 +104,16 @@ Meteor.methods({
 
     // loop through each user
     _.each(uniqUsers, function(userid){
-      console.log(userid);
-      
-      
+      var score = 0;
       _.filter(scores, function(item){ 
-        
         if(item.userid == userid){ 
-          console.log(item.score);
-
-          return item; 
+          score += item.score;
         }
-
       });
-
+      ranking.push({userid: userid, score: score});
     });
-
-    var test = uniqUsers;
-
-    return test;
+    console.log(ranking);
+    return ranking;
   },
   getTriviaQuestions: function(){
     var quizJSON = {
