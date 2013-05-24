@@ -1,6 +1,6 @@
 <template name="puzzel">
 	<div id="wrap">
-  	{{> puzzelGame}}		
+  	{{> puzzelHome}}		
 	</div>
   {{> gameMenu}}
 </template>
@@ -12,12 +12,44 @@
   {{> gameMenu}}
 </template>
 
+<template name="introendpuzzel">
+  <div id="wrap">
+    {{> puzzelIntroend}}    
+  </div>
+  {{> gameMenu}}
+</template>
 
+<template name="gamepuzzel">
+  <div id="wrap">
+    {{> puzzelGame}}    
+  </div>
+  {{> gameMenu}}
+</template>
 
+<template name="puzzelHome">
+  <div class="puzzelhome">
+    <h2>Schuifpuzzel</h2>
+    <p class="intro">Ik heb een schuifpuzzel voor je klaar staan. Heb je al eens een schuifpuzzel gedaan?</p>
+    <a class="btn-large" href="/gamepuzzel">Ja, start!</a>
+    <a class="btn-large" href="/intropuzzel">Nee, leg uit</a>
+  </div>
+
+</template>
 
 <template name="puzzelIntro">
+  <h2>Schuifpuzzel</h2>
+  <p class="intro">Maak de foto correct.</p>
+
   <div id="puzzle">
     <img id="gamePuzzle" src="/rijksimg/small/bucolia.jpg" alt="cage" height="300px" width="300px" />
+  </div>
+</template>
+
+<template name="puzzelIntroend">
+  <div class="puzzelhome">
+    <h2>Super gedaan!</h2>
+    <p class="intro">Goed gedaan! Er staat nu een echte uitdagende versie voor je klaar. Ben je er klaar voor?</p>
+    <a class="btn-large" href="/gamepuzzel">Start maar</a>
   </div>
 </template>
 

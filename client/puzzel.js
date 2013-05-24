@@ -1,3 +1,5 @@
+Session.set("puzzelSummary", {moves: 0, seconds: 0} );
+
 Template.puzzelGame.rendered = function(){
   $(document).ready(function() {
     var images = new Array(
@@ -29,7 +31,13 @@ Template.puzzelGame.rendered = function(){
       }, 
       success: { 
         fadeOriginal: true,    // cross-fade original image [true|false] 
-        callback: undefined,    // callback a user-defined function [function]  
+        callback: function(results){
+          console.log(results);
+          var score = 200 - results.moves;
+          Meteor.call('insertHighscore', Meteor.userId(), 'puzzel', 1, score);
+          Session.set("puzzelSummary", results);
+          setTimeout(function(){Meteor.Router.to('/viewscorepuzzel')}, 7000);
+        },    // callback a user-defined function [function]  
         callbackTimeout: 300    // time in ms after which the callback is called 
       }, 
       animation: { 
@@ -75,13 +83,19 @@ Template.puzzelIntro.rendered = function(){
         confirmShuffle: false,   // ask before shuffling [true|false] 
         toggleOriginal: false,   // display 'Original' button [true|false] 
         toggleNumbers: false,    // display 'Numbers' button [true|false] 
-        counter: true,          // display moves counter [true|false] 
+        counter: false,          // display moves counter [true|false] 
         timer: false,            // display timer (seconds) [true|false] 
         pauseTimer: false         
       }, 
       success: { 
         fadeOriginal: true,    // cross-fade original image [true|false] 
-        callback: undefined,    // callback a user-defined function [function]  
+        callback: function(results){
+          console.log(results);
+          var score = 200 - results.moves;
+          Meteor.call('insertHighscore', Meteor.userId(), 'puzzel', 0, score);
+          Session.set("puzzelSummary", results);
+          setTimeout(function(){Meteor.Router.to('/introendpuzzel')}, 7000);
+        },    // callback a user-defined function [function]  
         callbackTimeout: 300    // time in ms after which the callback is called 
       }, 
       animation: { 
