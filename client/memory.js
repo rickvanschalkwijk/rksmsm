@@ -16,8 +16,7 @@ Template.memoryGame.rendered = function(){
 		textSummaryTime: '',
 		onFinishCall : function(param){
 			console.log(param);
-			var score = 30 - ( (param.clicks-param.items) * 0.5 );
-			Meteor.call('insertHighscore', Meteor.userId(), 'memory', 1, score);
+			Meteor.call('insertHighscore', Meteor.userId(), 'memory', 1, param.score);
 			Session.set("memorySummary", param);
 			setTimeout(function(){Meteor.Router.to('/viewscorememory')}, 7000);
 		}
@@ -40,8 +39,7 @@ Template.memoryIntro.rendered = function(){
 		textSummaryTime: '',
 		onFinishCall : function(param){
 			console.log(param);
-			var score = 30 - ( (param.clicks-param.items) * 0.5 );
-			Meteor.call('insertHighscore', Meteor.userId(), 'memory', 0, score);
+			Meteor.call('insertHighscore', Meteor.userId(), 'memory', 0, param.score);
 			 Session.set("memorySummary", param);
 			setTimeout(function(){Meteor.Router.to('/introendmemory')}, 7000);
 		}
@@ -51,8 +49,7 @@ Template.memoryIntro.rendered = function(){
 Template.memoryViewscore.gamesummary = function(){
 	console.log( Session.get("memorySummary") );
 	var summary = Session.get("memorySummary");
-	var points = 30 - ( (summary.clicks-summary.items) * 0.5 );
-	return ''+summary.time+' seconden en '+summary.clicks+' vakjes omgedraaid. Wat neer komt op een score van '+points+' punten.';
+	return ''+summary.time+' seconden en '+summary.clicks+' vakjes omgedraaid. Wat neer komt op een score van '+summary.score+' punten.';
 }
 
 

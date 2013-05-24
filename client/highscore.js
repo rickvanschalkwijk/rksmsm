@@ -27,6 +27,14 @@ Template.gameMenuMemory.rendered = function(){
   });
 };
 
+Template.gameMenuPuzzel.rendered = function(){
+  // console.log('getTotalUserscore');
+  var elem = $('#totalscore span');
+  Meteor.call('getTotalUserscore', Meteor.userId(), function (err, res){
+    elem.html(res);
+  });
+};
+
 // event handler logins
 Template.highscore.events({
   'click #inserting': insertcall,
@@ -35,7 +43,11 @@ Template.highscore.events({
 });
 
 function insertcall(){
-  Meteor.call('insertHighscore', 'asdfjklhg', 'test', 1, 32);
+  // Meteor.call('insertHighscore', 'asdfjklhg', 'test', 1, 32);
+  Meteor.call('insertHighscore',Meteor.userId(),'memory',0,10);
+  Meteor.call('insertHighscore',Meteor.userId(),'memory',1,12);
+  Meteor.call('insertHighscore',Meteor.userId(),'puzzel',0,14);
+  Meteor.call('insertHighscore',Meteor.userId(),'puzzel',1,16);
 };
 
 function updatescall(){

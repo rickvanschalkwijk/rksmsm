@@ -1,34 +1,53 @@
 <template name="puzzel">
-	<div id="wrap">
+	<div id="wrap" class="wrap-white">
   	{{> puzzelHome}}		
 	</div>
   {{> gameMenu}}
 </template>
 
 <template name="intropuzzel">
-  <div id="wrap">
+  <div id="wrap" class="wrap-white">
     {{> puzzelIntro}}    
   </div>
-  {{> gameMenu}}
+  {{> gameMenuPuzzel}}
 </template>
 
 <template name="introendpuzzel">
-  <div id="wrap">
+  <div id="wrap" class="wrap-white">
     {{> puzzelIntroend}}    
   </div>
   {{> gameMenu}}
 </template>
 
 <template name="gamepuzzel">
-  <div id="wrap">
+  <div id="wrap" class="wrap-white">
     {{> puzzelGame}}    
   </div>
-  {{> gameMenu}}
+  {{> gameMenuPuzzel}}
 </template>
+
+
+
+
+<template name="gameMenuPuzzel">
+  <div id="gamemenu">
+    <div id="points">
+      <span>0</span><i class="diamond"></i>
+    </div>
+    <div id="totalscore">
+      <span>totaal: 0</span>
+    </div>
+  </div>
+  <a id="homeBtn" href="/" title="home">
+    <i class="house-white"></i>
+  </a>
+</template>
+
+
 
 <template name="puzzelHome">
   <div class="puzzelhome">
-    <h2>Schuifpuzzel</h2>
+    <h2 class="intro">Schuifpuzzel</h2>
     <p class="intro">Ik heb een schuifpuzzel voor je klaar staan. Heb je al eens een schuifpuzzel gedaan?</p>
     <a class="btn-large" href="/gamepuzzel">Ja, start!</a>
     <a class="btn-large" href="/intropuzzel">Nee, leg uit</a>
@@ -37,7 +56,7 @@
 </template>
 
 <template name="puzzelIntro">
-  <h2>Schuifpuzzel</h2>
+  <h2 class="intro">Schuifpuzzel</h2>
   <p class="intro">Maak de foto correct.</p>
 
   <div id="puzzle">
@@ -47,9 +66,9 @@
 
 <template name="puzzelIntroend">
   <div class="puzzelhome">
-    <h2>Super gedaan!</h2>
-    <p class="intro">Goed gedaan! Er staat nu een echte uitdagende versie voor je klaar. Ben je er klaar voor?</p>
-    <a class="btn-large" href="/gamepuzzel">Start maar</a>
+    <h2 class="intro">Schuifpuzzel</h2>
+    <p class="intro">Makkelijk niet?</br>Ik heb een uitdagendere schuifpuzzel voor je klaar staan. Starten?</p>
+    <a class="btn-large" href="/gamepuzzel">Ja, start!</a>
   </div>
 </template>
 
