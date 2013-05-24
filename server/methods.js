@@ -93,10 +93,29 @@ Meteor.methods({
   rankingUser: function(){
     console.log('rankingUser');
 
+    // get all highscores
     var scores = Highscores.find({}).fetch();
 
+    // get all uniq users
     var uniqUsers = _.uniq(_.map(scores, function(item){ return item.userid; }));
     // var uniqUsers = _.uniq(scores, false, function(item){ return item.userid; });
+
+    // loop through each user
+    _.each(uniqUsers, function(userid){
+      console.log(userid);
+      
+      
+      _.filter(scores, function(item){ 
+        
+        if(item.userid == userid){ 
+          console.log(item.score);
+
+          return item; 
+        }
+
+      });
+
+    });
 
     var test = uniqUsers;
 
