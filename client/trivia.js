@@ -165,6 +165,7 @@ var quizJSON = {
 };	
 var questions = quizJSON.questions;
 var score = 0;
+var questionNbr = 1;
 	function setupQuiz(){
         $('#points').prepend('<div class="point">' + score + '</div>');
     	var quiz = $('<ol class="questions"></ol>'),
@@ -172,8 +173,6 @@ var score = 0;
         count = 1;
 
     	for(i in questions){
-    		questionBlock.append('<div class="questionNumber">' + count + '</div>');
-           
     		if(questions.hasOwnProperty(i)){
     			
     			var question = questions[i];
@@ -210,6 +209,7 @@ var score = 0;
     			count++;
     		}
     	}
+        questionBlock.append('<div class="questionNumber"> Vraag <span>' + questionNbr + '</span> van de ' + count + '</div>');
         $('#headWrap').prepend(questionBlock);
     	$('#triviaWrapper').append(quiz);
        
@@ -256,9 +256,6 @@ var score = 0;
     		}
     		nextQuestion(questionLI.first('li').get(0).id);
     	});
-    	
-    	//nextQuestion($('#' + e.currentTarget.id));	
-    	//answers = questions[parseInt(quiestionLI)]
     };
 
     function compareAnswers(trueAnswers, selectedAnswers){
@@ -275,6 +272,8 @@ var score = 0;
     }
 
     function nextQuestion(currentQuestion){
+        questionNbr++;
+        $('.questionNumber span').empty().append(questionNbr);
     	var nextQuestion = $('#' + currentQuestion).next('.question');
 
     	if(nextQuestion.length){
