@@ -1,4 +1,4 @@
-Session.set("memorySummary", {clicks: 0, time: 0, items: 0} );
+ Session.set("memorySummary", {clicks: 0, time: 0, items: 0} );
 
 Template.memoryGame.rendered = function(){
 	$('#my-memorygame').quizyMemoryGame({
