@@ -79,7 +79,42 @@ Meteor.methods({
     Highscores.remove({});
     return 'removeHighscore';
   },
+  rankingGame: function(game){
+    console.log('rankingGame');
+    var scores = Highscores.find({game: game},{sort: {score: -1}}).fetch();
+    return scores;
+  },
+  rankingLevel: function(game, level){
+    console.log('rankingLevel');
 
+    var scores = Highscores.find({game: game, level: level}).fetch();
+    return scores;
+  },
+  rankingUser: function(){
+    console.log('rankingUser');
+
+    var ranking = [];
+
+    // get all highscores
+    var scores = Highscores.find({}).fetch();
+
+    // get all uniq users
+    var uniqUsers = _.uniq(_.map(scores, function(item){ return item.userid; }));
+    // var uniqUsers = _.uniq(scores, false, function(item){ return item.userid; });
+
+    // loop through each user
+    _.each(uniqUsers, function(userid){
+      var score = 0;
+      _.filter(scores, function(item){ 
+        if(item.userid == userid){ 
+          score += item.score;
+        }
+      });
+      ranking.push({userid: userid, score: score});
+    });
+    console.log(ranking);
+    return ranking;
+  },
   getTriviaQuestions: function(){
     var quizJSON = {
           "questions": [
@@ -118,7 +153,7 @@ Meteor.methods({
             }
         ]
     };
-    return quizJSON;  
+    return quizJSON;
   }
 
 });
