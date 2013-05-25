@@ -277,14 +277,18 @@ var questionNbr = 1;
     	var nextQuestion = $('#' + currentQuestion).next('.question');
 
     	if(nextQuestion.length){
-    		$('#' + currentQuestion).delay(5000 ).fadeOut(300, function(){
+    		$('#' + currentQuestion).delay(500 ).fadeOut(300, function(){
     			nextQuestion.fadeIn(300);
     		})
-    	}
+    	}else{
+            completeQuiz();
+        }
     }
 
-    function completeQuize(){
-        Meteor.call('')
+    function completeQuiz(){
+        Meteor.call('insertHighscore', Meteor.userId(), 'trivia', 1, score);
+        Session.set("triviaSummary", score);
+        setTimeout(function(){Meteor.Router.to('/viewscoretrivia')}, 7000);
     }
 
     function startTrivia(){
@@ -299,4 +303,11 @@ var questionNbr = 1;
     setupQuiz();
     startTrivia();
     checkAnswers();
+
 };
+
+Template.viewscoretrivia.scoreTrivia = function(){
+    var summary = Session.get("triviaSummary");
+    console.log(summary);
+    return summary;
+}

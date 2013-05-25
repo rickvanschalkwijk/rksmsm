@@ -10,14 +10,16 @@
   '/gamememory'       : routeTo('gamememory'),
   '/intromemory'      : routeTo('intromemory'),
   '/introendmemory'   : routeTo('introendmemory'),
-  '/viewscorememory'   : routeTo('viewscorememory'),
+  '/viewscorememory'  : routeTo('viewscorememory'),
   '/puzzel'           : routeTo('puzzel'),
   '/gamepuzzel'       : routeTo('gamepuzzel'),
   '/intropuzzel'      : routeTo('intropuzzel'),
   '/introendpuzzel'   : routeTo('introendpuzzel'),
-  '/viewscorepuzzel'   : routeTo('viewscorepuzzel'),
+  '/viewscorepuzzel'  : routeTo('viewscorepuzzel'),
   '/trivia'           : routeTo('trivia'),
-  '/highscore'           : routeTo('highscore')
+  '/highscore'        : routeTo('highscore'),
+  '/viewscoretrivia'  : routeTo('viewscoretrivia'),
+  '/wordsearch'       : routeTo('wordsearch')
   });
 
   function routeTo(routing){

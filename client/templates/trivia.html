@@ -18,6 +18,13 @@
 	</div>
 </template>
 
+<template name="triviaHeaderFinal">
+  <div id="headWrap">
+    <h3 style="text-align:center;">Jouw score is:</h3>
+    <span class="stretch"></span>
+  </div>
+</template>
+
 <template name="gameMenuTrivia">
   <div id="gamemenu">
     <div id="points">
@@ -31,4 +38,12 @@
   <a id="homeBtn" href="/" title="home">
     <i class="house-white"></i>
   </a>
+</template>
+
+<template name="viewscoretrivia">
+  <div id="wrap triviaWrap">
+    {{> triviaHeaderFinal}}
+        <p>{{scoreTrivia}}</p>
+  </div>
+{{> gameMenuTrivia}}
 </template>
