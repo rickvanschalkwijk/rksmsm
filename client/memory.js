@@ -1,4 +1,5 @@
 Session.set("memorySummary", {clicks: 0, time: 0, items: 0, score: 0} );
+Session.set("Pause", true );
 
 Template.memoryGame.rendered = function(){
 	$('#my-memorygame').quizyMemoryGame({
@@ -56,7 +57,6 @@ Template.gameMenuMemory.rendered = function(){
   });
 };
 
-
 Template.memoryViewscore.score = function(){
 	console.log( Session.get("memorySummary") );
 	var summary = Session.get("memorySummary");
@@ -72,7 +72,6 @@ Template.memoryViewscore.time = function(){
 	var summary = Session.get("memorySummary");
 	return summary.time;
 }
-
 
 
 
