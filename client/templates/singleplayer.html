@@ -8,12 +8,10 @@
 <template name="userMenu">
 	<div id="usermenu">
 		<div id="average-stars">
-			<i class="star"></i>
-			<i class="star"></i>
-			<i class="star"></i>
+			
 		</div>
 		<div id="totalscore">
-			<span>totaal: 0</span>
+			<span></span>
 		</div>
 	</div>
 	<a id="homeBtn" href="/" title="home">
@@ -23,29 +21,32 @@
 
 <template name="singleGameScreen">
 	<div class="wrap-games">
-		<div class="game memory arrow-red">
-			<a href="/memory">
+		<div class="game cyaan memory arrow-red">
+			<a href="/memory" class="gametitle">
 				<div>
+					<span class="game-title-white">Memory</span>
 				</div>
 			</a>
 		</div>
 
-		<div class="game puzzel arrow-red">
-			<a href="/puzzel">
+		<div class="game cyaan puzzel arrow-red">
+			<a href="/puzzel" class="gametitle">
 				<div>
+					<span class="game-title-white">Puzzel</span>
 				</div>
 			</a>
 		</div>
 	
 
-		<div class="game trivia arrow-red">
-			<a href="/trivia">
+		<div class="game cyaan trivia arrow-red">
+			<a href="/trivia" class="gametitle">
 				<div>
+					<span class="game-title-white">Trivia</span>
 				</div>
 			</a>
 		</div>
 
-		<div class="game wordsearch arrow-grey">
+		<div class="game cyaan wordsearch arrow-grey">
 			<a href="/wordsearch">
 				<div>
 				</div>
@@ -53,14 +54,14 @@
 		</div>
 
 		<div class="game arrow-grey locked">
-			<a href="/">
+			<a>
 				<div>
 				</div>
 			</a>
 		</div>
 
-		<div class="game arrow-grey locked">
-			<a href="/">
+		<div class="game locked">
+			<a>
 				<div>
 				</div>
 			</a>

@@ -76,6 +76,8 @@
 .wrap-games {
   background: url('/img/background-pattern.png') 0 100% repeat-x;
   padding: 25px 25px 51px 25px;
+  max-width: 290px;
+  margin: 0 auto;
 }
 
 .game {
@@ -95,6 +97,10 @@ div.game:nth-child(1){
 }
 div.game:nth-child(2n){
   float: right;
+}
+.cyaan {
+  background: #4ecdc4;
+  border: 1px solid #379f97;
 }
 
 .game > a > div {
@@ -131,6 +137,27 @@ div.game:nth-child(2n){
   top: -80px;
 }
 
+.gametitle {
+  text-decoration: none;
+}
+.game-title {
+  text-align: center;
+  width: 110px;
+  position: relative;
+  display: block;
+  top: 85px;
+  text-decoration: none;
+  color: #556270;
+}
+.game-title-white {
+  text-align: center;
+  width: 110px;
+  position: relative;
+  display: block;
+  top: 85px;
+  text-decoration: none;
+  color: white;
+}
 
 .memory {
   background-image: url('/img/new_game_icons/MemoryIcon.png');
@@ -146,8 +173,8 @@ div.game:nth-child(2n){
 
 .memory, .puzzel, .trivia {
   background-repeat: no-repeat;
-  background-position: center;
-  background-size: 58%;
+  /*background-position: center;*/
+  background-position: 30px 22px;
 }
 
 .locked {
