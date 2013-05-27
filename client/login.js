@@ -131,7 +131,7 @@ function checkinputfield(e,t){
   var username = t.find('#username').value;
   var loginbtn = t.find('#sendLogin');
   
-  if(username.length >= 5){
+  if(username.length >= 1){
     $(loginbtn).attr('disabled', false);
   }else{
     $(loginbtn).attr('disabled', true);

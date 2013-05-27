@@ -21,6 +21,9 @@ body {
 .wrap-white{
   background: #fff !important; 
 }
+.no-minheight {
+  min-height: 0 !important;
+}
 
 
 /* =======
@@ -57,6 +60,9 @@ body {
   background: #556270 url(/img/icons/users-white.png) no-repeat center center;
 }
 
+#play-group {
+  opacity: 0.2;
+}
 
 .btn-large {
   display: block;

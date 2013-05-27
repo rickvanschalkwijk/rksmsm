@@ -74,6 +74,7 @@
 }
 
 .wrap-games {
+  background: url('/img/background-pattern.png') 0 100% repeat-x;
   padding: 25px 25px 51px 25px;
 }
 
@@ -132,15 +133,15 @@ div.game:nth-child(2n){
 
 
 .memory {
-  background-image: url('/img/game_icons/MemoryIcon.png');
+  background-image: url('/img/new_game_icons/MemoryIcon.png');
 }
 
 .puzzel {
-  background-image: url('/img/game_icons/SchuifpuzzelIcon.png');  
+  background-image: url('/img/new_game_icons/SchuifpuzzelIcon.png');  
 }
 
 .trivia {
-  background-image: url('/img/game_icons/TriviaIcon.png');
+  background-image: url('/img/new_game_icons/TriviaIcon.png');
 }
 
 .memory, .puzzel, .trivia {
@@ -150,8 +151,7 @@ div.game:nth-child(2n){
 }
 
 .locked {
-  background: url('/img/icons/lock.png');
+  background: url('/img/new_game_icons/Slotje.png');
   background-repeat: no-repeat;
-  background-position: 35px;
-  background-size: 60%;
+  background-position: 30px;
 }
