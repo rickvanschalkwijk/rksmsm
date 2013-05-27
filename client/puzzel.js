@@ -90,7 +90,7 @@ Template.puzzelIntro.rendered = function(){
         fadeOriginal: true,    // cross-fade original image [true|false] 
         callback: function(results){
           console.log(results);
-          Meteor.call('insertHighscore', Meteor.userId(), 'puzzel', 0, results.score);
+          // Meteor.call('insertHighscore', Meteor.userId(), 'puzzel', 0, results.score);
           Session.set("puzzelSummary", results);
           setTimeout(function(){Meteor.Router.to('/introendpuzzel')}, 7000);
         },    // callback a user-defined function [function]  

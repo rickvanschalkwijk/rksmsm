@@ -42,7 +42,7 @@ Template.memoryIntro.rendered = function(){
 		textSummaryTime: '',
 		onFinishCall : function(param){
 			console.log(param);
-			Meteor.call('insertHighscore', Meteor.userId(), 'memory', 0, param.score);
+			// Meteor.call('insertHighscore', Meteor.userId(), 'memory', 0, param.score);
 			 Session.set("memorySummary", param);
 			setTimeout(function(){Meteor.Router.to('/introendmemory')}, 1000);
 		}
