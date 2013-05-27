@@ -8,7 +8,8 @@ Template.memoryGame.rendered = function(){
 		colCount:3,
 		animType:'flip',
 		flipAnim:'tb',
-		animSpeed:250,
+		animSpeed:150,
+		openDelay:1000,
 		resultIcons:false,
 		gameSummary:false,
 		textSummaryTitle:'Goed gedaan, je hebt het spel voltooid!',
@@ -18,7 +19,7 @@ Template.memoryGame.rendered = function(){
 			console.log(param);
 			Meteor.call('insertHighscore', Meteor.userId(), 'memory', 1, param.score);
 			Session.set("memorySummary", param);
-			setTimeout(function(){Meteor.Router.to('/viewscorememory')}, 7000);
+			setTimeout(function(){Meteor.Router.to('/viewscorememory')}, 1000);
 		}
 	});
 }
@@ -31,7 +32,8 @@ Template.memoryIntro.rendered = function(){
 		colCount:2,
 		animType:'flip',
 		flipAnim:'tb',
-		animSpeed:250,
+		animSpeed:150,
+		openDelay:1000,
 		resultIcons:false,
 		gameSummary:false,
 		textSummaryTitle:'Goed gedaan, je hebt het spel voltooid!',
@@ -41,7 +43,7 @@ Template.memoryIntro.rendered = function(){
 			console.log(param);
 			Meteor.call('insertHighscore', Meteor.userId(), 'memory', 0, param.score);
 			 Session.set("memorySummary", param);
-			setTimeout(function(){Meteor.Router.to('/introendmemory')}, 7000);
+			setTimeout(function(){Meteor.Router.to('/introendmemory')}, 1000);
 		}
 	});
 }
