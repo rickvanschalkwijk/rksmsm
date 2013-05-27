@@ -44,9 +44,9 @@ p.intro {
 
 .mgcard-show img{
   /*xborder:1px solid #888;*/
-  -webkit-border-radius: 10px;
+  /*-webkit-border-radius: 10px;
   -moz-border-radius: 10px;
-  border-radius: 10px;
+  border-radius: 10px;*/
 }
 
 .quizy-memorygame .quizy-mg-item{
@@ -54,9 +54,9 @@ p.intro {
   cursor:pointer;
   text-align:center;
   border:1px solid #888;
-  -webkit-border-radius: 10px;
+  /*-webkit-border-radius: 10px;
   -moz-border-radius: 10px;
-  border-radius: 10px;
+  border-radius: 10px;*/
 }
 .quizy-memorygame .quizy-mg-item img {
   width: 80px;
@@ -69,9 +69,9 @@ p.intro {
   left:0;
   text-align:center;
   /*border:1px solid #888;*/
-  -webkit-border-radius: 10px;
+  /*-webkit-border-radius: 10px;
   -moz-border-radius: 10px;
-  border-radius: 10px;
+  border-radius: 10px;*/
 }
 
 .quizy-mg-item .quizy-mg-item-top{
