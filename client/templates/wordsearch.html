@@ -1,10 +1,25 @@
 <template name="wordsearch">
-	<div id="wrap triviaWrap">
+	<div id="wrap triviaWrap no-minheight">
     	{{> wordGame}}		
 	</div>
-{{> gameMenu}}
+	{{> gameMenuWordSearch}}
 </template>
 
 <template name="wordGame">
 	  <div id="theGrid"></div>
+</template>
+
+<template name="gameMenuWordSearch">
+  <div id="gamemenu" class="no-sticky">
+    <div id="points">
+    	<i class="plus"></i>	
+      	<span></span>
+    </div>
+    <a id="homeBtnWordSearch" href="/" title="home">
+    <i class="house-white"></i>
+  </a>
+    <div id="totalscore">
+      	<span>totaal: 36</span>
+    </div>
+  </div>
 </template>

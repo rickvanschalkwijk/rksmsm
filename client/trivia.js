@@ -1,6 +1,31 @@
 Session.set("triviaSummary", 0);
 
 Template.triviaGame.rendered = function(){
+
+    // Our countdown plugin takes a callback, a duration, and an optional message
+$.fn.countdown = function (callback, duration, message) {
+    // If no message is provided, we use an empty string
+    message = message || "";
+    // Get reference to container, and set initial content
+    var container = $(this[0]).html(duration + message);
+    // Get reference to the interval doing the countdown
+    var countdown = setInterval(function () {
+        // If seconds remain
+        if (--duration) {
+            // Update our container's message
+            container.html(duration + message);
+        // Otherwise
+        } else {
+            // Clear the countdown interval
+            clearInterval(countdown);
+            // And fire the callback passing our container as `this`
+            callback.call(container);   
+        }
+    // Run interval every 1000ms (1 second)
+    }, 1000);
+
+};
+
 var quizJSON = {
     "questions": [
         { // Question 1
@@ -217,19 +242,13 @@ var questionNbr = 1;
        
 	};
 
-    function setupHeader(questionNumber){
-        
-    }
-
     function checkAnswers(){
     	$(":submit").live('click', function(e){
             $(":submit").attr("disabled", true);
     		var questionLI = $($('#' + e.currentTarget.id).parents('li.question')[0]);
             var questionTxt = $($('#' + e.currentTarget.id).parents('#questionTxt'));
             questionTxt.find('#questionTxt').fadeOut();
-           
-    		//disable buttons
-    		//$(questionLI + " input[type=submit]").attr('disabled','disabled');
+
     		var answerInputs = $(this).val();
     		var answers = questions[parseInt(questionLI.attr('id').replace(/(question)/, ''))].a;
     		
@@ -239,6 +258,7 @@ var questionNbr = 1;
 					var answer = answers[i];
 					if(answer.correct){
 						trueAnswers.push(answer.option);
+                          $('input[type="submit"][value="'+ answer.option +'"]').css('background-color', '#4ECDC4!important');
 					}
 				}
     		}
@@ -246,6 +266,7 @@ var questionNbr = 1;
     		selectedAnswers.push(answerInputs);
     		var correctResponce = compareAnswers(trueAnswers, selectedAnswers);
     		if(correctResponce){
+                $('#' + e.currentTarget.id).css('background-color', '#4ecdc4');
                 score += 10;
                 $('.point').empty();
                 $('.point').prepend(score).fadeIn(300);
@@ -255,6 +276,7 @@ var questionNbr = 1;
     		if(correctResponce){
     			questionLI.find('.correct').fadeIn(500);
     		}else{
+                $('#' + e.currentTarget.id).css('background-color', '#FC3A51');
     			questionLI.find('.incorrect').fadeIn(500);
     		}
     		nextQuestion(questionLI.first('li').get(0).id);  
@@ -281,7 +303,7 @@ var questionNbr = 1;
 
     	if(nextQuestion.length){
     		$('#' + currentQuestion).delay(5000 ).fadeOut(300, function(){
-    			nextQuestion.fadeIn(3000);
+    			nextQuestion.fadeIn(2000);
                 $(":submit").attr("disabled", false);     
     		})
     	}else{
@@ -307,6 +329,9 @@ var questionNbr = 1;
     setupQuiz();
     startTrivia();
     checkAnswers();
+
+// Use p.countdown as container, pass redirect, duration, and optional message
+   // $(".countdown").countdown(null, 10, "s remaining");
 
 };
 
