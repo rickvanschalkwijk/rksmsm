@@ -14,7 +14,7 @@
 
 <template name="intromemory">
   <div id="wrap" class="wrap-white">
-    {{> memoryIntro}}    
+    {{> memoryIntro}}
   </div>
 {{> gameMenuMemory}}
 </template>
@@ -33,50 +33,6 @@
 {{> gameMenu}}
 </template>
 
-
-<template name="memoryViewscore">
-  <div class="memoryviewscore">
-    <h2 class="intro">Gefeliciteerd!</h2>
-    <p class="intro">Deze uitdaging heb je afgesloten met:</p>
-    <div class="score">
-      <span>{{score}}</span><i class="diamond"></i>
-      <div class="clearfix"></div>
-    </div>
-    <p class="gamesummary">Je hebt daarbij {{clicks}} vakjes omgedraaid en dit binnen {{time}} seconden.</p>
-    <a class="btn-large" href="/singleplayer">Naar het overzicht</a>
-  </div>
-</template>
-
-
-<template name="gameMenu">
-  <div id="gamemenu">
-    <div id="average-stars">
-      <i class="star"></i>
-    </div>
-    <div id="totalscore">
-      <span></span>
-    </div>
-  </div>
-  <a id="homeBtn" href="/" title="home">
-    <i class="house-white"></i>
-  </a>
-</template>
-
-
-<template name="gameMenuMemory">
-  <div id="gamemenu">
-    <div id="points">
-      <span>30</span><i class="diamond"></i>
-    </div>
-    <div id="totalscore">
-      <span> </span>
-    </div>
-  </div>
-  <a id="homeBtn" href="/" title="home">
-    <i class="house-white"></i>
-  </a>
-</template>
-
 <template name="memoryHome">
   <div class="memoryhome">
     <h2>Memory</h2>
@@ -84,7 +40,35 @@
     <a class="btn-large" href="/gamememory">Ja, starten maar</a>
     <a class="btn-large" href="/intromemory">Nee, leg me uit</a>
   </div>
+</template>
 
+<template name="memoryIntro">
+  <p class="intro">Zoek dezelfde plaatjes bij elkaar.</p>
+  <div id="my-memoryintro" class="quizy-memorygame memoryintro">
+    <ul>
+        <li class="match1">
+          <img src="/rijksimg/small/nachtwacht.jpg" alt="memory_picture" />
+        </li>
+        <li class="match2">
+          <img src="../rijksimg/small/simon_alpen.jpg" alt="memory_picture" />
+        </li>
+        <li class="match1">
+          <img src="../rijksimg/small/nachtwacht.jpg" alt="memory_picture" />
+        </li>
+        <li class="match2">
+          <img src="../rijksimg/small/simon_alpen.jpg" alt="memory_picture" />
+        </li>
+    </ul>
+  </div>
+  {{> pauseTemp}}
+</template>
+
+<template name="memoryIntroend">
+  <div class="memoryhome">
+    <h2>Super gedaan!</h2>
+    <p class="intro">Goed gedaan! Er staat nu een echte uitdagende versie voor je klaar. Ben je er klaar voor?</p>
+    <a class="btn-large" href="/gamememory">Start maar</a>
+  </div>
 </template>
 
 <template name="memoryGame">
@@ -128,37 +112,20 @@
         <li class="match6">
           <img src="../rijksimg/small/memory6.jpg" alt="memory_picture" />
         </li>
-         
 		</ul>
-	</div>	
+	</div>
+  {{> pauseTemp}}
 </template>
 
-<template name="memoryIntro">
-
-  <p class="intro">Zoek dezelfde plaatjes bij elkaar.</p>
-
-  <div id="my-memoryintro" class="quizy-memorygame memoryintro">
-    <ul>
-        <li class="match1">
-          <img src="/rijksimg/small/nachtwacht.jpg" alt="memory_picture" />
-        </li>
-        <li class="match2">
-          <img src="../rijksimg/small/simon_alpen.jpg" alt="memory_picture" />
-        </li>
-        <li class="match1">
-          <img src="../rijksimg/small/nachtwacht.jpg" alt="memory_picture" />
-        </li>
-        <li class="match2">
-          <img src="../rijksimg/small/simon_alpen.jpg" alt="memory_picture" />
-        </li>
-    </ul>
-  </div>  
-</template>
-
-<template name="memoryIntroend">
-  <div class="memoryhome">
-    <h2>Super gedaan!</h2>
-    <p class="intro">Goed gedaan! Er staat nu een echte uitdagende versie voor je klaar. Ben je er klaar voor?</p>
-    <a class="btn-large" href="/gamememory">Start maar</a>
+<template name="memoryViewscore">
+  <div class="memoryviewscore">
+    <h2 class="intro">Gefeliciteerd!</h2>
+    <p class="intro">Deze uitdaging heb je afgesloten met:</p>
+    <div class="score">
+      <span>{{score}}</span><i class="diamond"></i>
+      <div class="clearfix"></div>
+    </div>
+    <p class="gamesummary">Je hebt daarbij {{clicks}} vakjes omgedraaid en dit binnen {{time}} seconden.</p>
+    <a class="btn-large" href="/singleplayer">Naar het overzicht</a>
   </div>
 </template>

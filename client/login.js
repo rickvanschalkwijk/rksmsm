@@ -35,7 +35,7 @@ Template.header.events({
 Template.login.created = function(){
   if(Meteor.userId() != null){
     Session.set('logged_in', true);
-    Meteor.Router.to('/');
+    Meteor.Router.to('/singleplayer');
   }else{
     console.log("not logged in yet");
   }
@@ -170,7 +170,7 @@ function customLogin(e,t){
               } else {
                 // Success. Account has been created and the user
                 console.log("account created");
-                Meteor.Router.to('/');
+                Meteor.Router.to('/singleplayer');
               }
           });
 
@@ -215,7 +215,7 @@ function createAccount(e,t){
         } else {
           // Success. Account has been created and the user
           console.log("account created");
-          Meteor.Router.to('/');
+          Meteor.Router.to('/singleplayer');
         }
     });
     

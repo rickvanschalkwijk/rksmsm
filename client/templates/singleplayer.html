@@ -19,6 +19,61 @@
 	</a>
 </template>
 
+
+<template name="gameMenu">
+  <div id="gamemenu">
+    <div id="average-stars">
+      <i class="star"></i>
+    </div>
+    <div id="totalscore">
+      <span></span>
+    </div>
+  </div>
+  <a id="homeBtn" href="/" title="home">
+    <i class="house-white"></i>
+  </a>
+</template>
+
+
+<template name="gameMenuMemory">
+  <div id="gamemenu">
+    <div id="points">
+      <span>30</span><i class="diamond"></i>
+    </div>
+    <div id="totalscore">
+      <span> </span>
+    </div>
+  </div>
+  <a id="pauseBtn" href="#pause" title="home">
+    <i class="house-white"></i>
+  </a>
+</template>
+
+<template name="gameMenuPuzzel">
+  <div id="gamemenu">
+    <div id="points">
+      <span> </span><i class="diamond"></i>
+    </div>
+    <div id="totalscore">
+      <span>totaal: 0</span>
+    </div>
+  </div>
+  <a id="pauseBtn" href="#pause" title="home">
+    <i class="house-white"></i>
+  </a>
+</template>
+
+<template name="pauseTemp">
+  <div id="pause">
+    <h2>Pauze</h2>
+    <div class="divider-20"></div>
+    <a id="unpauseBtn" class="btn-large dark-btn" href="#unpause">Spel hervatten</a>
+    <a class="btn-large dark-btn" href="/singleplayer">Naar uitdagingen</a>
+    <div class="divider-20"></div>
+    <a class="btn-large dark-txt" href="/">Naar hoofdmenu</a>
+  </div>
+</template>
+
 <template name="singleGameScreen">
 	<div class="wrap-games">
 		<div class="game cyaan memory arrow-red">
