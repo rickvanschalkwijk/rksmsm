@@ -1,8 +1,6 @@
 
 /* Style for grid cells */
 .rf-tgrid {
-    
-    font-family: Verdana,Arial,Helvetica,sans-serif;
     font-weight: bold;
     font-size: 14px;
     margin: 1px;
@@ -16,39 +14,39 @@
 /* Style for the grid */
 .rf-tablestyle {
     border: 2px solid;
-    border-color: gold;
-    background-color: ghostwhite;
+    outline:1px solid;
+    outline-color: #E3E3E3;
+    border-color: #4ECDC4;
+    background-color: #FFF;
     cursor: pointer;
-
 }
 
 /* Style for the div containing the grid */
 #rf-searchgamecontainer {
-    float: left;
-    padding-right: 50px; 
+    margin:25px auto;
+    width:320px;
 }
 
 /* Style for the div containing the word list */
 #rf-wordcontainer {
-    font-family: Verdana,Arial,Helvetica,sans-serif;
-    float :left;
-    padding-right: 50px; 
+    width:200px;
+    margin:20px auto; 
     cursor: default;
-	margin : 1em 1em 1em 0;
-	
     border: 2px solid;
-    border-color: gold;
-    -moz-border-radius: 20px;
-    -webkit-border-radius: 20px;
-    -khtml-border-radius: 20px;
-    border-radius: 20px;	
-    
+    border-color: #4ECDC4;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -khtml-border-radius: 10px;
+    border-radius: 10px;	
 	cursor: pointer;	
+}
+
+#rf-wordcontainer > ul > li{
+    list-style-type: none;
 }
 
 /* Style for the words that have been found */
 .rf-foundword {
-    font-family: Verdana,Arial,Helvetica,sans-serif;
 	text-decoration : line-through;
 	color : lightgray;
 	font-style : italic;
