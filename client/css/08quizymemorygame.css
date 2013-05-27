@@ -105,7 +105,7 @@ p.intro {
   position:absolute;
   z-index:1001;
   background: #515b69;
-  box-shadow: rgba(0,0,0,0.7) 0 0 4px, inset 0 0 20px rgba(0, 0, 0, 0.4);;
+  box-shadow: rgba(0,0,0,0.7) 0 0 4px, inset 0 0 20px rgba(0, 0, 0, 0.4);
   border:1px solid #000;
   cursor:pointer;
   display:none;

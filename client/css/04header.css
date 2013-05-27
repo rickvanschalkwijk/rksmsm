@@ -93,6 +93,10 @@ footer.footer-dark {
   clear: both;
 } 
 
+footer.no-sticky {
+  margin-top: 20px;
+  position: relative;
+}
 
 
 
