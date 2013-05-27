@@ -171,7 +171,11 @@ div.game:nth-child(2n){
   background-image: url('/img/new_game_icons/TriviaIcon.png');
 }
 
-.memory, .puzzel, .trivia {
+.wordsearch {
+  background-image: url('/img/new_game_icons/WordIcon.png');
+}
+
+.memory, .puzzel, .trivia, .wordsearch {
   background-repeat: no-repeat;
   /*background-position: center;*/
   background-position: 30px 22px;
