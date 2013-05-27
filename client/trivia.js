@@ -224,7 +224,9 @@ var questionNbr = 1;
                 		answerHTML.append(answerContent);	
     				}
     			}
-    			questionHTML.append(answerHTML);
+                var hiddenSubmit = '<input id="hiddensubmit" class="button questionBtn"  type="submit" style="visibility:hidden" />';
+    			answerHTML.append(hiddenSubmit);
+                questionHTML.append(answerHTML);
 
     			var responceHTML = $('<ul class="responses"></ul>');
     			responceHTML.append('<li class="correct">' + question.correct + '</li>');
@@ -250,7 +252,7 @@ var questionNbr = 1;
             questionTxt.find('#questionTxt').fadeOut();
 
     		var answerInputs = $(this).val();
-    		var answers = questions[parseInt(questionLI.attr('id').replace(/(question)/, ''))].a;
+            var answers = questions[parseInt(questionLI.attr('id').replace(/(question)/, ''))].a;
     		
     		var trueAnswers = [];
     		for(i in answers){
@@ -304,7 +306,8 @@ var questionNbr = 1;
     	if(nextQuestion.length){
     		$('#' + currentQuestion).delay(5000 ).fadeOut(300, function(){
     			nextQuestion.fadeIn(2000);
-                $(":submit").attr("disabled", false);     
+                $(":submit").attr("disabled", false);
+               // $(".countdown").countdown(redirect, 10, "s remaining");  
     		})
     	}else{
             completeQuiz();
@@ -331,9 +334,12 @@ var questionNbr = 1;
     checkAnswers();
 
 // Use p.countdown as container, pass redirect, duration, and optional message
-   // $(".countdown").countdown(null, 10, "s remaining");
-
-};
+    //$(".countdown").countdown(redirect, 10, "s remaining");
+    
+    function redirect(){
+        $('#hiddensubmit').trigger('click');
+    }
+};  
 
 Template.viewscoretrivia.scoreTrivia = function(){
     var summary = Session.get("triviaSummary");
