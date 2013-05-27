@@ -41,9 +41,14 @@
 </template>
 
 <template name="viewscoretrivia">
-  <div id="wrap triviaWrap">
-    {{> triviaHeaderFinal}}
-        <p>{{scoreTrivia}}</p>
+  <div class="memoryviewscore">
+    <h2 class="intro">Gefeliciteerd!</h2>
+    <p class="intro">Deze uitdaging heb je afgesloten met:</p>
+    <div class="score">
+      <span>{{scoreTrivia}}</span><i class="diamond"></i>
+      <div class="clearfix"></div>
+    </div>
+    <a class="btn-large" href="/singleplayer">Naar het overzicht</a>
   </div>
 {{> gameMenuTrivia}}
 </template>

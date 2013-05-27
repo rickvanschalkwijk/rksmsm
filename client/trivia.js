@@ -1,3 +1,5 @@
+Session.set("triviaSummary", 0);
+
 Template.triviaGame.rendered = function(){
 var quizJSON = {
     "questions": [
@@ -221,6 +223,7 @@ var questionNbr = 1;
 
     function checkAnswers(){
     	$(":submit").live('click', function(e){
+            $(":submit").attr("disabled", true);
     		var questionLI = $($('#' + e.currentTarget.id).parents('li.question')[0]);
             var questionTxt = $($('#' + e.currentTarget.id).parents('#questionTxt'));
             questionTxt.find('#questionTxt').fadeOut();
@@ -254,7 +257,7 @@ var questionNbr = 1;
     		}else{
     			questionLI.find('.incorrect').fadeIn(500);
     		}
-    		nextQuestion(questionLI.first('li').get(0).id);
+    		nextQuestion(questionLI.first('li').get(0).id);  
     	});
     };
 
@@ -277,8 +280,9 @@ var questionNbr = 1;
     	var nextQuestion = $('#' + currentQuestion).next('.question');
 
     	if(nextQuestion.length){
-    		$('#' + currentQuestion).delay(500 ).fadeOut(300, function(){
-    			nextQuestion.fadeIn(300);
+    		$('#' + currentQuestion).delay(5000 ).fadeOut(300, function(){
+    			nextQuestion.fadeIn(3000);
+                $(":submit").attr("disabled", false);     
     		})
     	}else{
             completeQuiz();

@@ -20,6 +20,11 @@
   font-weight: 400;
 }
 
+input[type=submit]:disabled,
+button:disabled {
+   background-color:#E3E3E3;
+}
+
 .correct {
   list-style-type: none;
   color:#4ECDC4;
