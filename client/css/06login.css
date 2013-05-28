@@ -1,5 +1,5 @@
 .login {
-  margin-top: 20px; 
+  margin-top: 20px;
 }
 
 .login h2 {
@@ -27,11 +27,12 @@
   border: 1px solid #263b67; 
 }
 .login #accountlogin {
+  display: block;
   background: #eeeeee;
   color: #556270;
   font-size: 1.3em;
   border: 1px solid #dfdfdf;
-  opacity: 0.5; 
+  opacity: 0.5;
 }
 
 .loginacc {
@@ -78,7 +79,7 @@
   display: block;
   float: left;
   width: 30%;
-  height:20px;
+  height:53px;
   margin-left: 5%;
 }
 .back-button {
@@ -90,8 +91,9 @@
   display: block;
   float: left;
   width: 55%;
-  height:20px;
+  height:53px;
   margin-left: 5%;
+  margin-bottom: 20px;
 }
 .submit-button {
   background: #556270;
@@ -99,6 +101,7 @@
   color: white;
 }
 .submit-button[disabled="disabled"]{
+  background: #556270 !important;
   opacity: 0.5;
 }
 

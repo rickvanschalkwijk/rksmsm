@@ -4,7 +4,7 @@
 html {
   height:100%;
   background: white;
-  color: #2f363f; 
+  color: #2f363f;
 }
 
 body {
@@ -91,7 +91,7 @@ body {
   display: none;
   position: absolute;
   width: 100%;
-  height: 100%;
+  min-height: 100%;
   top: 0px;
   background: white;
 }
@@ -105,10 +105,53 @@ body {
   background: #eeeeee;
   border-bottom: 1px solid #dadada;
 }
+
 .divider-20 {
   display: block;
   width: 100%;
   height: 20px;
+  clear: both;
+}
+.divider-40 {
+  display: block;
+  width: 100%;
+  height: 40px;
+  clear: both;
+}
+.divider-60 {
+  display: block;
+  width: 100%;
+  height: 60px;
+  clear: both;
+}
+.divider-80 {
+  display: block;
+  width: 100%;
+  height: 80px;
+  clear: both;
+}
+.divider-100 {
+  display: block;
+  width: 100%;
+  height: 100px;
+  clear: both;
+}
+.divider-120 {
+  display: block;
+  width: 100%;
+  height: 200px;
+  clear: both;
+}
+.divider-150 {
+  display: block;
+  width: 100%;
+  height: 200px;
+  clear: both;
+}
+.divider-200 {
+  display: block;
+  width: 100%;
+  height: 200px;
   clear: both;
 }
 

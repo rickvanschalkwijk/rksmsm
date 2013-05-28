@@ -1,3 +1,13 @@
+function storeLocal (){
+  try {
+      localStorage.setItem('test', 'test');
+      localStorage.removeItem('test');
+      return true;
+  } catch(e) {
+      return false;
+  }
+}
+
 Template.highscore.rendered = function(){
   // console.log('highscore template rendered');
 
@@ -20,10 +30,20 @@ Template.highscore.events({
 
 function insertcall(){
   // Meteor.call('insertHighscore', 'asdfjklhg', 'test', 1, 32);
-  Meteor.call('insertHighscore',Meteor.userId(),'memory',0,10);
-  Meteor.call('insertHighscore',Meteor.userId(),'memory',1,12);
-  Meteor.call('insertHighscore',Meteor.userId(),'puzzel',0,14);
-  Meteor.call('insertHighscore',Meteor.userId(),'puzzel',1,16);
+  Meteor.call('insertHighscore',Meteor.userId(),'memory',1,20, function (err, res){
+    if(storeLocal){
+      Meteor.call('getTotalUserscore', Meteor.userId(), function (err, res){
+        localStorage.setItem(Meteor.userId(), res);
+      });
+    }
+  });
+  Meteor.call('insertHighscore',Meteor.userId(),'puzzel',1,20, function (err, res){
+    if(storeLocal){
+      Meteor.call('getTotalUserscore', Meteor.userId(), function (err, res){
+        localStorage.setItem(Meteor.userId(), res);
+      });
+    }
+  });
 };
 
 function updatescall(){
@@ -56,4 +76,5 @@ function rankingUser(){
 function removecollection(){
   // console.log('removecollection');
   Meteor.call('removeHighscore');
+  localStorage.setItem(Meteor.userId(), 'totaal: 0');
 };

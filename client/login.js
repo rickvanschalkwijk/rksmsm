@@ -27,6 +27,10 @@ Template.header.events({
   'click #logout' : logout
 });
 
+Template.logoutMenu.events({
+  'click #logoutButton' : logout
+});
+
 /**
  * TEMPLATE
  */
@@ -34,9 +38,13 @@ Template.header.events({
 // on template create, for redirect if user already logged in
 Template.login.created = function(){
   if(Meteor.userId() != null){
+    localStorage.setItem(Meteor.userId(), 'totaal: 0');
     Session.set('logged_in', true);
     Meteor.Router.to('/singleplayer');
   }else{
+    // setTimeout(function () {
+    //   window.scrollTo(0, 1);
+    // }, 1000);
     console.log("not logged in yet");
   }
 }
@@ -44,6 +52,7 @@ Template.login.created = function(){
 Template.login.acclog = function(){
   console.log("test");
   if(Session.get('acclog')){
+    
     return true;
   }else{
     return false;
@@ -181,9 +190,9 @@ function customLogin(e,t){
         console.log("logged in");
         Meteor.call('setActive', (Meteor.userId()), true, function (err, res){
           // console.log(res);
+          Session.set('acclog', false);
+          Meteor.Router.to('/singleplayer');
         });
-        Session.set('acclog', false);
-        Meteor.Router.to('/');
       }
     });
   }else{

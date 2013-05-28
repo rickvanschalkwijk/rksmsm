@@ -2,7 +2,7 @@
 <div id="wrap" class="wrap-white">
 	{{> singleGameScreen}}		
 </div>
-	{{> userMenu}}
+	{{> logoutMenu}}
 </template>
 
 <template name="userMenu">
@@ -11,7 +11,7 @@
 			
 		</div>
 		<div id="totalscore">
-			<span></span>
+			<span>{{score}}</span>
 		</div>
 	</div>
 	<a id="homeBtn" href="/" title="home">
@@ -19,14 +19,27 @@
 	</a>
 </template>
 
+<template name="logoutMenu">
+  <div id="logoutmenu">
+    <div id="average-stars">
+      
+    </div>
+    <div id="totalscore">
+      <span>{{score}}</span>
+    </div>
+  </div>
+  <a id="logoutButton" href="/" title="home">
+    <i class="logout-white"></i>
+  </a>
+</template>
 
 <template name="gameMenu">
   <div id="gamemenu">
     <div id="average-stars">
-      <i class="star"></i>
+      
     </div>
     <div id="totalscore">
-      <span></span>
+      <span>{{score}}</span>
     </div>
   </div>
   <a id="homeBtn" href="/" title="home">
@@ -71,6 +84,7 @@
     <a class="btn-large dark-btn" href="/singleplayer">Naar uitdagingen</a>
     <div class="divider-20"></div>
     <a class="btn-large dark-txt" href="/">Naar hoofdmenu</a>
+    <div class="divider-40"></div>
   </div>
 </template>
 
@@ -101,7 +115,7 @@
 			</a>
 		</div>
 
-		<div class="game cyaan wordsearch arrow-grey">
+		<div class="game cyaan wordsearch">
 			<a href="/wordsearch" class="gametitle">
 				<div>
 					<span class="game-title-white">Woordenzoeker</span>
@@ -109,20 +123,7 @@
 			</a>
 		</div>
 
-		<div class="game arrow-grey locked">
-			<a>
-				<div>
-				</div>
-			</a>
-		</div>
-
-		<div class="game locked">
-			<a>
-				<div>
-				</div>
-			</a>
-		</div>
-
+    <div class="divider-20"></div>
 		<div class="clearfix"></div>
 	</div>
 </template>

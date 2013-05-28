@@ -1,3 +1,13 @@
+function storeLocal (){
+  try {
+      localStorage.setItem('test', 'test');
+      localStorage.removeItem('test');
+      return true;
+  } catch(e) {
+      return false;
+  }
+}
+
 Session.set("memorySummary", {clicks: 0, time: 0, items: 0, score: 0} );
 Session.set("Pause", true );
 
@@ -18,7 +28,13 @@ Template.memoryGame.rendered = function(){
 		textSummaryTime: '',
 		onFinishCall : function(param){
 			console.log(param);
-			Meteor.call('insertHighscore', Meteor.userId(), 'memory', 1, param.score);
+			Meteor.call('insertHighscore', Meteor.userId(), 'memory', 1, param.score, function (err, res){
+		    if(storeLocal){
+		      Meteor.call('getTotalUserscore', Meteor.userId(), function (err, res){
+		        localStorage.setItem(Meteor.userId(), res);
+		      });
+		    }
+		  });
 			Session.set("memorySummary", param);
 			setTimeout(function(){Meteor.Router.to('/viewscorememory')}, 1000);
 		}

@@ -2,7 +2,7 @@
   SINGLEPLAYER MENU
 ========== */
 
-#usermenu, #gamemenu {
+#usermenu, #gamemenu, #logoutmenu {
   display: block;
   position: fixed;
   bottom: 0px;
@@ -53,7 +53,7 @@
 
 
 
-#homeBtn, #pauseBtn {
+#homeBtn, #pauseBtn, #logoutButton {
   bottom: 0px;
   display: block;
   position: fixed;
@@ -80,7 +80,14 @@
   background: url("/img/icons/pause-white.png") center no-repeat;
   background-size: 30px 30px;
 }
-
+#logoutButton i {
+  display: block;
+  float: left;
+  width: 48px;
+  height: 48px;
+  background: url("/img/icons/switch-white.png") center no-repeat;
+  background-size: 30px 30px;
+}
 
 .wrap-games {
   background: url('/img/background-pattern.png') 0 100% repeat-x;

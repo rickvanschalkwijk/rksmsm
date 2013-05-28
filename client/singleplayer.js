@@ -1,18 +1,98 @@
-Template.userMenu.rendered = function(){
-  // console.log('getTotalUserscore');
-  var elem = $('#totalscore span');
-  Meteor.call('getTotalUserscore', Meteor.userId(), function (err, res){
-    elem.html(res);
-  });
-};
+function storeLocal (){
+  try {
+      localStorage.setItem('test', 'test');
+      localStorage.removeItem('test');
+      return true;
+  } catch(e) {
+      return false;
+  }
+}
 
-Template.gameMenu.rendered = function(){
-  // console.log('getTotalUserscore');
-  var elem = $('#totalscore span');
-  Meteor.call('getTotalUserscore', Meteor.userId(), function (err, res){
-    elem.html(res);
-  });
-};
+
+
+// Template.userMenu.rendered = function(){
+//   // console.log('getTotalUserscore');
+//   var elem = $('#totalscore span');
+//   Meteor.call('getTotalUserscore', Meteor.userId(), function (err, res){
+//     elem.html(res);
+//   });
+// };
+
+// Template.gameMenu.rendered = function(){
+//   // console.log('getTotalUserscore');
+//   var elem = $('#totalscore span');
+//   Meteor.call('getTotalUserscore', Meteor.userId(), function (err, res){
+//     elem.html(res);
+//   });
+// };
+
+Template.userMenu.score = function(){
+  if(storeLocal){
+    var score = localStorage.getItem(Meteor.userId());
+    if(score == null){
+      Meteor.call('getTotalUserscore', Meteor.userId(), function (err, res){
+        console.log(res);
+        localStorage.setItem(Meteor.userId(), res);
+        var elem = $('#totalscore span');
+        elem.html(res); 
+      });
+    }else{
+      return localStorage.getItem(Meteor.userId());
+    }
+  }else{
+    Meteor.call('getTotalUserscore', Meteor.userId(), function (err, res){
+      var elem = $('#totalscore span');
+      console.log(res);
+      elem.html(res);  
+    });
+  }
+}
+
+Template.gameMenu.score = function(){
+  if(storeLocal){
+    var score = localStorage.getItem(Meteor.userId());
+    if(score == null){
+      Meteor.call('getTotalUserscore', Meteor.userId(), function (err, res){
+        console.log(res);
+        localStorage.setItem(Meteor.userId(), res);
+        var elem = $('#totalscore span');
+        elem.html(res); 
+      });
+    }else{
+      return localStorage.getItem(Meteor.userId());
+    }
+  }else{
+    Meteor.call('getTotalUserscore', Meteor.userId(), function (err, res){
+      var elem = $('#totalscore span');
+      console.log(res);
+      elem.html(res);  
+    });
+  }
+}
+
+
+Template.logoutMenu.score = function(){
+  if(storeLocal){
+    var score = localStorage.getItem(Meteor.userId());
+    if(score == null || score == 'totaal: 0'){
+      Meteor.call('getTotalUserscore', Meteor.userId(), function (err, res){
+        console.log(res);
+        localStorage.setItem(Meteor.userId(), res);
+        var elem = $('#totalscore span');
+        elem.html(res); 
+      });
+    }else{
+      return localStorage.getItem(Meteor.userId());
+    }
+  }else{
+    Meteor.call('getTotalUserscore', Meteor.userId(), function (err, res){
+      var elem = $('#totalscore span');
+      console.log(res);
+      elem.html(res);  
+    });
+  }
+}
+
 
 Template.gameMenuMemory.events({
   'click #pauseBtn': initPause

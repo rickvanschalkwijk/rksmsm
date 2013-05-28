@@ -1,3 +1,13 @@
+function storeLocal (){
+  try {
+      localStorage.setItem('test', 'test');
+      localStorage.removeItem('test');
+      return true;
+  } catch(e) {
+      return false;
+  }
+}
+
 Session.set("puzzelSummary", {moves: 0, seconds: 0, score: 0} );
 
 Template.puzzelGame.rendered = function(){
@@ -33,7 +43,13 @@ Template.puzzelGame.rendered = function(){
         fadeOriginal: true,    // cross-fade original image [true|false] 
         callback: function(results){
           console.log(results);
-          Meteor.call('insertHighscore', Meteor.userId(), 'puzzel', 1, results.score);
+          Meteor.call('insertHighscore', Meteor.userId(), 'puzzel', 1, results.score, function (err, res){
+            if(storeLocal){
+              Meteor.call('getTotalUserscore', Meteor.userId(), function (err, res){
+                localStorage.setItem(Meteor.userId(), res);
+              });
+            }
+          });
           Session.set("puzzelSummary", results);
           setTimeout(function(){Meteor.Router.to('/viewscorepuzzel')}, 7000);
         },    // callback a user-defined function [function]  
