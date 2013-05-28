@@ -29,6 +29,7 @@ Template.memoryGame.rendered = function(){
 		onFinishCall : function(param){
 			console.log(param);
 			Meteor.call('insertHighscore', Meteor.userId(), 'memory', 1, param.score, function (err, res){
+		    Meteor.call('refreshUserScore', Meteor.userId());
 		    if(storeLocal){
 		      Meteor.call('getTotalUserscore', Meteor.userId(), function (err, res){
 		        localStorage.setItem(Meteor.userId(), res);

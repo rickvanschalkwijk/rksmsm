@@ -11,9 +11,7 @@ Meteor.methods({
 //     return TotalUsers;
 //   }
   setActive: function(userId, bool){
-    console.log('setActive method');
-    console.log(userId);
-
+    // console.log('setActive method');
     if(!bool){
       Meteor.users.update({ 
         _id:userId 
@@ -27,7 +25,6 @@ Meteor.methods({
       return 'logging out';
     }else{
       var timestamp = ( new Date() ).getTime();
-
       Meteor.users.update({ 
         _id:userId 
       },{ 
@@ -39,7 +36,6 @@ Meteor.methods({
         multi: false
       });
       return 'logging in';
-
     }
   },
   getHighscores: function(){
@@ -48,17 +44,30 @@ Meteor.methods({
     console.log(scores);
     return scores;
   },
-  getTotalUserscore: function(userid){
-    // console.log('getTotalUserscore');
+  refreshUserScore: function(userid){
+    // console.log('refreshUserScore');
+    var userScore = Globalscores.findOne({userid: userid});
     var scores = Highscores.find({userid: userid}).fetch();
     var totalScore = 0;
-
     _.each(scores, function(score){
       totalScore += score.score;
     });
-    totalScore = 'totaal: '+totalScore;
-
+    if(userScore){
+      Globalscores.update({_id: userScore._id}, {$set:{'score': totalScore}});
+    }else{
+      Globalscores.insert({userid: userid, score: totalScore});
+    }
     return totalScore;
+  },
+  getTotalUserscore: function(userid){
+    // console.log('getTotalUserscore');
+    var totalScore = Globalscores.findOne({userid: userid});
+    if(totalScore){
+      return 'totaal: '+totalScore.score;
+    }else{
+      return 'totaal: 0';
+    }
+    
   },
   insertHighscore: function(userid, game, level, score){
     // console.log('insertHighscore');
@@ -77,43 +86,47 @@ Meteor.methods({
   removeHighscore: function(){
     // console.log('removeHighscore');
     Highscores.remove({});
+    Globalscores.remove({});
     return 'removeHighscore';
   },
   rankingGame: function(game){
-    console.log('rankingGame');
+    // console.log('rankingGame');
     var scores = Highscores.find({game: game},{sort: {score: -1}}).fetch();
     return scores;
   },
   rankingLevel: function(game, level){
-    console.log('rankingLevel');
-
+    // console.log('rankingLevel');
     var scores = Highscores.find({game: game, level: level}).fetch();
     return scores;
   },
   rankingUser: function(){
     console.log('rankingUser');
-
-    var ranking = [];
-
-    // get all highscores
-    var scores = Highscores.find({}).fetch();
-
-    // get all uniq users
-    var uniqUsers = _.uniq(_.map(scores, function(item){ return item.userid; }));
-    // var uniqUsers = _.uniq(scores, false, function(item){ return item.userid; });
-
-    // loop through each user
-    _.each(uniqUsers, function(userid){
-      var score = 0;
-      _.filter(scores, function(item){ 
-        if(item.userid == userid){ 
-          score += item.score;
-        }
-      });
-      ranking.push({userid: userid, score: score});
-    });
-    console.log(ranking);
+    var ranking = Globalscores.find({}, {sort: { score: -1 }}).fetch();
     return ranking;
+  },
+  rankingList: function(userid){
+    console.log('rankingList');
+    var ranking = Globalscores.find({}, {sort: { score: -1 }}).fetch();
+    
+    var mapranking = _.map(ranking, function(item){ return item.userid; });
+    var indexrank = _.indexOf(mapranking, userid);
+    console.log(indexrank);
+
+    if(indexrank >= 0 && indexrank <= 4){
+      var newranking = ranking.slice(0,5);
+    }else{
+      var newranking = ranking.slice(0,4);
+      newranking.push(ranking[indexrank]);
+    }
+
+    var sendrequest = {
+      highscores: newranking,
+      index: indexrank
+      }; 
+
+    
+
+    return sendrequest;
   },
   getTriviaQuestions: function(){
     var quizJSON = {

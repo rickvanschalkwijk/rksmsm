@@ -44,6 +44,7 @@ Template.puzzelGame.rendered = function(){
         callback: function(results){
           console.log(results);
           Meteor.call('insertHighscore', Meteor.userId(), 'puzzel', 1, results.score, function (err, res){
+            Meteor.call('refreshUserScore', Meteor.userId());
             if(storeLocal){
               Meteor.call('getTotalUserscore', Meteor.userId(), function (err, res){
                 localStorage.setItem(Meteor.userId(), res);

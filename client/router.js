@@ -18,6 +18,8 @@
   '/viewscorepuzzel'  : routeTo('viewscorepuzzel'),
   '/trivia'           : routeTo('trivia'),
   '/highscore'        : routeTo('highscore'),
+  '/highscoreusers'   : routeTo('highscoreusers'),
+  '/highscorememory'  : routeTo('highscorememory'),
   '/viewscoretrivia'  : routeTo('viewscoretrivia'),
   '/wordsearch'       : routeTo('wordsearch')
   });

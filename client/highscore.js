@@ -13,7 +13,12 @@ Template.highscore.rendered = function(){
 
 };
 
-
+Template.highscoreusers.rendered = function(){
+  console.log('rankingUser');
+  Meteor.call('rankingUser', Meteor.userId(), function (err, res){
+    console.log(res);
+  });
+}
 
 
 
@@ -25,26 +30,36 @@ Template.highscore.events({
   'click #rankingMemory': rankingGame,
   'click #rankingMemoryLevel': rankingLevel,
   'click #rankingUsers': rankingUser,
+  'click #rankingLists': rankingList,
+  'click #refreshUserScore': refreshScoreUser,
+  'click #userScore': scoreUser,
   'click #remove': removecollection
 });
 
 function insertcall(){
-  // Meteor.call('insertHighscore', 'asdfjklhg', 'test', 1, 32);
-  Meteor.call('insertHighscore',Meteor.userId(),'memory',1,20, function (err, res){
+  Meteor.call('insertHighscore',Meteor.userId(),'memory',2,8, function (err, res){
+    Meteor.call('refreshUserScore', Meteor.userId());
     if(storeLocal){
       Meteor.call('getTotalUserscore', Meteor.userId(), function (err, res){
         localStorage.setItem(Meteor.userId(), res);
       });
     }
   });
-  Meteor.call('insertHighscore',Meteor.userId(),'puzzel',1,20, function (err, res){
-    if(storeLocal){
-      Meteor.call('getTotalUserscore', Meteor.userId(), function (err, res){
-        localStorage.setItem(Meteor.userId(), res);
-      });
-    }
+  
+};
+
+function refreshScoreUser(){
+  Meteor.call('refreshUserScore', Meteor.userId(), function (err, res){
+    console.log(res);
   });
 };
+
+function scoreUser(){
+  Meteor.call('getTotalUserscore', Meteor.userId(), function (err, res){
+    console.log(res);
+  });
+};
+
 
 function updatescall(){
   Meteor.call('getHighscores', function (err, res){
@@ -69,6 +84,13 @@ function rankingLevel(){
 function rankingUser(){
   console.log('rankingUser');
   Meteor.call('rankingUser', function (err, res){
+    console.log(res);
+  });
+};
+
+function rankingList(){
+  console.log('rankingList');
+  Meteor.call('rankingList', Meteor.userId(), function (err, res){
     console.log(res);
   });
 };

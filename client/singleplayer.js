@@ -75,7 +75,6 @@ Template.logoutMenu.score = function(){
   }
 }
 
-
 Template.gameMenuMemory.events({
   'click #pauseBtn': initPause
 });

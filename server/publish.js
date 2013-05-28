@@ -3,6 +3,7 @@ Meteor.startup(function(){
 });
 
 Highscores = new Meteor.Collection("highscores");
+Globalscores = new Meteor.Collection("globalscores");
 
 
 
