@@ -96,34 +96,30 @@ function logout(e,t){
   
   Meteor.call('setActive', (Meteor.userId()), false, function (err, res){
     // console.log(res);
+    Meteor.logout(function(err){
+      if(err){
+        console.log(err);
+      }else{
+        Session.set('logged_in', false);
+      }
+    });
   });
-  // console.log(Meteor.user().profile.active);
+  
 
-  Meteor.logout(function(err){
-    if(err){
-      console.log(err);
-    }else{
-      Session.set('logged_in', false);
-    }
-  });
+  
 }
 
 // Facebook login
 function facebookLogin(e,t){
   e.preventDefault();
-
   Meteor.loginWithFacebook(function(err){
     if (err) {
       return console.log(err);
     }
     console.log('facebook login', Meteor.user() );
-
     Meteor.call('setActive', (Meteor.userId()), true, function (err, res){
       // console.log(res);
     });
-
-    
-
     Session.set('logged_in', true);
   });
 }
