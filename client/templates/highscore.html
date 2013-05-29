@@ -1,5 +1,6 @@
 <template name="highscore">
 <div id="wrap" class="wrap-white">
+  {{#if admin}}
   <h2>Highscore</h2>
   <p>some text</p>
 
@@ -12,6 +13,7 @@
   <a href="#refreshUserScore" id="refreshUserScore">refresh userscore</a></br>
   <a href="#userScore" id="userScore">get userscore</a></br>
   <a href="#remove" id="remove">empty collection</a></br>
+  {{/if}}
 </div>
 {{> userMenu}}
 </template>

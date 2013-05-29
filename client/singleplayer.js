@@ -97,6 +97,48 @@ Template.logoutMenu.score = function(){
     });
   }
 }
+Session.set('gamesUnlocked', 0);
+
+Template.singleplayer.created = function(){
+  console.log('games played check');
+  Meteor.call('getGamesPlayed', Meteor.userId(), function (err, res){
+    Session.set('gamesUnlocked', res);
+  });
+}
+Template.singleGameScreen.unlockedMemoryOne = function(){
+  var unlockedgames = Session.get('gamesUnlocked');
+  if(unlockedgames > 0){
+    return true;
+  }else{
+    return false;
+  }
+}
+
+Template.singleGameScreen.unlockedPuzzelOne = function(){
+  var unlockedgames = Session.get('gamesUnlocked');
+  if(unlockedgames >= 1){
+    return true;
+  }else{
+    return false;
+  }
+}
+Template.singleGameScreen.unlockedPuzzelOne.unlockedTriviaOne = function(){
+  var unlockedgames = Session.get('gamesUnlocked');
+  if(unlockedgames >= 2){
+    return true;
+  }else{
+    return false;
+  }
+}
+
+Template.singleGameScreen.unlockedTriviaOne = function(){
+  var unlockedgames = Session.get('gamesUnlocked');
+  if(unlockedgames >= 2){
+    return true;
+  }else{
+    return false;
+  }
+}
 
 Template.gameMenuMemory.events({
   'click #pauseBtn': initPause

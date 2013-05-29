@@ -90,6 +90,7 @@
 
 <template name="singleGameScreen">
 	<div class="wrap-games">
+    {{#if unlockedMemoryOne}}
 		<div class="game cyaan memory arrow-red">
 			<a href="/memory" class="gametitle">
 				<div>
@@ -97,31 +98,60 @@
 				</div>
 			</a>
 		</div>
+    {{else}}
+    <div class="game cyaan memory arrow-grey">
+      <a href="/memory" class="gametitle">
+        <div>
+          <span class="game-title-white">Memory</span>
+        </div>
+      </a>
+    </div>
+    {{/if}}
 
-		<div class="game cyaan puzzel arrow-red">
-			<a href="/puzzel" class="gametitle">
-				<div>
-					<span class="game-title-white">Puzzel</span>
-				</div>
-			</a>
-		</div>
+    {{#if unlockedPuzzelOne}}
+      {{#if unlockedTriviaOne}}
+        <div class="game cyaan puzzel arrow-red">
+          <a href="/puzzel" class="gametitle">
+            <div>
+              <span class="game-title-white">Puzzel</span>
+            </div>
+          </a>
+        </div>
+      {{else}}
+        <div class="game cyaan puzzel arrow-grey">
+          <a href="/puzzel" class="gametitle">
+            <div>
+              <span class="game-title-white">Puzzel</span>
+            </div>
+          </a>
+        </div>
+      {{/if}}
+		
+    {{else}}
+      <div class="game arrow-grey locked">
+        <a href="/">
+          <div>
+          </div>
+        </a>
+      </div>
+    {{/if}}
 	
-
-		<div class="game cyaan trivia arrow-red">
+    {{#if unlockedTriviaOne}}
+		<div class="game cyaan trivia">
 			<a href="/trivia" class="gametitle">
 				<div>
 					<span class="game-title-white">Trivia</span>
 				</div>
 			</a>
 		</div>
-
-		<div class="game cyaan wordsearch">
-			<a href="/wordsearch" class="gametitle">
-				<div>
-					<span class="game-title-white">Woordenzoeker</span>
-				</div>
-			</a>
-		</div>
+    {{else}}
+    <div class="game locked">
+      <a href="/">
+        <div>
+        </div>
+      </a>
+    </div>
+    {{/if}}
 
     <div class="divider-20"></div>
 		<div class="clearfix"></div>

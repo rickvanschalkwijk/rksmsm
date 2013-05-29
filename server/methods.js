@@ -177,6 +177,18 @@ Meteor.methods({
 
     return newranking;
   },
+  getGamesPlayed: function(userid){
+    console.log('getGamesPlayed');
+    var scores = Highscores.find({userid: userid}).fetch();
+    var unlockedgames = 0;
+
+    if(scores){
+      _.each(scores, function(item){
+        unlockedgames++;
+      });
+    }
+    return unlockedgames;
+  },
   getTriviaQuestions: function(){
     var quizJSON = {
           "questions": [
