@@ -71,14 +71,18 @@ Template.gameMenuMemory.rendered = function(){
 };
 
 
-Template.viewscorememory.testUser = function(bool){
-  return bool;
-}
-Template.viewscorememory.userlist = function(){
-  console.log('rankingLevelList');
+Template.viewscorememory.created = function(){
   Meteor.call('rankingLevelList', Meteor.userId(), 'memory', 1, function (err, res){
     Session.set('userHighscoreLevelList', res);
   });
+}
+
+Template.viewscorememory.testUser = function(bool){
+  return bool;
+}
+
+Template.viewscorememory.userlist = function(){
+  console.log('rankingLevelList');
   var data = Session.get('userHighscoreLevelList');
   if(!data){
     Meteor.call('rankingLevelList', Meteor.userId(), 'memory', 1, function (err, res){
@@ -88,6 +92,24 @@ Template.viewscorememory.userlist = function(){
   console.log(data);
   return data;
 }
+
+// Template.viewscorememory.testUser = function(bool){
+//   return bool;
+// }
+// Template.viewscorememory.userlist = function(){
+//   console.log('rankingLevelList');
+//   Meteor.call('rankingLevelList', Meteor.userId(), 'memory', 1, function (err, res){
+//     Session.set('userHighscoreLevelList', res);
+//   });
+//   var data = Session.get('userHighscoreLevelList');
+//   if(!data){
+//     Meteor.call('rankingLevelList', Meteor.userId(), 'memory', 1, function (err, res){
+//       Session.set('userHighscoreLevelList', res);
+//     });
+//   }
+//   console.log(data);
+//   return data;
+// }
 
 
 

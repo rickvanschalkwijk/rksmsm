@@ -133,16 +133,18 @@ Template.gameMenuPuzzel.rendered = function(){
 };
 
 
-
+Template.viewscorepuzzel.created = function(){
+  Meteor.call('rankingLevelList', Meteor.userId(), 'puzzel', 1, function (err, res){
+    Session.set('userHighscoreLevelList', res);
+  });
+}
 
 Template.viewscorepuzzel.testUser = function(bool){
   return bool;
 }
 Template.viewscorepuzzel.userlist = function(){
   console.log('rankingLevelList');
-  Meteor.call('rankingLevelList', Meteor.userId(), 'puzzel', 1, function (err, res){
-    Session.set('userHighscoreLevelList', res);
-  });
+  
   var data = Session.get('userHighscoreLevelList');
   if(!data){
     Meteor.call('rankingLevelList', Meteor.userId(), 'puzzel', 1, function (err, res){
@@ -152,3 +154,22 @@ Template.viewscorepuzzel.userlist = function(){
   console.log(data);
   return data;
 }
+
+
+// Template.viewscorepuzzel.testUser = function(bool){
+//   return bool;
+// }
+// Template.viewscorepuzzel.userlist = function(){
+//   console.log('rankingLevelList');
+//   Meteor.call('rankingLevelList', Meteor.userId(), 'puzzel', 1, function (err, res){
+//     Session.set('userHighscoreLevelList', res);
+//   });
+//   var data = Session.get('userHighscoreLevelList');
+//   if(!data){
+//     Meteor.call('rankingLevelList', Meteor.userId(), 'puzzel', 1, function (err, res){
+//       Session.set('userHighscoreLevelList', res);
+//     });
+//   }
+//   console.log(data);
+//   return data;
+// }
