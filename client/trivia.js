@@ -1,4 +1,12 @@
-Session.set("triviaSummary", 0);
+function storeLocal (){
+  try {
+      localStorage.setItem('test', 'test');
+      localStorage.removeItem('test');
+      return true;
+  } catch(e) {
+      return false;
+  }
+}
 
 Template.triviaGame.rendered = function(){
 var score = 0;
@@ -303,9 +311,15 @@ var questions = quizJSON.questions;
     }
 
     function completeQuiz(){
-        Meteor.call('insertHighscore', Meteor.userId(), 'trivia', 1, score);
-        Session.set("triviaSummary", score);
-        setTimeout(function(){Meteor.Router.to('/viewscoretrivia')}, 7000);
+        Meteor.call('insertHighscore', Meteor.userId(), 'trivia', 1, score, function (err, res){
+            Meteor.call('refreshUserScore', Meteor.userId());
+            if(storeLocal){
+              Meteor.call('getTotalUserscore', Meteor.userId(), function (err, res){
+                localStorage.setItem(Meteor.userId(), res);
+              });
+            }
+        });
+        setTimeout(function(){Meteor.Router.to('/viewscoretrivia')}, 1000);
     }
 
     function startTrivia(){
@@ -329,8 +343,25 @@ var questions = quizJSON.questions;
     }
 };  
 
-Template.viewscoretrivia.scoreTrivia = function(){
-    var summary = Session.get("triviaSummary");
-    console.log(summary);
-    return summary;
+Template.viewscoretrivia.testUser = function(bool){
+  return bool;
 }
+Template.viewscoretrivia.userlist = function(){
+  console.log('rankingLevelList');
+  Meteor.call('rankingLevelList', Meteor.userId(), 'trivia', 1, function (err, res){
+    Session.set('userHighscoreLevelList', res);
+  });
+  var data = Session.get('userHighscoreLevelList');
+  if(!data){
+    Meteor.call('rankingLevelList', Meteor.userId(), 'trivia', 1, function (err, res){
+      Session.set('userHighscoreLevelList', res);
+    });
+  }
+  console.log(data);
+  return data;
+}
+
+
+
+
+

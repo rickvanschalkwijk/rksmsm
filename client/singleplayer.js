@@ -53,6 +53,29 @@ Template.gameMenu.score = function(){
 }
 
 
+Template.gameMenuTrivia.score = function(){
+  if(storeLocal){
+    var score = localStorage.getItem(Meteor.userId());
+    if(score == null){
+      Meteor.call('getTotalUserscore', Meteor.userId(), function (err, res){
+        console.log(res);
+        localStorage.setItem(Meteor.userId(), res);
+        var elem = $('#totalscore span');
+        elem.html(res); 
+      });
+    }else{
+      return localStorage.getItem(Meteor.userId());
+    }
+  }else{
+    Meteor.call('getTotalUserscore', Meteor.userId(), function (err, res){
+      var elem = $('#totalscore span');
+      console.log(res);
+      elem.html(res);  
+    });
+  }
+}
+
+
 Template.logoutMenu.score = function(){
   if(storeLocal){
     var score = localStorage.getItem(Meteor.userId());

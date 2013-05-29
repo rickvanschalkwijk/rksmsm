@@ -62,7 +62,7 @@ Template.highscore.events({
 });
 
 function insertcall(){
-  Meteor.call('insertHighscore',Meteor.userId(),'puzzel',1,14, function (err, res){
+  Meteor.call('insertHighscore',Meteor.userId(),'trivia',1,40, function (err, res){
     Meteor.call('refreshUserScore', Meteor.userId());
     if(storeLocal){
       Meteor.call('getTotalUserscore', Meteor.userId(), function (err, res){

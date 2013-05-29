@@ -33,7 +33,7 @@
       	<span></span>
     </div>
     <div id="totalscore">
-      	<span>totaal: 36</span>
+      	<span>{{score}}</span>
     </div>
   </div>
   <a id="homeBtn" href="/" title="home">
@@ -42,14 +42,22 @@
 </template>
 
 <template name="viewscoretrivia">
-  <div class="memoryviewscore">
-    <h2 class="intro">Gefeliciteerd!</h2>
-    <p class="intro">Deze uitdaging heb je afgesloten met:</p>
-    <div class="score">
-      <span>{{scoreTrivia}}</span><i class="diamond"></i>
-      <div class="clearfix"></div>
+  <div id="wrap" class="wrap-white">
+    <div class="wraphighscore">
+      <ul class="userlist">
+      {{#each userlist}}
+        {{#if testUser isUser}}
+      <li class="currentuser">
+        {{else}}
+        <li>
+        {{/if}}
+        <span class="rank">{{index}}</span>
+        <span class="name">{{username}}</span>
+        <span class="totscore">{{score}}</span>
+      </li>
+      {{/each}}
+      </ul>
     </div>
-    <a class="btn-large" href="/singleplayer">Naar het overzicht</a>
   </div>
-{{> gameMenuTrivia}}
+{{> userMenu}}
 </template>
