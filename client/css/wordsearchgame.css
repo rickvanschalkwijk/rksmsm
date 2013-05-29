@@ -43,6 +43,7 @@
 
 #rf-wordcontainer > ul > li{
     list-style-type: none;
+    text-align: center;
 }
 
 /* Style for the words that have been found */

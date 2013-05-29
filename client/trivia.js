@@ -1,29 +1,20 @@
 Session.set("triviaSummary", 0);
 
 Template.triviaGame.rendered = function(){
+var score = 0;
+var questionNbr = 1;
 
-    // Our countdown plugin takes a callback, a duration, and an optional message
 $.fn.countdown = function (callback, duration, message) {
-    // If no message is provided, we use an empty string
     message = message || "";
-    // Get reference to container, and set initial content
     var container = $(this[0]).html(duration + message);
-    // Get reference to the interval doing the countdown
     var countdown = setInterval(function () {
-        // If seconds remain
         if (--duration) {
-            // Update our container's message
             container.html(duration + message);
-        // Otherwise
         } else {
-            // Clear the countdown interval
             clearInterval(countdown);
-            // And fire the callback passing our container as `this`
             callback.call(container);   
         }
-    // Run interval every 1000ms (1 second)
     }, 1000);
-
 };
 
 var quizJSON = {
@@ -191,8 +182,7 @@ var quizJSON = {
     ]
 };	
 var questions = quizJSON.questions;
-var score = 0;
-var questionNbr = 1;
+
 	function setupQuiz(){
         $('#points').prepend('<div class="point">' + score + '</div>');
     	var quiz = $('<ol class="questions"></ol>'),
@@ -241,7 +231,6 @@ var questionNbr = 1;
         questionBlock.append('<div class="questionNumber"> Vraag <span>' + questionNbr + '</span> van de ' + count + '</div>');
         $('#headWrap').prepend(questionBlock);
     	$('#triviaWrapper').append(quiz);
-       
 	};
 
     function checkAnswers(){
@@ -294,7 +283,6 @@ var questionNbr = 1;
     			return false;
     		}
     	}
-
     	return true;
     }
 
