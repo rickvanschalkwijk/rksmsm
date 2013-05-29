@@ -18,16 +18,42 @@
 
 <template name="highscorememory">
 <div id="wrap" class="wrap-white">
-  <h2>Highscore memory</h2>
-  <p>some text</p>
+  <div class="wraphighscore">
+    <ul class="userlist">
+    {{#each userlist}}
+      {{#if testUser isUser}}
+    <li class="currentuser">
+      {{else}}
+    <li>
+      {{/if}}
+      <span class="rank">{{index}}</span>
+      <span class="name">{{username}}</span>
+      <span class="totscore">{{score}}</span>
+    </li>
+    {{/each}}
+    </ul>
+  </div>
 </div>
 {{> userMenu}}
 </template>
 
 <template name="highscoreusers">
 <div id="wrap" class="wrap-white">
-  <h2>Highscore users</h2>
-  <p>some text</p>
+  <div class="wraphighscore">
+    <ul class="userlist">
+    {{#each userlist}}
+      {{#if testUser isUser}}
+    <li class="currentuser">
+      {{else}}
+      <li>
+      {{/if}}
+      <span class="rank">{{index}}</span>
+      <span class="name">{{username}}</span>
+      <span class="totscore">{{score}}</span>
+    </li>
+    {{/each}}
+    </ul>
+  </div>
 </div>
 {{> userMenu}}
 </template>

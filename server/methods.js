@@ -55,7 +55,9 @@ Meteor.methods({
     if(userScore){
       Globalscores.update({_id: userScore._id}, {$set:{'score': totalScore}});
     }else{
-      Globalscores.insert({userid: userid, score: totalScore});
+      var username = Meteor.user().profile.name;
+      // var username = Meteor.user().username;
+      Globalscores.insert({userid: userid, username: username, score: totalScore});
     }
     return totalScore;
   },
@@ -107,26 +109,73 @@ Meteor.methods({
   rankingList: function(userid){
     console.log('rankingList');
     var ranking = Globalscores.find({}, {sort: { score: -1 }}).fetch();
-    
     var mapranking = _.map(ranking, function(item){ return item.userid; });
     var indexrank = _.indexOf(mapranking, userid);
     console.log(indexrank);
 
     if(indexrank >= 0 && indexrank <= 4){
       var newranking = ranking.slice(0,5);
+      for (var i = newranking.length - 1; i >= 0; i--) {
+        if(i == indexrank){
+          newranking[i]['index'] = (indexrank+1);
+          newranking[i]['isUser'] = true;
+        }else{
+          newranking[i]['index'] = (i+1);
+          newranking[i]['isUser'] = false;
+        }
+      };
     }else{
       var newranking = ranking.slice(0,4);
       newranking.push(ranking[indexrank]);
+      for (var i = newranking.length - 1; i >= 0; i--) {
+        if(i == 4){
+          newranking[i]['index'] = (indexrank+1);
+          newranking[i]['isUser'] = true;
+        }else{
+          newranking[i]['index'] = (i+1);
+          newranking[i]['isUser'] = false;
+        }
+      };
+    }
+    return newranking;
+  },
+  rankingLevelList: function(userid, game, level){
+    console.log('rankingMemoryList');
+    var ranking = Highscores.find({game: game, level: level},{sort: {score: -1}}).fetch();
+    var mapranking = _.map(ranking, function(item){ return item.userid; });
+    var indexrank = _.indexOf(mapranking, userid);
+    console.log(indexrank);
+
+    if(indexrank >= 0 && indexrank <= 4){
+      var newranking = ranking.slice(0,5);
+      for (var i = newranking.length - 1; i >= 0; i--) {
+        var user = Meteor.users.findOne({_id: newranking[i]['userid']})
+        newranking[i]['username'] = user.profile.name;
+        if(i == indexrank){
+          newranking[i]['index'] = (indexrank+1);
+          newranking[i]['isUser'] = true;
+        }else{
+          newranking[i]['index'] = (i+1);
+          newranking[i]['isUser'] = false;
+        }
+      };
+    }else{
+      var newranking = ranking.slice(0,4);
+      newranking.push(ranking[indexrank]);
+      for (var i = newranking.length - 1; i >= 0; i--) {
+        var user = Meteor.users.findOne({_id: newranking[i]['userid']})
+        newranking[i]['username'] = user.profile.name;
+        if(i == 4){
+          newranking[i]['index'] = (indexrank+1);
+          newranking[i]['isUser'] = true;
+        }else{
+          newranking[i]['index'] = (i+1);
+          newranking[i]['isUser'] = false;
+        }
+      };
     }
 
-    var sendrequest = {
-      highscores: newranking,
-      index: indexrank
-      }; 
-
-    
-
-    return sendrequest;
+    return newranking;
   },
   getTriviaQuestions: function(){
     var quizJSON = {

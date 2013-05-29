@@ -8,16 +8,41 @@ function storeLocal (){
   }
 }
 
-Template.highscore.rendered = function(){
-  // console.log('highscore template rendered');
-
-};
-
-Template.highscoreusers.rendered = function(){
-  console.log('rankingUser');
-  Meteor.call('rankingUser', Meteor.userId(), function (err, res){
-    console.log(res);
+Template.highscorememory.testUser = function(bool){
+  return bool;
+}
+Template.highscorememory.userlist = function(){
+  console.log('rankingLevelList');
+  Meteor.call('rankingLevelList', Meteor.userId(), 'memory', 1, function (err, res){
+    Session.set('userHighscoreLevelList', res);
   });
+  var data = Session.get('userHighscoreLevelList');
+  if(!data){
+    Meteor.call('rankingLevelList', Meteor.userId(), 'memory', 1, function (err, res){
+      Session.set('userHighscoreLevelList', res);
+    });
+  }
+  console.log(data);
+  return data;
+}
+
+Template.highscoreusers.testUser = function(bool){
+  return bool;
+}
+
+Template.highscoreusers.userlist = function(){
+  Meteor.call('rankingList', Meteor.userId(), function (err, res){
+    Session.set('userHighscoreList', res);
+  });
+  var data = Session.get('userHighscoreList');
+  if(!data){
+    Meteor.call('rankingList', Meteor.userId(), function (err, res){
+      Session.set('userHighscoreList', res);
+    });
+  }
+  data = Session.get('userHighscoreList');
+  console.log(data);
+  return data;
 }
 
 
@@ -37,7 +62,7 @@ Template.highscore.events({
 });
 
 function insertcall(){
-  Meteor.call('insertHighscore',Meteor.userId(),'memory',2,8, function (err, res){
+  Meteor.call('insertHighscore',Meteor.userId(),'puzzel',1,14, function (err, res){
     Meteor.call('refreshUserScore', Meteor.userId());
     if(storeLocal){
       Meteor.call('getTotalUserscore', Meteor.userId(), function (err, res){

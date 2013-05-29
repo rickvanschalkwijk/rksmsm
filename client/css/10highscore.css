@@ -1,0 +1,58 @@
+
+.wraphighscore {
+  padding: 24px;
+}
+
+.userlist {
+  display: block;
+  
+  border: 1px solid #dfdfdf;
+  border-radius: 7px;
+}
+
+ul.userlist li {
+  display: block;
+  padding: 14px 24px;
+  list-style-type: none;
+  border-bottom: 1px solid #dfdfdf;
+  font-family: "Source Sans Pro", sans-serif;
+  font-size: 1.3em;
+  font-weight: 400;
+}
+ul.userlist li:nth-child(2n) {
+  background: #f7f7f7;
+}
+ul.userlist li:first-child {
+  border-top-left-radius: 6px;
+  border-top-right-radius: 6px;
+}
+ul.userlist li:last-child {
+  border-bottom: 0px solid #dfdfdf;
+  border-bottom-left-radius: 6px;
+  border-bottom-right-radius: 6px;
+}
+.userlist li .rank {
+  display: inline-block;
+  width: 20px;
+  margin-right: 10px;
+  text-align: right;
+}
+.userlist li .name {
+  color: #556270;
+}
+.userlist li .totscore {
+  display: inline-block;
+  float: right;
+  width: 40px;
+  margin-right: 10px;
+  text-align: right;
+}
+.userlist li.currentuser .name {
+  color: #d3fffc;
+}
+
+
+.userlist li.currentuser {
+  background: #4ecdc4!important;
+  color: white!important;
+}
