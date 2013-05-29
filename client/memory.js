@@ -8,8 +8,8 @@ function storeLocal (){
   }
 }
 
-Session.set("memorySummary", {clicks: 0, time: 0, items: 0, score: 0} );
-Session.set("Pause", true );
+
+
 
 Template.memoryGame.rendered = function(){
 	$('#my-memorygame').quizyMemoryGame({
@@ -74,23 +74,24 @@ Template.gameMenuMemory.rendered = function(){
   });
 };
 
-Template.memoryViewscore.score = function(){
-	console.log( Session.get("memorySummary") );
-	var summary = Session.get("memorySummary");
-	return summary.score;
+
+Template.viewscorememory.testUser = function(bool){
+  return bool;
 }
-
-Template.memoryViewscore.clicks = function(){
-	var summary = Session.get("memorySummary");
-	return summary.clicks;
+Template.viewscorememory.userlist = function(){
+  console.log('rankingLevelList');
+  Meteor.call('rankingLevelList', Meteor.userId(), 'memory', 1, function (err, res){
+    Session.set('userHighscoreLevelList', res);
+  });
+  var data = Session.get('userHighscoreLevelList');
+  if(!data){
+    Meteor.call('rankingLevelList', Meteor.userId(), 'memory', 1, function (err, res){
+      Session.set('userHighscoreLevelList', res);
+    });
+  }
+  console.log(data);
+  return data;
 }
-
-Template.memoryViewscore.time = function(){
-	var summary = Session.get("memorySummary");
-	return summary.time;
-}
-
-
 
 
 

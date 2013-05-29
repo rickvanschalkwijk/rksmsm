@@ -8,8 +8,6 @@ function storeLocal (){
   }
 }
 
-Session.set("puzzelSummary", {moves: 0, seconds: 0, score: 0} );
-
 Template.puzzelGame.rendered = function(){
   $(document).ready(function() {
     var images = new Array(
@@ -42,7 +40,6 @@ Template.puzzelGame.rendered = function(){
       success: { 
         fadeOriginal: true,    // cross-fade original image [true|false] 
         callback: function(results){
-          console.log(results);
           Meteor.call('insertHighscore', Meteor.userId(), 'puzzel', 1, results.score, function (err, res){
             Meteor.call('refreshUserScore', Meteor.userId());
             if(storeLocal){
@@ -51,8 +48,7 @@ Template.puzzelGame.rendered = function(){
               });
             }
           });
-          Session.set("puzzelSummary", results);
-          setTimeout(function(){Meteor.Router.to('/viewscorepuzzel')}, 7000);
+          setTimeout(function(){Meteor.Router.to('/viewscorepuzzel')}, 1000);
         },    // callback a user-defined function [function]  
         callbackTimeout: 300    // time in ms after which the callback is called 
       }, 
@@ -106,10 +102,7 @@ Template.puzzelIntro.rendered = function(){
       success: { 
         fadeOriginal: true,    // cross-fade original image [true|false] 
         callback: function(results){
-          console.log(results);
-          // Meteor.call('insertHighscore', Meteor.userId(), 'puzzel', 0, results.score);
-          Session.set("puzzelSummary", results);
-          setTimeout(function(){Meteor.Router.to('/introendpuzzel')}, 7000);
+          setTimeout(function(){Meteor.Router.to('/introendpuzzel')}, 1000);
         },    // callback a user-defined function [function]  
         callbackTimeout: 300    // time in ms after which the callback is called 
       }, 
@@ -139,21 +132,23 @@ Template.gameMenuPuzzel.rendered = function(){
   });
 };
 
-Template.puzzelViewscore.score = function(){
-  console.log( Session.get("puzzelSummary") );
-  var summary = Session.get("puzzelSummary");
-  return summary.score;
+
+
+
+Template.viewscorepuzzel.testUser = function(bool){
+  return bool;
 }
-
-Template.puzzelViewscore.moves = function(){
-  var summary = Session.get("puzzelSummary");
-  return summary.moves;
+Template.viewscorepuzzel.userlist = function(){
+  console.log('rankingLevelList');
+  Meteor.call('rankingLevelList', Meteor.userId(), 'puzzel', 1, function (err, res){
+    Session.set('userHighscoreLevelList', res);
+  });
+  var data = Session.get('userHighscoreLevelList');
+  if(!data){
+    Meteor.call('rankingLevelList', Meteor.userId(), 'puzzel', 1, function (err, res){
+      Session.set('userHighscoreLevelList', res);
+    });
+  }
+  console.log(data);
+  return data;
 }
-
-Template.puzzelViewscore.seconds = function(){
-  var summary = Session.get("puzzelSummary");
-  return summary.seconds;
-}
-
-
-

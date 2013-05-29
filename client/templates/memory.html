@@ -28,7 +28,21 @@
 
 <template name="viewscorememory">
   <div id="wrap" class="wrap-white">
-    {{> memoryViewscore}}    
+    <div class="wraphighscore">
+      <ul class="userlist">
+      {{#each userlist}}
+        {{#if testUser isUser}}
+        <li class="currentuser">
+        {{else}}
+        <li>
+        {{/if}}
+          <span class="rank">{{index}}</span>
+          <span class="name">{{username}}</span>
+          <span class="totscore">{{score}}</span>
+        </li>
+      {{/each}}
+      </ul>
+    </div>
   </div>
 {{> gameMenu}}
 </template>
@@ -121,15 +135,4 @@
   {{> pauseTemp}}
 </template>
 
-<template name="memoryViewscore">
-  <div class="memoryviewscore">
-    <h2 class="intro">Gefeliciteerd!</h2>
-    <p class="intro">Deze uitdaging heb je afgesloten met:</p>
-    <div class="score">
-      <span>{{score}}</span><i class="diamond"></i>
-      <div class="clearfix"></div>
-    </div>
-    <p class="gamesummary">Je hebt daarbij {{clicks}} vakjes omgedraaid en dit binnen {{time}} seconden.</p>
-    <a class="btn-large" href="/singleplayer">Naar het overzicht</a>
-  </div>
-</template>
+
