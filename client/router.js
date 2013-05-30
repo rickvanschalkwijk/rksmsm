@@ -1,6 +1,6 @@
 // ROUTER
   Meteor.Router.add({
-    '/'               : routeTo('singleplayer'),
+    '/'               : routeTo('home'),
   '/login'            : 'login',
   '/loginacc'         : 'loginacc',
   '/register'         : 'register',

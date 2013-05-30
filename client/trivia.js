@@ -222,8 +222,8 @@ var questions = quizJSON.questions;
                 		answerHTML.append(answerContent);	
     				}
     			}
-                var hiddenSubmit = '<input id="hiddensubmit" class="button questionBtn"  type="submit" style="visibility:hidden" />';
-    			answerHTML.append(hiddenSubmit);
+               // var hiddenSubmit = '<input id="hiddensubmit" class="button questionBtn"  type="submit" style="visibility:hidden" />';
+    			//answerHTML.append(hiddenSubmit);
                 questionHTML.append(answerHTML);
 
     			var responceHTML = $('<ul class="responses"></ul>');
@@ -246,7 +246,7 @@ var questions = quizJSON.questions;
             $(":submit").attr("disabled", true);
     		var questionLI = $($('#' + e.currentTarget.id).parents('li.question')[0]);
             var questionTxt = $($('#' + e.currentTarget.id).parents('#questionTxt'));
-            questionTxt.find('#questionTxt').fadeOut();
+            var closedQuestion = $($('#' + e.currentTarget.id).closest('h3'));
 
     		var answerInputs = $(this).val();
             var answers = questions[parseInt(questionLI.attr('id').replace(/(question)/, ''))].a;
@@ -273,10 +273,16 @@ var questions = quizJSON.questions;
     		}
     		questionLI.find('.responses').show();
     		if(correctResponce){
-    			questionLI.find('.correct').fadeIn(500);
+    		    $(closedQuestion).empty();	
+                //$(":header").fadeOut(500, function(){
+                    questionLI.find('.correct').fadeIn(500);    
+               // });
+                
     		}else{
                 $('#' + e.currentTarget.id).css('background-color', '#FC3A51');
-    			questionLI.find('.incorrect').fadeIn(500);
+    			$(":header").fadeOut(500, function(){
+                    questionLI.find('.incorrect').fadeIn(500);
+                });
     		}
     		nextQuestion(questionLI.first('li').get(0).id);  
     	});
@@ -303,6 +309,7 @@ var questions = quizJSON.questions;
     		$('#' + currentQuestion).delay(5000 ).fadeOut(300, function(){
     			nextQuestion.fadeIn(2000);
                 $(":submit").attr("disabled", false);
+                $(":header").fadeIn(500);
                // $(".countdown").countdown(redirect, 10, "s remaining");  
     		})
     	}else{
