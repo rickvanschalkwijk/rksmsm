@@ -50,7 +50,7 @@ body {
 
 
 .circle {
-  margin: 20px auto;
+  margin: 35px auto;
   width: 100px;
   height: 100px;
   background: #556270;
@@ -58,14 +58,42 @@ body {
   border-radius: 100px;
 }
 #play-alone > .user {
-  background: #556270 url(/img/icons/user-white.png) no-repeat center center;
+  background: #556270 url(/img/icons/rocket-icon.png) no-repeat center center;
 }
 #play-group > .users {
   background: #556270 url(/img/icons/users-white.png) no-repeat center center;
 }
 
 #play-group {
-  opacity: 0.2;
+  background: rgba(0, 0, 0, 0.5) url('/img/avatar-block3.jpg') repeat-x center center;
+}
+
+.highscoreBtn{
+  height:50px;
+  width:90%;
+  margin:0 auto;
+  top:50px;
+  position: relative;
+  background-color: #556270;
+  border-radius: 10px;
+  border:2px solid #455260;
+}
+
+.highscoreBtn > h3{
+  color:#FFF;
+  text-align: center;
+  line-height: 50px;
+}
+
+.txtWhite{
+  color:#FFF;
+  margin:20px 0 0 0;
+}
+
+#userScore{
+  color:#FFF;
+  font-size:3em;
+  font-weight: bold;
 }
 
 .btn-large {

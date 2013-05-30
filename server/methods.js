@@ -71,6 +71,14 @@ Meteor.methods({
     }
     
   },
+  getTotalUserScoreClean: function(userid){
+    var totalScore = Globalscores.findOne({userid: userid});
+    if(totalScore){
+      return totalScore.score;
+    }else{
+      return '0';
+    }
+  },
   insertHighscore: function(userid, game, level, score){
     // console.log('insertHighscore');
     var scores = Highscores.findOne({userid: userid, game: game, level: level});

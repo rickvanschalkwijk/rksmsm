@@ -40,7 +40,7 @@ Template.login.created = function(){
   if(Meteor.userId() != null){
     localStorage.setItem(Meteor.userId(), 'totaal: 0');
     Session.set('logged_in', true);
-    Meteor.Router.to('/singleplayer');
+    Meteor.Router.to('/');
   }else{
     // setTimeout(function () {
     //   window.scrollTo(0, 1);
@@ -187,7 +187,7 @@ function customLogin(e,t){
         Meteor.call('setActive', (Meteor.userId()), true, function (err, res){
           // console.log(res);
           Session.set('acclog', false);
-          Meteor.Router.to('/singleplayer');
+          Meteor.Router.to('/');
         });
       }
     });
@@ -220,7 +220,7 @@ function createAccount(e,t){
         } else {
           // Success. Account has been created and the user
           console.log("account created");
-          Meteor.Router.to('/singleplayer');
+          Meteor.Router.to('/');
         }
     });
     
