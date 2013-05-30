@@ -74,8 +74,9 @@ Template.highscore.events({
   'click #remove': removecollection
 });
 
-function insertcall(){
-  Meteor.call('insertHighscore',Meteor.userId(),'memory',1,14, function (err, res){
+function insertcall(e,t){
+  e.preventDefault();
+  Meteor.call('insertHighscore',Meteor.userId(),'puzzel',1,41, function (err, res){
     Meteor.call('refreshUserScore', Meteor.userId());
     if(storeLocal){
       Meteor.call('getTotalUserscore', Meteor.userId(), function (err, res){
@@ -86,54 +87,62 @@ function insertcall(){
   
 };
 
-function refreshScoreUser(){
+function refreshScoreUser(e,t){
+  e.preventDefault();
   Meteor.call('refreshUserScore', Meteor.userId(), function (err, res){
     console.log(res);
   });
 };
 
-function scoreUser(){
+function scoreUser(e,t){
+  e.preventDefault();
   Meteor.call('getTotalUserscore', Meteor.userId(), function (err, res){
     console.log(res);
   });
 };
 
 
-function updatescall(){
+function updatescall(e,t){
+  e.preventDefault();
   Meteor.call('getHighscores', function (err, res){
     console.log(res);
   });
 };
 
-function rankingGame(){
+function rankingGame(e,t){
+  e.preventDefault();
   console.log('rankingGame');
   Meteor.call('rankingGame', 'memory', function (err, res){
     console.log(res);
   });
 };
 
-function rankingLevel(){
+function rankingLevel(e,t){
+  e.preventDefault();
   console.log('rankingLevel');
   Meteor.call('rankingLevel', 'memory', 1, function (err, res){
     console.log(res);
   });
 };
 
-function rankingUser(){
+function rankingUser(e,t){
+  e.preventDefault();
   console.log('rankingUser');
   Meteor.call('rankingUser', function (err, res){
     console.log(res);
   });
 };
 
-function rankingList(){
+function rankingList(e,t){
+  e.preventDefault();
   console.log('rankingList');
   Meteor.call('rankingList', Meteor.userId(), function (err, res){
     console.log(res);
   });
 };
 
-function removecollection(){
+function removecollection(e,t){
+  e.preventDefault();
   // console.log('removecollection');
   Meteor.call('removeHighscore');
   localStorage.setItem(Meteor.userId(), 'totaal: 0');
