@@ -370,6 +370,48 @@ Template.viewscoretrivia.userlist = function(){
   return data;
 }
 
+// Facebook share
+
+Template.viewscoretrivia.facebooklogin = function(){
+  if(Meteor.user() != null){
+    if(Meteor.user().profile.picture){ 
+      return true; 
+    }else{ return false; }
+  }else{ return false; }
+}
+
+
+Template.viewscoretrivia.events({
+  'click #publishwall': publish_to_wall
+});
+
+function publish_to_wall(e,t){
+  e.preventDefault();
+  var data = Session.get('userHighscoreLevelList');
+  var highscore = _.find(data, function(obj){ 
+    if(obj.isUser){
+      return obj;
+    }
+  });
+  
+  FB.ui({
+    method: 'feed',
+    name: 'Hoera! Ik heb '+highscore.game+' gehaald met RKSMSM!',
+    caption: 'Ik heb zojuist '+highscore.score+' punten gehaald met '+highscore.game+'!',
+    description: (
+      'Klik hier om mijn voortgang bij te houden.'
+    ),
+    link: 'http://rksmsm.meteor.com/',
+    picture: 'http://rksmsm.meteor.com/img/main-logo.png'
+  }, function(response) {
+    if (response && response.post_id) {
+      // alert('Post was published.');
+    } else {
+      // alert('Post was not published.');
+    }
+  });
+}
+
 
 
 
