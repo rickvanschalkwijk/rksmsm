@@ -156,20 +156,36 @@ Template.viewscorepuzzel.userlist = function(){
 }
 
 
-// Template.viewscorepuzzel.testUser = function(bool){
-//   return bool;
-// }
-// Template.viewscorepuzzel.userlist = function(){
-//   console.log('rankingLevelList');
-//   Meteor.call('rankingLevelList', Meteor.userId(), 'puzzel', 1, function (err, res){
-//     Session.set('userHighscoreLevelList', res);
-//   });
-//   var data = Session.get('userHighscoreLevelList');
-//   if(!data){
-//     Meteor.call('rankingLevelList', Meteor.userId(), 'puzzel', 1, function (err, res){
-//       Session.set('userHighscoreLevelList', res);
-//     });
-//   }
-//   console.log(data);
-//   return data;
-// }
+// Facebook share
+Template.viewscorepuzzel.events({
+  'click #publishwall': publish_to_wall
+});
+
+function publish_to_wall(e,t){
+  e.preventDefault();
+  var data = Session.get('userHighscoreLevelList');
+  var highscore = _.find(data, function(obj){ 
+    if(obj.isUser){
+      return obj;
+    }
+  });
+  
+  FB.ui({
+    method: 'feed',
+    name: 'Hoera! Ik heb '+highscore.game+' gehaald met RKSMSM!',
+    caption: 'Ik heb zojuist '+highscore.score+' punten gehaald met '+highscore.game+'!',
+    description: (
+      'Klik hier om mijn voortgang bij te houden.'
+    ),
+    link: 'http://rksmsm.meteor.com/',
+    picture: 'http://rksmsm.meteor.com/img/main-logo.png'
+  }, function(response) {
+    if (response && response.post_id) {
+      // alert('Post was published.');
+    } else {
+      // alert('Post was not published.');
+    }
+  });
+}
+
+

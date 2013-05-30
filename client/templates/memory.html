@@ -43,7 +43,9 @@
       {{/each}}
       </ul>
       <div class="sharewrap">
-        <!-- <a class="btn-normal lightgrey" href="/">Delen</a> -->
+        {{#if facebooklogin}}
+        <a class="btn-normal lightgrey" id="publishwall" href="#publishwall">Delen</a>
+        {{/if}}
       </div>
       <div class="gamelistwrap">
         <a class="btn-normal lightgrey" href="/singleplayer">Game lijst</a>
