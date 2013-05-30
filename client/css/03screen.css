@@ -91,6 +91,25 @@ body {
   color: #556270;
 }
 
+.btn-normal {
+  display: block;
+  background: #b3babe;
+  padding: 15px 10px;
+  border: 1px solid #798893;
+  text-align: center;
+  font-family: "Source Sans Pro", sans-serif;
+  font-size: 1.3em;
+  font-weight: 400;
+  text-decoration: none;
+  color: white;
+  border-radius: 5px;
+}
+.lightgrey {
+  background: #ced5dc;
+  border: 1px solid #b2b2b2;
+  color: #556270;
+}
+
 #pause {
   display: none;
   position: absolute;
