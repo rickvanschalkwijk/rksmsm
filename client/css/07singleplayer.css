@@ -176,19 +176,19 @@ div.game:nth-child(2n){
 }
 
 .memory {
-  background-image: url('/img/new_game_icons/MemoryIcon.png');
+  background-image: url('/img/game_icons/MemoryIcon-White.png');
 }
 
 .puzzel {
-  background-image: url('/img/new_game_icons/SchuifpuzzelIcon.png');  
+  background-image: url('/img/game_icons/SchuifpuzzelIcon-White.png');  
 }
 
 .trivia {
-  background-image: url('/img/new_game_icons/TriviaIcon.png');
+  background-image: url('/img/game_icons/TriviaIcon-White.png');
 }
 
 .wordsearch {
-  background-image: url('/img/new_game_icons/WordIcon.png');
+  background-image: url('/img/game_icons/WordIcon-White.png');
 }
 
 .memory, .puzzel, .trivia, .wordsearch {
