@@ -273,11 +273,10 @@ var questions = quizJSON.questions;
     		}
     		questionLI.find('.responses').show();
     		if(correctResponce){
-    		    $(closedQuestion).empty();	
-                //$(":header").fadeOut(500, function(){
+    		    //$(closedQuestion).empty();	
+                $(":header").fadeOut(500, function(){
                     questionLI.find('.correct').fadeIn(500);    
-               // });
-                
+                }); 
     		}else{
                 $('#' + e.currentTarget.id).css('background-color', '#FC3A51');
     			$(":header").fadeOut(500, function(){

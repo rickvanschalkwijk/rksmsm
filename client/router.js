@@ -21,7 +21,8 @@
   '/highscoreusers'   : routeTo('highscoreusers'),
   '/highscorememory'  : routeTo('highscorememory'),
   '/viewscoretrivia'  : routeTo('viewscoretrivia'),
-  '/wordsearch'       : routeTo('wordsearch')
+  '/wordsearch'       : routeTo('wordsearch'),
+  '/highscores'        : routeTo('highscores')
   });
 
   function routeTo(routing){
