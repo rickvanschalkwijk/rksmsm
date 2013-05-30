@@ -102,7 +102,7 @@ var quizJSON = {
             "a": [
                 {"option": "Den-Haag",        "correct": true},
                 {"option": "Amsterdam",      "correct": false},
-                {"option": "Leiden",         "correct": false}
+                {"option": "Rotterdam",         "correct": false}
             ],
             "correct": "<p><span>Goed geantwoord!</span></p>",
             "incorrect": "<p><span>Fout.</span> Het goede antwoord moest zijn: Den-Haag.</p>" // no comma here
@@ -120,7 +120,7 @@ var quizJSON = {
          { // Question 10
             "q": "Welke kleur is de hoofddoek van het melkmeisje?",
             "a": [
-                {"option": "Blauw",        "correct": false},
+                {"option": "Paars",        "correct": false},
                 {"option": "Geel",          "correct": false},
                 {"option": "Wit",         "correct": true}
             ],
