@@ -90,7 +90,7 @@
 }
 
 .wrap-games {
-  background: url('/img/background-pattern.png') 0 100% repeat-x;
+  /*background: url('/img/background-pattern.png') 0 100% repeat-x;*/
   padding: 25px 25px 51px 25px;
   max-width: 290px;
   margin: 0 auto;

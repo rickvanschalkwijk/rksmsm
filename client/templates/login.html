@@ -1,15 +1,15 @@
 <template name="login">
-  <div id="wrap" class="wrap-white no-minheight">
+  <div id="wrap" class="wrap-white">
   {{> header}}
     <div class="login">
       <h2>Het spel is er klaar voor! En jij?</h2>
       <a href="#facebooklogin" id="facebooklogin"><i class="facebook-white"></i>Login met je Facebook</a>
       <a href="accountlogin" id="accountlogin">Of voer je naam in</a>
-      <div class="divider-20"></div>
+      <div class="divider-120"></div>
     </div>
     
   </div>
-  {{> footer-dark-no-sticky}}
+  {{> footer-dark}}
 </template>
 
 <template name="loginacc">
@@ -20,13 +20,14 @@
       <p>Om je geweldige resultaten te tonen, hebben we je naam nodig. Mogen we die?</p>
     
       <form id="customAccountLogin" action="action">
-        <input type="text" placeholder="Voer nickname in..." id="username" class="input-large" />
+        <input type="text" placeholder="Voer nickname in..." id="username" class="input-large" autofocus="autofocus" />
         <div class="backwrap">
           <a class="back-button" href="/" title="back">Terug</a>
         </div>
         <div class="submitwrap">
           <input type="submit" value="Start" id="sendLogin" class="submit-button" disabled="disabled" />
         </div>
+        <div class="divider-40"></div>
         <div class="clearfix"></div>
       </form>
     </div>

@@ -25,6 +25,10 @@ body {
   min-height: 0 !important;
 }
 
+.backimage {
+  background: url('/img/background-pattern.png') 0 95% repeat-x !important;
+}
+
 
 /* =======
   CONTENT
@@ -139,13 +143,13 @@ body {
 .divider-120 {
   display: block;
   width: 100%;
-  height: 200px;
+  height: 120px;
   clear: both;
 }
 .divider-150 {
   display: block;
   width: 100%;
-  height: 200px;
+  height: 150px;
   clear: both;
 }
 .divider-200 {
