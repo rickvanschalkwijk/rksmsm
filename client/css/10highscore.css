@@ -56,3 +56,18 @@ ul.userlist li:last-child {
   background: #4ecdc4!important;
   color: white!important;
 }
+
+.sharewrap {
+  display: block;
+  float: left;
+  width: 40%;
+  margin-top: 20px;
+}
+.gamelistwrap {
+  display: block;
+  float: left;
+  width: 55%;
+  margin-left: 5%;
+  margin-top: 20px;
+}
+

@@ -44,6 +44,14 @@ Meteor.methods({
     console.log(scores);
     return scores;
   },
+  getHighscoreLevel: function(userid, game, level){
+    var score = Highscores.findOne({userid: userid, game: game, level: level});
+    if(score){
+      return score;
+    }else{
+      return 0;
+    }
+  },
   refreshUserScore: function(userid){
     // console.log('refreshUserScore');
     var userScore = Globalscores.findOne({userid: userid});
