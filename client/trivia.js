@@ -347,23 +347,26 @@ var questions = quizJSON.questions;
     function redirect(){
         $('#hiddensubmit').trigger('click');
     }
-};  
+}; 
+
+Template.viewscoretrivia.created = function(){
+    Meteor.call('rankingLevelList', Meteor.userId(), 'trivia', 1, function (err, res){
+        Session.set('userHighscoreLevelList', res);
+    });
+}
 
 Template.viewscoretrivia.testUser = function(bool){
   return bool;
 }
 Template.viewscoretrivia.userlist = function(){
-  console.log('rankingLevelList');
-  Meteor.call('rankingLevelList', Meteor.userId(), 'trivia', 1, function (err, res){
-    Session.set('userHighscoreLevelList', res);
-  });
+  // console.log('rankingLevelList');
   var data = Session.get('userHighscoreLevelList');
   if(!data){
     Meteor.call('rankingLevelList', Meteor.userId(), 'trivia', 1, function (err, res){
       Session.set('userHighscoreLevelList', res);
     });
   }
-  console.log(data);
+  // console.log(data);
   return data;
 }
 
