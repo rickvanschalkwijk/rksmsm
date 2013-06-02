@@ -175,7 +175,7 @@ function customLogin(e,t){
               } else {
                 // Success. Account has been created and the user
                 console.log("account created");
-                Meteor.Router.to('/singleplayer');
+                Meteor.Router.to('/');
               }
           });
 
