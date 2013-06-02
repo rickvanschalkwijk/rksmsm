@@ -16,7 +16,7 @@ Template.userMenu.score = function(){
         console.log(res);
         localStorage.setItem(Meteor.userId(), res);
         var elem = $('#totalscore span');
-        elem.html(res); 
+        elem.html('totaal: '+res+ '<i class="plus-grey"></i>'); 
       });
     }else{
       return localStorage.getItem(Meteor.userId());
@@ -25,7 +25,7 @@ Template.userMenu.score = function(){
     Meteor.call('getTotalUserscore', Meteor.userId(), function (err, res){
       var elem = $('#totalscore span');
       console.log(res);
-      elem.html(res);  
+      elem.html('totaal: '+res+ '<i class="plus-grey"></i>');  
     });
   }
 }
@@ -38,7 +38,7 @@ Template.gameMenu.score = function(){
         console.log(res);
         localStorage.setItem(Meteor.userId(), res);
         var elem = $('#totalscore span');
-        elem.html(res); 
+        elem.html('totaal: '+res+ '<i class="plus-grey"></i>'); 
       });
     }else{
       return localStorage.getItem(Meteor.userId());
@@ -47,11 +47,54 @@ Template.gameMenu.score = function(){
     Meteor.call('getTotalUserscore', Meteor.userId(), function (err, res){
       var elem = $('#totalscore span');
       console.log(res);
-      elem.html(res);  
+      elem.html('totaal: '+res+ '<i class="plus-grey"></i>');  
     });
   }
 }
 
+Template.gameMenuMemory.score = function(){
+  if(storeLocal){
+    var score = localStorage.getItem(Meteor.userId());
+    if(score == null){
+      Meteor.call('getTotalUserscore', Meteor.userId(), function (err, res){
+        console.log(res);
+        localStorage.setItem(Meteor.userId(), res);
+        var elem = $('#totalscore span');
+        elem.html('totaal: '+res+ '<i class="plus-grey"></i>'); 
+      });
+    }else{
+      return localStorage.getItem(Meteor.userId());
+    }
+  }else{
+    Meteor.call('getTotalUserscore', Meteor.userId(), function (err, res){
+      var elem = $('#totalscore span');
+      console.log(res);
+      elem.html('totaal: '+res+ '<i class="plus-grey"></i>');  
+    });
+  }
+}
+
+Template.gameMenuPuzzel.score = function(){
+  if(storeLocal){
+    var score = localStorage.getItem(Meteor.userId());
+    if(score == null){
+      Meteor.call('getTotalUserscore', Meteor.userId(), function (err, res){
+        console.log(res);
+        localStorage.setItem(Meteor.userId(), res);
+        var elem = $('#totalscore span');
+        elem.html('totaal: '+res+ '<i class="plus-grey"></i>'); 
+      });
+    }else{
+      return localStorage.getItem(Meteor.userId());
+    }
+  }else{
+    Meteor.call('getTotalUserscore', Meteor.userId(), function (err, res){
+      var elem = $('#totalscore span');
+      console.log(res);
+      elem.html('totaal: '+res+ '<i class="plus-grey"></i>');  
+    });
+  }
+}
 
 Template.gameMenuTrivia.score = function(){
   if(storeLocal){
@@ -61,7 +104,7 @@ Template.gameMenuTrivia.score = function(){
         console.log(res);
         localStorage.setItem(Meteor.userId(), res);
         var elem = $('#totalscore span');
-        elem.html(res); 
+        elem.html('totaal: '+res+ '<i class="plus-grey"></i>'); 
       });
     }else{
       return localStorage.getItem(Meteor.userId());
@@ -70,10 +113,12 @@ Template.gameMenuTrivia.score = function(){
     Meteor.call('getTotalUserscore', Meteor.userId(), function (err, res){
       var elem = $('#totalscore span');
       console.log(res);
-      elem.html(res);  
+      elem.html('totaal: '+res+ '<i class="plus-grey"></i>');  
     });
   }
 }
+
+
 
 
 Template.logoutMenu.score = function(){

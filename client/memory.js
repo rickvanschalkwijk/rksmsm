@@ -62,13 +62,6 @@ Template.memoryIntro.rendered = function(){
 	});
 }
 
-Template.gameMenuMemory.rendered = function(){
-  // console.log('getTotalUserscore');
-  var elem = $('#totalscore span');
-  Meteor.call('getTotalUserscore', Meteor.userId(), function (err, res){
-    elem.html(res);
-  });
-};
 
 
 Template.viewscorememory.created = function(){

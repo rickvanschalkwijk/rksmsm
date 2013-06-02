@@ -1,5 +1,9 @@
-Template.highscores.rendered = function(){
-	  Meteor.call('rankingList', Meteor.userId(), function (err, res){
+Template.highscores.testUser = function(bool){
+  return bool;
+}
+
+Template.highscores.userlist = function(){
+  Meteor.call('rankingList', Meteor.userId(), function (err, res){
     Session.set('userHighscoreList', res);
   });
   var data = Session.get('userHighscoreList');

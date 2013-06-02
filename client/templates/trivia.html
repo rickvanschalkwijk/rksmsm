@@ -29,15 +29,14 @@
 <template name="gameMenuTrivia">
   <div id="gamemenu">
     <div id="points">
-    	<i class="plus"></i>	
-      	<span></span>
+    	<i class="plus-dark"></i>
     </div>
     <div id="totalscore">
-      	<span>{{score}}</span>
+      	<span>totaal: {{score}} <i class="plus-grey"></i></span>
     </div>
   </div>
-  <a id="homeBtn" href="/" title="home">
-    <i class="house-white"></i>
+  <a id="singleplayerBtn" href="/singleplayer" title="Games">
+    <i class="menu-white"></i>
   </a>
 </template>
 
@@ -69,5 +68,5 @@
     </div>
     <div class="divider-60"></div>
   </div>
-{{> userMenu}}
+{{> gameMenu}}
 </template>
