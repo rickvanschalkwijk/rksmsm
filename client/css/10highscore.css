@@ -39,6 +39,10 @@ ul.userlist li:last-child {
 }
 .userlist li .name {
   color: #556270;
+  display: inline-block;
+  height: 21px;
+  max-width: 100px;
+  overflow: hidden;
 }
 .userlist li .totscore {
   display: inline-block;

@@ -55,7 +55,7 @@ Template.highscore.admin = function(){
     if(checkadmin >= 0){
       return true;
     }else{
-      return true;
+      return false;
     }
   }
   
