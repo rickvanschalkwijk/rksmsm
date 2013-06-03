@@ -11,7 +11,7 @@
 			
 		</div>
 		<div id="totalscore">
-			<span>{{score}}</span>
+			<span>totaal: {{score}} <i class="plus-grey"></i></span>
 		</div>
 	</div>
 	<a id="homeBtn" href="/" title="home">
@@ -39,11 +39,11 @@
       
     </div>
     <div id="totalscore">
-      <span>{{score}}</span>
+      <span>totaal: {{score}} <i class="plus-grey"></i></span>
     </div>
   </div>
-  <a id="homeBtn" href="/" title="home">
-    <i class="house-white"></i>
+  <a id="singleplayerBtn" href="/singleplayer" title="Games">
+    <i class="menu-white"></i>
   </a>
 </template>
 
@@ -51,13 +51,13 @@
 <template name="gameMenuMemory">
   <div id="gamemenu">
     <div id="points">
-      <span>30</span><i class="diamond"></i>
+      <i class="plus-dark"></i><span>30</span>
     </div>
     <div id="totalscore">
-      <span> </span>
+      <span>totaal: {{score}} <i class="plus-grey"></i></span>
     </div>
   </div>
-  <a id="pauseBtn" href="#pause" title="home">
+  <a id="pauseBtn" href="#pause" title="Pause">
     <i class="house-white"></i>
   </a>
 </template>
@@ -65,10 +65,10 @@
 <template name="gameMenuPuzzel">
   <div id="gamemenu">
     <div id="points">
-      <span> </span><i class="diamond"></i>
+      <i class="plus-dark"></i><span> </span>
     </div>
     <div id="totalscore">
-      <span>totaal: 0</span>
+      <span>totaal: {{score}} <i class="plus-grey"></i></span>
     </div>
   </div>
   <a id="pauseBtn" href="#pause" title="home">
@@ -108,44 +108,28 @@
     </div>
     {{/if}}
 
-    {{#if unlockedPuzzelOne}}
-      {{#if unlockedTriviaOne}}
-        <div class="game cyaan puzzel arrow-red">
-          <a href="/puzzel" class="gametitle">
-            <div>
-              <span class="game-title-white">Puzzel</span>
-            </div>
-          </a>
-        </div>
-      {{else}}
-        <div class="game cyaan puzzel arrow-grey">
-          <a href="/puzzel" class="gametitle">
-            <div>
-              <span class="game-title-white">Puzzel</span>
-            </div>
-          </a>
-        </div>
-      {{/if}}
-		
-    {{else}}
-      <div class="game arrow-grey locked">
-        <a href="/">
+
+    {{#if unlockedTriviaOne}}
+      {{#if unlockedPuzzelOne}}
+      <div class="game cyaan trivia  arrow-red">
+        <a href="/trivia" class="gametitle">
           <div>
+            <span class="game-title-white">Trivia</span>
           </div>
         </a>
       </div>
-    {{/if}}
-	
-    {{#if unlockedTriviaOne}}
-		<div class="game cyaan trivia">
-			<a href="/trivia" class="gametitle">
-				<div>
-					<span class="game-title-white">Trivia</span>
-				</div>
-			</a>
-		</div>
+      {{else}}
+      <div class="game cyaan trivia  arrow-grey">
+        <a href="/trivia" class="gametitle">
+          <div>
+            <span class="game-title-white">Trivia</span>
+          </div>
+        </a>
+      </div>
+      {{/if}}
+      
     {{else}}
-    <div class="game locked">
+    <div class="game arrow-grey locked">
       <a href="/">
         <div>
         </div>
@@ -153,6 +137,24 @@
     </div>
     {{/if}}
 
+
+    {{#if unlockedPuzzelOne}}
+    <div class="game cyaan puzzel">
+      <a href="/puzzel" class="gametitle">
+        <div>
+          <span class="game-title-white">Puzzel</span>
+        </div>
+      </a>
+    </div>
+    {{else}}
+      <div class="game locked">
+        <a href="/">
+          <div>
+          </div>
+        </a>
+      </div>
+    {{/if}}
+    
     <div class="divider-40"></div>
 		<div class="clearfix"></div>
 	</div>

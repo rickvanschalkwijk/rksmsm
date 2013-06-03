@@ -24,7 +24,7 @@
   );
   border-top: 1px solid #d1d1d1;
   font-family: "Source Sans Pro", sans-serif;
-  font-size: 1.4em;
+  font-size: 1.2em;
   font-weight: 400;
   color: #353d46;
 }
@@ -32,8 +32,8 @@
 #average-stars, #points, #totalscore {
   display: block;
   width: 35%;
-  height: 20px;
-  padding: 15px 7%;
+  height: 25px;
+  padding: 12px 7%;
   text-align: center;
 }
 #average-stars, #points {
@@ -46,14 +46,25 @@
 }
 #average-stars span, #points span {
   float: left;
+  position: relative;
+  top: 4px;
 }
+
+.point {
+  float: right;
+  display: inline-block;
+  position: relative;
+  top: 4px;
+  margin-right: 50px;
+}
+
 #totalscore span {
   float: right;
 }
 
 
 
-#homeBtn, #pauseBtn, #logoutButton {
+#homeBtn, #pauseBtn, #singleplayerBtn, #logoutButton {
   bottom: 0px;
   display: block;
   position: fixed;
@@ -86,6 +97,14 @@
   width: 48px;
   height: 48px;
   background: url("/img/icons/house-white.png") center no-repeat;
+  background-size: 30px 30px;
+}
+#singleplayerBtn i {
+  display: block;
+  float: left;
+  width: 48px;
+  height: 48px;
+  background: url("/img/icons/menu.png") center no-repeat;
   background-size: 30px 30px;
 }
 

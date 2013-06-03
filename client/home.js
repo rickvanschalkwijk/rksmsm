@@ -23,7 +23,7 @@ Template.home.profilepic = function (){
       var picture = Meteor.user().profile.picture;
       return picture;
     }else{
-      return "/img/default-avatar.jpg";
+      return "/img/default-avatar.png";
     }
   }
 }

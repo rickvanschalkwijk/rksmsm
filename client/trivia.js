@@ -95,7 +95,7 @@ var quizJSON = {
                 {"option": "Architect van o.a. het Rijksmuseum", "correct": false}
             ],
             "correct": "<p><span>Goed zo!</span> Wim Pijbes is de Directeur van het museum sinds Juni 2008.</p>",
-            "incorrect": "<p><span>Nee fout!</span> Misschien moet je gaan verdiepen in de plekken die je bezoekt.</p>" // no comma here
+            "incorrect": "<p><span>Nee fout!</span> Helaas, het was de directeur.</p>" // no comma here
         },
          { // Question 8
             "q": "Wat is de oorspronkelijke locatie van het Rijksmuseum",

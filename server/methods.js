@@ -73,9 +73,9 @@ Meteor.methods({
     // console.log('getTotalUserscore');
     var totalScore = Globalscores.findOne({userid: userid});
     if(totalScore){
-      return 'totaal: '+totalScore.score;
+      return totalScore.score;
     }else{
-      return 'totaal: 0';
+      return 0;
     }
     
   },
@@ -130,7 +130,13 @@ Meteor.methods({
     var indexrank = _.indexOf(mapranking, userid);
     console.log(indexrank);
 
-    if(indexrank >= 0 && indexrank <= 4){
+    if(indexrank == -1){
+      var newranking = ranking.slice(0,5);
+      for (var i = newranking.length - 1; i >= 0; i--) {
+        newranking[i]['index'] = (i+1);
+        newranking[i]['isUser'] = false;
+      };
+    }else if(indexrank >= 0 && indexrank <= 4){
       var newranking = ranking.slice(0,5);
       for (var i = newranking.length - 1; i >= 0; i--) {
         if(i == indexrank){

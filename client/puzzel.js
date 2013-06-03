@@ -124,14 +124,6 @@ Template.puzzelIntro.rendered = function(){
   });
 }
 
-Template.gameMenuPuzzel.rendered = function(){
-  // console.log('getTotalUserscore');
-  var elem = $('#totalscore span');
-  Meteor.call('getTotalUserscore', Meteor.userId(), function (err, res){
-    elem.html(res);
-  });
-};
-
 
 Template.viewscorepuzzel.created = function(){
   Meteor.call('rankingLevelList', Meteor.userId(), 'puzzel', 1, function (err, res){

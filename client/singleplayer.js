@@ -16,7 +16,7 @@ Template.userMenu.score = function(){
         console.log(res);
         localStorage.setItem(Meteor.userId(), res);
         var elem = $('#totalscore span');
-        elem.html(res); 
+        elem.html('totaal: '+res+ '<i class="plus-grey"></i>'); 
       });
     }else{
       return localStorage.getItem(Meteor.userId());
@@ -25,7 +25,7 @@ Template.userMenu.score = function(){
     Meteor.call('getTotalUserscore', Meteor.userId(), function (err, res){
       var elem = $('#totalscore span');
       console.log(res);
-      elem.html(res);  
+      elem.html('totaal: '+res+ '<i class="plus-grey"></i>');  
     });
   }
 }
@@ -38,7 +38,7 @@ Template.gameMenu.score = function(){
         console.log(res);
         localStorage.setItem(Meteor.userId(), res);
         var elem = $('#totalscore span');
-        elem.html(res); 
+        elem.html('totaal: '+res+ '<i class="plus-grey"></i>'); 
       });
     }else{
       return localStorage.getItem(Meteor.userId());
@@ -47,11 +47,54 @@ Template.gameMenu.score = function(){
     Meteor.call('getTotalUserscore', Meteor.userId(), function (err, res){
       var elem = $('#totalscore span');
       console.log(res);
-      elem.html(res);  
+      elem.html('totaal: '+res+ '<i class="plus-grey"></i>');  
     });
   }
 }
 
+Template.gameMenuMemory.score = function(){
+  if(storeLocal){
+    var score = localStorage.getItem(Meteor.userId());
+    if(score == null){
+      Meteor.call('getTotalUserscore', Meteor.userId(), function (err, res){
+        console.log(res);
+        localStorage.setItem(Meteor.userId(), res);
+        var elem = $('#totalscore span');
+        elem.html('totaal: '+res+ '<i class="plus-grey"></i>'); 
+      });
+    }else{
+      return localStorage.getItem(Meteor.userId());
+    }
+  }else{
+    Meteor.call('getTotalUserscore', Meteor.userId(), function (err, res){
+      var elem = $('#totalscore span');
+      console.log(res);
+      elem.html('totaal: '+res+ '<i class="plus-grey"></i>');  
+    });
+  }
+}
+
+Template.gameMenuPuzzel.score = function(){
+  if(storeLocal){
+    var score = localStorage.getItem(Meteor.userId());
+    if(score == null){
+      Meteor.call('getTotalUserscore', Meteor.userId(), function (err, res){
+        console.log(res);
+        localStorage.setItem(Meteor.userId(), res);
+        var elem = $('#totalscore span');
+        elem.html('totaal: '+res+ '<i class="plus-grey"></i>'); 
+      });
+    }else{
+      return localStorage.getItem(Meteor.userId());
+    }
+  }else{
+    Meteor.call('getTotalUserscore', Meteor.userId(), function (err, res){
+      var elem = $('#totalscore span');
+      console.log(res);
+      elem.html('totaal: '+res+ '<i class="plus-grey"></i>');  
+    });
+  }
+}
 
 Template.gameMenuTrivia.score = function(){
   if(storeLocal){
@@ -61,7 +104,7 @@ Template.gameMenuTrivia.score = function(){
         console.log(res);
         localStorage.setItem(Meteor.userId(), res);
         var elem = $('#totalscore span');
-        elem.html(res); 
+        elem.html('totaal: '+res+ '<i class="plus-grey"></i>'); 
       });
     }else{
       return localStorage.getItem(Meteor.userId());
@@ -70,10 +113,12 @@ Template.gameMenuTrivia.score = function(){
     Meteor.call('getTotalUserscore', Meteor.userId(), function (err, res){
       var elem = $('#totalscore span');
       console.log(res);
-      elem.html(res);  
+      elem.html('totaal: '+res+ '<i class="plus-grey"></i>');  
     });
   }
 }
+
+
 
 
 Template.logoutMenu.score = function(){
@@ -114,7 +159,7 @@ Template.singleGameScreen.unlockedMemoryOne = function(){
   }
 }
 
-Template.singleGameScreen.unlockedPuzzelOne = function(){
+Template.singleGameScreen.unlockedTriviaOne = function(){
   var unlockedgames = Session.get('gamesUnlocked');
   if(unlockedgames >= 1){
     return true;
@@ -122,7 +167,8 @@ Template.singleGameScreen.unlockedPuzzelOne = function(){
     return false;
   }
 }
-Template.singleGameScreen.unlockedPuzzelOne.unlockedTriviaOne = function(){
+
+Template.singleGameScreen.unlockedPuzzelOne = function(){
   var unlockedgames = Session.get('gamesUnlocked');
   if(unlockedgames >= 2){
     return true;
@@ -131,7 +177,7 @@ Template.singleGameScreen.unlockedPuzzelOne.unlockedTriviaOne = function(){
   }
 }
 
-Template.singleGameScreen.unlockedTriviaOne = function(){
+Template.singleGameScreen.unlockedTriviaOne.unlockedPuzzelOne = function(){
   var unlockedgames = Session.get('gamesUnlocked');
   if(unlockedgames >= 2){
     return true;
@@ -139,6 +185,8 @@ Template.singleGameScreen.unlockedTriviaOne = function(){
     return false;
   }
 }
+
+
 
 Template.gameMenuMemory.events({
   'click #pauseBtn': initPause

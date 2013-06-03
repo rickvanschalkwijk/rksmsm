@@ -1,6 +1,12 @@
+
 Template.highscores.total = function(){
 	Meteor.call('rankingList', Meteor.userId(), function (err, res){
     Session.set('HighscoreList', res);
+}
+
+Template.highscores.userlist = function(){
+  Meteor.call('rankingList', Meteor.userId(), function (err, res){
+    Session.set('userHighscoreList', res);
   });
   var data = Session.get('HighscoreList');
 

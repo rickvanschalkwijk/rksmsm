@@ -55,7 +55,7 @@ Template.highscore.admin = function(){
     if(checkadmin >= 0){
       return true;
     }else{
-      return true;
+      return false;
     }
   }
   
@@ -76,7 +76,10 @@ Template.highscore.events({
 
 function insertcall(e,t){
   e.preventDefault();
-  Meteor.call('insertHighscore',Meteor.userId(),'puzzel',1,41, function (err, res){
+  Meteor.call('insertHighscore',Meteor.userId(),'memory',1,20);
+  Meteor.call('insertHighscore',Meteor.userId(),'puzzel',1,30);
+
+  Meteor.call('insertHighscore',Meteor.userId(),'trivia',1,40, function (err, res){
     Meteor.call('refreshUserScore', Meteor.userId());
     if(storeLocal){
       Meteor.call('getTotalUserscore', Meteor.userId(), function (err, res){

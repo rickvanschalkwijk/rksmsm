@@ -51,6 +51,14 @@ i.house-white {
   background: url("/img/icons/house-white.png") no-repeat;
   background-size: 25px 25px;
 }
+i.menu-white {
+  display: block;
+  float: left;
+  width: 25px;
+  height: 25px;
+  background: url("/img/icons/menu.png") no-repeat;
+  background-size: 25px 25px;
+}
 
 i.star {
   display: block;
@@ -81,5 +89,29 @@ i.plus {
   background-size: 20px 20px;
   margin:-21px 0px 0px 20px;
 }
+
+i.plus-dark {
+  display: inline-block;
+  float: left;
+  position: relative;
+  width: 20px;
+  height: 20px;
+  top: 2px;
+  margin-right: 10px;
+  background: url("/img/new_game_icons/ScoreActive.png") no-repeat;
+  background-size: 20px 20px;
+}
+i.plus-grey {
+  display: inline-block;
+  position: relative;
+  width: 20px;
+  height: 20px;
+  top: 2px;
+  margin-right: -10px;
+  background: url("/img/icons/plus-alt.png") no-repeat;
+  background-size: 20px 20px;
+}
+
+
 
 
