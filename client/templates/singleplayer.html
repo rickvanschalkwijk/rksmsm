@@ -108,44 +108,28 @@
     </div>
     {{/if}}
 
-    {{#if unlockedPuzzelOne}}
-      {{#if unlockedTriviaOne}}
-        <div class="game cyaan puzzel arrow-red">
-          <a href="/puzzel" class="gametitle">
-            <div>
-              <span class="game-title-white">Puzzel</span>
-            </div>
-          </a>
-        </div>
-      {{else}}
-        <div class="game cyaan puzzel arrow-grey">
-          <a href="/puzzel" class="gametitle">
-            <div>
-              <span class="game-title-white">Puzzel</span>
-            </div>
-          </a>
-        </div>
-      {{/if}}
-		
-    {{else}}
-      <div class="game arrow-grey locked">
-        <a href="/">
+
+    {{#if unlockedTriviaOne}}
+      {{#if unlockedPuzzelOne}}
+      <div class="game cyaan trivia  arrow-red">
+        <a href="/trivia" class="gametitle">
           <div>
+            <span class="game-title-white">Trivia</span>
           </div>
         </a>
       </div>
-    {{/if}}
-	
-    {{#if unlockedTriviaOne}}
-		<div class="game cyaan trivia">
-			<a href="/trivia" class="gametitle">
-				<div>
-					<span class="game-title-white">Trivia</span>
-				</div>
-			</a>
-		</div>
+      {{else}}
+      <div class="game cyaan trivia  arrow-grey">
+        <a href="/trivia" class="gametitle">
+          <div>
+            <span class="game-title-white">Trivia</span>
+          </div>
+        </a>
+      </div>
+      {{/if}}
+      
     {{else}}
-    <div class="game locked">
+    <div class="game arrow-grey locked">
       <a href="/">
         <div>
         </div>
@@ -153,6 +137,24 @@
     </div>
     {{/if}}
 
+
+    {{#if unlockedPuzzelOne}}
+    <div class="game cyaan puzzel">
+      <a href="/puzzel" class="gametitle">
+        <div>
+          <span class="game-title-white">Puzzel</span>
+        </div>
+      </a>
+    </div>
+    {{else}}
+      <div class="game locked">
+        <a href="/">
+          <div>
+          </div>
+        </a>
+      </div>
+    {{/if}}
+    
     <div class="divider-40"></div>
 		<div class="clearfix"></div>
 	</div>

@@ -159,7 +159,7 @@ Template.singleGameScreen.unlockedMemoryOne = function(){
   }
 }
 
-Template.singleGameScreen.unlockedPuzzelOne = function(){
+Template.singleGameScreen.unlockedTriviaOne = function(){
   var unlockedgames = Session.get('gamesUnlocked');
   if(unlockedgames >= 1){
     return true;
@@ -167,7 +167,8 @@ Template.singleGameScreen.unlockedPuzzelOne = function(){
     return false;
   }
 }
-Template.singleGameScreen.unlockedPuzzelOne.unlockedTriviaOne = function(){
+
+Template.singleGameScreen.unlockedPuzzelOne = function(){
   var unlockedgames = Session.get('gamesUnlocked');
   if(unlockedgames >= 2){
     return true;
@@ -176,7 +177,7 @@ Template.singleGameScreen.unlockedPuzzelOne.unlockedTriviaOne = function(){
   }
 }
 
-Template.singleGameScreen.unlockedTriviaOne = function(){
+Template.singleGameScreen.unlockedTriviaOne.unlockedPuzzelOne = function(){
   var unlockedgames = Session.get('gamesUnlocked');
   if(unlockedgames >= 2){
     return true;
@@ -184,6 +185,8 @@ Template.singleGameScreen.unlockedTriviaOne = function(){
     return false;
   }
 }
+
+
 
 Template.gameMenuMemory.events({
   'click #pauseBtn': initPause
