@@ -26,7 +26,7 @@ body {
 }
 
 .backimage {
-  background: url('/img/background-pattern.png') 0 95% repeat-x !important;
+  background: url('/img/background-pattern.png') 0 0 repeat !important;
 }
 
 
@@ -92,6 +92,16 @@ body {
 
 .highscore{
   margin:0 0 50px 0;
+}
+
+.highscoreWrap{
+  background: url('/img/background-pattern.png') repeat center center;
+  min-height: 100%;
+}
+
+.wraphighscore h3{
+  text-align: center;
+  margin: 0 0 15px 0;
 }
 
 #userScore{

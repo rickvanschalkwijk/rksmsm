@@ -1,5 +1,5 @@
 <template name="highscores">
-	<div id="wrap" class="wrap-white">
+	<div class=" highscoreWrap">
   <div class="wraphighscore">
   	<h3>Beste spelers</h3>
     <ul class="userlist highscore">
@@ -34,6 +34,21 @@
     <h3>Schruifpuzzel</h3>
      <ul class="userlist highscore">
      {{#each SlidePuzzelBest}}
+      {{#if testUser isUser}}
+    <li class="currentuser">
+      {{else}}
+    <li>
+      {{/if}}
+      <span class="rank">{{index}}</span>
+      <span class="name">{{username}}</span>
+      <span class="totscore">{{score}}</span>
+    </li>
+    {{/each}}
+    </ul>
+
+     <h3>Trivia</h3>
+     <ul class="userlist highscore">
+     {{#each triviaBest}}
       {{#if testUser isUser}}
     <li class="currentuser">
       {{else}}

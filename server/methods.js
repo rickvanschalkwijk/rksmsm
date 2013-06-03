@@ -110,6 +110,7 @@ Meteor.methods({
   rankingGame: function(game){
     // console.log('rankingGame');
     var scores = Highscores.find({game: game},{sort: {score: -1}}).fetch();
+    console.log(scores);
     return scores;
   },
   rankingLevel: function(game, level){
@@ -192,6 +193,15 @@ Meteor.methods({
     }
 
     return newranking;
+  },
+  getRankingTopGame: function(game){
+    var scores = Highscores.find({game: game},{sort: {score: -1}}).fetch();
+    var newrank = scores.slice(0,5);
+    for(var i = newrank.length; i >= 0; i--){
+      var userName = Meteor.users.findOne({_id: newrank[i]['userid']});
+      newrank[i]['username'] = userName.profile.name;
+    }
+    return newrank;
   },
   getGamesPlayed: function(userid){
     console.log('getGamesPlayed');

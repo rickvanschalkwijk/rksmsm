@@ -7,21 +7,32 @@ Template.highscores.total = function(){
   return data;
 }
 
-Template.highscores.SlidePuzzelBest = function(){
-	Meteor.call('rankingLevelList', Meteor.userId(), 'memory', 1, function (err, res){
-	    Session.set('userHighscoreLevelList', res);
+Template.highscores.memoryBest = function(){
+  	Meteor.call('rankingLevelList', Meteor.userId(), 'memory', 1, function (err, res){
+	    Session.set('HighscoreMemory', res);
     });
-	var data = Session.get('userHighscoreLevelList');
+	var data = Session.get('HighscoreMemory');
   return data;
 }
 
-Template.highscores.memoryBest = function(){
-  	var data = Session.get('userHighscoreLevelList');
-  	if(!data){
-    	Meteor.call('rankingLevelList', Meteor.userId(), 'memory', 1, function (err, res){
-      	Session.set('userHighscoreLevelList', res);
+Template.highscores.SlidePuzzelBest = function(){
+	Meteor.call('rankingLevelList', Meteor.userId(), 'puzzel', 1, function (err, res){
+	    Session.set('HighscorePuzzel', res);
+    });
+    if(!Session.get('HighscorePuzzel')){
+    	Meteor.call('getRankingTopGame', 'puzzel', function(err, res){
+    		var data = res;
     	});
+    }else{
+		var data = Session.get('HighscorePuzzel');
   	}
-  // console.log(data);
+  return data;
+}
+
+Template.highscores.triviaBest = function(){
+	Meteor.call('rankingLevelList', Meteor.userId(), 'trivia', 1, function (err, res){
+	    Session.set('HighscoreTrivia', res);
+    });
+	var data = Session.get('HighscoreTrivia');
   return data;
 }
