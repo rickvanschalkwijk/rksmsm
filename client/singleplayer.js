@@ -192,6 +192,10 @@ Template.gameMenuMemory.events({
   'click #pauseBtn': initPause
 });
 
+Template.gameMenuTrivia.events({
+  'click #pauseBtn': initPause
+});
+
 Template.gameMenuPuzzel.events({
   'click #pauseBtn': initPause
 });

@@ -1,7 +1,8 @@
 <template name="trivia">
 	<div id="wrap triviaWrap">
 		{{> triviaHeader}}
-    	{{> triviaGame}}		
+    	{{> triviaGame}}
+      {{> pauseTemp}}	
 	</div>
 {{> gameMenuTrivia}}
 </template>
@@ -35,8 +36,8 @@
       	<span>totaal: {{score}} <i class="plus-grey"></i></span>
     </div>
   </div>
-  <a id="singleplayerBtn" href="/singleplayer" title="Games">
-    <i class="menu-white"></i>
+  <a id="pauseBtn" href="#pause" title="Pause">
+    <i class="house-white"></i>
   </a>
 </template>
 
