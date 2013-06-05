@@ -25,7 +25,15 @@ $.fn.countdown = function (callback, duration, message) {
     }, 1000);
 };
 
-var quizJSON = {
+var quizJSON; 
+
+ Meteor.call('getGamesPlayed', Meteor.userId(), function (err, res){
+    Session.set('gamesUnlocked', res);
+  });
+
+ console.log(Session.get('gamesUnlocked'));
+
+quizJSON = {
     "questions": [
         { // Question 1
             "q": "Waar is Rembrandt geboren??",

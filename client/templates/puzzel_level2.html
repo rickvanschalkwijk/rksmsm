@@ -1,0 +1,43 @@
+<template name="puzzel_level2">
+  <div id="wrap" class="wrap-white">
+    {{> puzzelGame}}    
+  </div>
+  {{> gameMenuPuzzel}}
+</template>
+
+<template name="puzzelGame">
+	<div id="puzzle">
+		<img id="gamePuzzle" src="/rijksimg/small/memory9.jpg" alt="cage" height="300px" width="300px" />
+	</div>
+  <div class="divider-150"></div>
+  {{> pauseTemp}}
+</template>
+
+<template name="viewscorepuzzellevel2">
+  <div id="wrap" class="wrap-white">
+    <div class="wraphighscore">
+      <ul class="userlist">
+      {{#each userlist}}
+        {{#if testUser isUser}}
+      <li class="currentuser">
+        {{else}}
+      <li>
+        {{/if}}
+        <span class="rank">{{index}}</span>
+        <span class="name">{{username}}</span>
+        <span class="totscore">{{score}}</span>
+      </li>
+      {{/each}}
+      </ul>
+      <div class="sharewrap">
+        <a class="btn-normal lightgrey" id="publishwall" href="#publishwall">Delen</a>
+      </div>
+      <div class="gamelistwrap">
+        <a class="btn-normal lightgrey" href="/singleplayer">Game lijst</a>
+      </div>
+      <div class="clearfix"></div>
+    </div>
+    <div class="divider-60"></div>
+  </div>
+{{> gameMenu}}
+</template>

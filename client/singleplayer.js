@@ -145,7 +145,6 @@ Template.logoutMenu.score = function(){
 Session.set('gamesUnlocked', 0);
 
 Template.singleplayer.created = function(){
-  console.log('games played check');
   Meteor.call('getGamesPlayed', Meteor.userId(), function (err, res){
     Session.set('gamesUnlocked', res);
   });
@@ -154,48 +153,55 @@ Template.singleGameScreen.unlockedMemoryOne = function(){
   var unlockedgames = Session.get('gamesUnlocked');
   if(unlockedgames > 0){
     return true;
-  }else{
-    return false;
   }
+  
+  return false;
 }
 
 Template.singleGameScreen.unlockedTriviaOne = function(){
   var unlockedgames = Session.get('gamesUnlocked');
   if(unlockedgames >= 1){
     return true;
-  }else{
-    return false;
   }
+  
+  return false
 }
 
 Template.singleGameScreen.unlockedPuzzelOne = function(){
   var unlockedgames = Session.get('gamesUnlocked');
   if(unlockedgames >= 2){
     return true;
-  }else{
-    return false;
   }
+  
+  return false;
 }
 
 Template.singleGameScreen.unlockedTriviaOne.unlockedPuzzelOne = function(){
   var unlockedgames = Session.get('gamesUnlocked');
   if(unlockedgames >= 2){
     return true;
-  }else{
-    return false;
   }
+  
+  return false;
 }
 
 Template.singleGameScreen.unlockedMemoryTwo = function(){
   var unlockedgames = Session.get('gamesUnlocked');
-  console.log(unlockedgames);
   if(unlockedgames >= 3){
     return true;
   }
+  
   return false;
 }
 
-
+Template.singleGameScreen.unlockedPuzzelTwo = function (){
+  var unlockedgames = Session.get('gamesUnlocked');
+  if(unlockedgames >= 4){
+    return true;
+  }
+  
+  return false; 
+}
 
 Template.gameMenuMemory.events({
   'click #pauseBtn': initPause
