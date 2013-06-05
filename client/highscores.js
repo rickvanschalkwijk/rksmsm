@@ -1,17 +1,17 @@
-
 Template.highscores.total = function(){
 	Meteor.call('rankingList', Meteor.userId(), function (err, res){
     Session.set('HighscoreList', res);
-}
-
-Template.highscores.userlist = function(){
-  Meteor.call('rankingList', Meteor.userId(), function (err, res){
-    Session.set('userHighscoreList', res);
   });
-  var data = Session.get('HighscoreList');
-
-  return data;
 }
+
+//Template.highscores.userlist = function(){
+  //Meteor.call('rankingList', Meteor.userId(), function (err, res){
+    //Session.set('userHighscoreList', res);
+  //});
+  //var data = Session.get('HighscoreList');
+
+  //return data;
+//}
 
 Template.highscores.memoryBest = function(){
   	Meteor.call('rankingLevelList', Meteor.userId(), 'memory', 1, function (err, res){

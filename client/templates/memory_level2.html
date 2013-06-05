@@ -1,0 +1,102 @@
+<template name="memory_level2">
+  <div id="wrap" class="wrap-white">
+    {{> memoryGame_level2}}    
+  </div>
+{{> gameMenuMemory}}
+</template>
+
+<template name="memoryGame_level2">
+  <!-- <div class="divider-height"> </div> -->
+	<div id="my-memorygame_level2" class="quizy-memorygame">
+		<ul>
+  			<li class="match1">
+    			<img src="/rijksimg/small/memory_level2/memory1.jpg" alt="memory_picture" />
+  			</li>
+  			<li class="match2">
+    			<img src="../rijksimg/small/memory_level2/memory2.jpg" alt="memory_picture" />
+  			</li>
+        <li class="match3">
+          <img src="/rijksimg/small/memory_level2/memory3.jpg" alt="memory_picture" />
+        </li>
+        <li class="match4">
+          <img src="../rijksimg/small/memory_level2/memory4.jpg" alt="memory_picture" />
+        </li>
+        <li class="match5">
+          <img src="/rijksimg/small/memory_level2/memory5.jpg" alt="memory_picture" />
+        </li>
+        <li class="match6">
+          <img src="../rijksimg/small/memory_level2/memory6.jpg.jpg" alt="memory_picture" />
+        </li>
+        <li class="match7">
+          <img src="../rijksimg/small/memory_level2/memory7.jpg" alt="memory_picture" />
+        </li>
+        <li class="match8">
+          <img src="../rijksimg/small/memory_level2/memory8.jpg" alt="memory_picture" />
+        </li>
+      <!-- <li class="match9">
+          <img src="../rijksimg/small/memory_level2/memory9.jpg" alt="memory_picture" />
+        </li> --> 
+
+        <li class="match1">
+          <img src="../rijksimg/small/memory_level2/memory1.jpg" alt="memory_picture" />
+        </li>
+        <li class="match2">
+          <img src="../rijksimg/small/memory_level2/memory2.jpg" alt="memory_picture" />
+        </li>
+        <li class="match3">
+          <img src="../rijksimg/small/memory_level2/memory3.jpg" alt="memory_picture" />
+        </li>
+        <li class="match4">
+          <img src="../rijksimg/small/memory_level2/memory4.jpg" alt="memory_picture" />
+        </li>
+        <li class="match5">
+          <img src="/rijksimg/small/memory_level2/memory5.jpg" alt="memory_picture" />
+        </li>
+        <li class="match6">
+          <img src="../rijksimg/small/memory_level2/memory6.jpg" alt="memory_picture" />
+        </li>
+        <li class="match7">
+          <img src="../rijksimg/small/memory_level2/memory7.jpg" alt="memory_picture" />
+        </li>
+        <li class="match8">
+          <img src="../rijksimg/small/memory_level2/memory8.jpg" alt="memory_picture" />
+        </li>
+        <!-- <li class="match9">
+          <img src="../rijksimg/small/memory_level2/memory9.jpg" alt="memory_picture" />
+        </li> -->
+		</ul>
+  </div>
+  <div class="divider-200"></div>
+  {{> pauseTemp}}
+</template>
+
+<template name="viewscorememorylevel2">
+  <div id="wrap" class="wrap-white">
+    <div class="wraphighscore">
+      <ul class="userlist">
+      {{#each userlist}}
+        {{#if testUser isUser}}
+        <li class="currentuser">
+        {{else}}
+        <li>
+        {{/if}}
+          <span class="rank">{{index}}</span>
+          <span class="name">{{username}}</span>
+          <span class="totscore">{{score}}</span>
+        </li>
+      {{/each}}
+      </ul>
+      <div class="sharewrap">
+        {{#if facebooklogin}}
+        <a class="btn-normal lightgrey" id="publishwall" href="#publishwall">Delen</a>
+        {{/if}}
+      </div>
+      <div class="gamelistwrap">
+        <a class="btn-normal lightgrey" href="/singleplayer">Game lijst</a>
+      </div>
+      <div class="clearfix"></div>
+    </div>
+    <div class="divider-60"></div>
+  </div>
+{{> gameMenu}}
+</template>
