@@ -20,7 +20,7 @@ Template.memoryGame.rendered = function(){
 		animType:'flip',
 		flipAnim:'tb',
 		animSpeed:150,
-		openDelay:1000,
+		openDelay:1300,
 		resultIcons:false,
 		gameSummary:false,
 		textSummaryTitle:'Goed gedaan, je hebt het spel voltooid!',
