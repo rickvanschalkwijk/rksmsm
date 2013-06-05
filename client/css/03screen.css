@@ -95,7 +95,7 @@ body {
 }
 
 .highscoreWrap{
-  background: url('/img/background-pattern.png') repeat center center;
+  background: url('/img/background-pattern.png') 0 95% repeat-x !important;
   min-height: 100%;
 }
 
