@@ -42,9 +42,6 @@ Template.login.created = function(){
     Session.set('logged_in', true);
     Meteor.Router.to('/');
   }else{
-    // setTimeout(function () {
-    //   window.scrollTo(0, 1);
-    // }, 1000);
     console.log("not logged in yet");
   }
 }
@@ -52,7 +49,6 @@ Template.login.created = function(){
 Template.login.acclog = function(){
   console.log("test");
   if(Session.get('acclog')){
-    
     return true;
   }else{
     return false;

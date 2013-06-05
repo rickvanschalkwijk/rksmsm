@@ -1,37 +1,40 @@
 // ROUTER
   Meteor.Router.add({
-    '/'               : routeTo('home'),
+    '/'               : 'home',
   '/login'            : 'login',
   '/loginacc'         : 'loginacc',
   '/register'         : 'register',
-  '/singleplayer'     : routeTo('singleplayer'),
-  '/multiplayer'      : routeTo('multiplayer'),
-  '/memory'           : routeTo('memory'),
-  '/gamememory'       : routeTo('gamememory'),
-  '/intromemory'      : routeTo('intromemory'),
-  '/introendmemory'   : routeTo('introendmemory'),
-  '/viewscorememory'  : routeTo('viewscorememory'),
-  '/puzzel'           : routeTo('puzzel'),
-  '/gamepuzzel'       : routeTo('gamepuzzel'),
-  '/intropuzzel'      : routeTo('intropuzzel'),
-  '/introendpuzzel'   : routeTo('introendpuzzel'),
-  '/viewscorepuzzel'  : routeTo('viewscorepuzzel'),
-  '/trivia'           : routeTo('trivia'),
-  '/highscore'        : routeTo('highscore'),
-  '/highscoreusers'   : routeTo('highscoreusers'),
-  '/highscorememory'  : routeTo('highscorememory'),
-  '/viewscoretrivia'  : routeTo('viewscoretrivia'),
-  '/wordsearch'       : routeTo('wordsearch'),
-  '/highscores'        : routeTo('highscores')
+  '/singleplayer'     : 'singleplayer',
+  '/multiplayer'      : 'multiplayer',
+  '/memory'           : 'memory',
+  '/gamememory'       : 'gamememory',
+  '/intromemory'      : 'intromemory',
+  '/introendmemory'   : 'introendmemory',
+  '/viewscorememory'  : 'viewscorememory',
+  '/puzzel'           : 'puzzel',
+  '/gamepuzzel'       : 'gamepuzzel',
+  '/intropuzzel'      : 'intropuzzel',
+  '/introendpuzzel'   : 'introendpuzzel',
+  '/viewscorepuzzel'  : 'viewscorepuzzel',
+  '/trivia'           : 'trivia',
+  '/highscore'        : 'highscore',
+  '/highscoreusers'   : 'highscoreusers',
+  '/highscorememory'  : 'highscorememory',
+  '/viewscoretrivia'  : 'viewscoretrivia',
+  '/wordsearch'       : 'wordsearch',
+  '/highscores'       : 'highscores'
   });
 
-  function routeTo(routing){
-    return function(){
-      
-      if(Meteor.userId() != null){
-        return ''+routing+'';
-      }else{
-        return 'login';
-      }
+Meteor.Router.filters({
+  'checkLoggedIn': function(page) {
+    if (Meteor.loggingIn()) {
+      return 'loading';
+    } else if (Meteor.user()) {
+      return page;
+    } else {
+      return 'login';
     }
   }
+});
+
+Meteor.Router.filter('checkLoggedIn', {except: ['login','loginacc','register']});
