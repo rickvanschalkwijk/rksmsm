@@ -89,6 +89,14 @@ function insertcall(e,t){
   });
   Meteor.call('insertHighscore', Meteor.userId(), 'memory', 2,20);
   Meteor.call('insertHighscore', Meteor.userId(), 'puzzel', 2,30);
+  Meteor.call('insertHighscore',Meteor.userId(),'trivia',2,40, function (err, res){
+    Meteor.call('refreshUserScore', Meteor.userId());
+    if(storeLocal){
+      Meteor.call('getTotalUserscore', Meteor.userId(), function (err, res){
+        localStorage.setItem(Meteor.userId(), res);
+      });
+    }
+  });
 };
 
 function refreshScoreUser(e,t){

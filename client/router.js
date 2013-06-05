@@ -20,13 +20,15 @@
   '/highscore'            : 'highscore',
   '/highscoreusers'       : 'highscoreusers',
   '/highscorememory'      : 'highscorememory',
-  '/viewscoretrivia'      : 'viewscoretrivia',
+  '/viewscoretrivia1'      : 'viewscoretrivialevel1',
+  '/viewscoretrivia2'      : 'viewscoretrivialevel2',
   '/wordsearch'           : 'wordsearch',
   '/highscores'           : 'highscores',
   '/memory_level2'        : 'memory_level2',
   '/viewscorememorylevel2': 'viewscorememorylevel2',
   '/puzzel_level2'        : 'puzzel_level2',
   '/viewscorepuzzellevel2': 'viewscorepuzzellevel2',
+  '/trivialevel2'         : 'trivialevel2',
   });
 
 Meteor.Router.filters({

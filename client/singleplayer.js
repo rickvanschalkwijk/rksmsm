@@ -203,6 +203,15 @@ Template.singleGameScreen.unlockedPuzzelTwo = function (){
   return false; 
 }
 
+Template.singleGameScreen.unlockedTriviaTwo = function (){
+  var unlockedgames = Session.get('gamesUnlocked');
+  if(unlockedgames >= 5){
+    return true;
+  }
+  
+  return false;  
+}
+
 Template.gameMenuMemory.events({
   'click #pauseBtn': initPause
 });
@@ -218,6 +227,25 @@ Template.gameMenuPuzzel.events({
 Template.pauseTemp.events({
   'click #unpauseBtn': initPause
 });
+
+Template.singleGameScreen.events({
+  'click #trivialevel1' : triviaLevel1,
+  'click #trivialevel2' : triviaLevel2
+});
+
+function triviaLevel1(e,t){
+  e.preventDefault();
+  Session.set('TriviaLevelOne', true);
+  Meteor.Router.to('/trivia');
+  return true;
+}
+
+function triviaLevel2(e,t){
+  e.preventDefault();
+  Session.set('TriviaLevelTwo', true);
+  Meteor.Router.to('/trivia');
+  return true;
+}
 
 function initPause (e,t) {
   e.preventDefault();

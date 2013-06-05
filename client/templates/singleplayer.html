@@ -112,7 +112,7 @@
     {{#if unlockedTriviaOne}}
       {{#if unlockedPuzzelOne}}
       <div class="game cyaan trivia  arrow-red">
-        <a href="/trivia" class="gametitle">
+        <a id="trivialevel1" href="#" class="gametitle">
           <div>
             <span class="game-title-white">Trivia</span>
           </div>
@@ -120,7 +120,7 @@
       </div>
       {{else}}
       <div class="game cyaan trivia  arrow-grey">
-        <a href="/trivia" class="gametitle">
+        <a id="trivialevel1" href="/trivia" class="gametitle">
           <div>
             <span class="game-title-white">Trivia</span>
           </div>
@@ -186,6 +186,23 @@
         </a>
       </div>
     {{/if}}
+     {{#if unlockedTriviaTwo}}
+      <div class="game cyaan trivia arrow-grey">
+      <a id="trivialevel2" href="/" class="gametitle">
+        <div>
+          <span class="game-title-white">Trivia level 2</span>
+        </div>
+      </a>
+    </div>
+    {{else}}
+      <div class="game arrow-grey locked">
+        <a href="/">
+          <div>
+          </div>
+        </a>
+      </div>
+    {{/if}}
+
     <div class="divider-40"></div>
 		<div class="clearfix"></div>
 	</div>

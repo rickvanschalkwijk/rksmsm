@@ -41,7 +41,38 @@
   </a>
 </template>
 
-<template name="viewscoretrivia">
+<template name="viewscoretrivialevel1">
+  <div id="wrap" class="wrap-white">
+    <div class="wraphighscore">
+      <ul class="userlist">
+      {{#each userlist}}
+        {{#if testUser isUser}}
+      <li class="currentuser">
+        {{else}}
+        <li>
+        {{/if}}
+        <span class="rank">{{index}}</span>
+        <span class="name">{{username}}</span>
+        <span class="totscore">{{score}}</span>
+      </li>
+      {{/each}}
+      </ul>
+      <div class="sharewrap">
+        {{#if facebooklogin}}
+        <a class="btn-normal lightgrey" id="publishwall" href="#publishwall">Delen</a>
+        {{/if}}
+      </div>
+      <div class="gamelistwrap">
+        <a class="btn-normal lightgrey" href="/singleplayer">Game lijst</a>
+      </div>
+      <div class="clearfix"></div>
+    </div>
+    <div class="divider-60"></div>
+  </div>
+{{> gameMenu}}
+</template>
+
+<template name="viewscoretrivialevel2">
   <div id="wrap" class="wrap-white">
     <div class="wraphighscore">
       <ul class="userlist">

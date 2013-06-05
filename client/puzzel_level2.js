@@ -11,18 +11,18 @@ function storeLocal (){
 Template.puzzel_level2.rendered = function(){
   $(document).ready(function() {
     var images = new Array(
-      '/rijksimg/small/painting2.jpg',
+       '/rijksimg/small/painting2.jpg',
       '/rijksimg/small/painting3.jpg',
       '/rijksimg/small/painting5.jpg',
       '/rijksimg/small/bucolia.jpg'
     );
     var l = images.length;
     var randomElement = Math.floor( l * Math.random() );
-    document.getElementById("gamePuzzle").src = images[randomElement];
+    document.getElementById("gamePuzzle_level2").src = images[randomElement];
 
     var settings = { 
       rows: 5,                    // number of rows [3 ... 9] 
-      cols: 5,                    // number of columns [3 ... 9] 
+      cols: 4,                    // number of columns [3 ... 9] 
       hole: 12,                   // initial hole position [1 ... rows*columns] 
       shuffle: true,             // initially show shuffled pieces [true|false] 
       numbers: false,              // initially show numbers on pieces [true|false] 

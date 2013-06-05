@@ -27,13 +27,8 @@ $.fn.countdown = function (callback, duration, message) {
 
 var quizJSON; 
 
- Meteor.call('getGamesPlayed', Meteor.userId(), function (err, res){
-    Session.set('gamesUnlocked', res);
-  });
-
- console.log(Session.get('gamesUnlocked'));
-
-quizJSON = {
+if(Session.get('TriviaLevelOne')){
+    quizJSON = {
     "questions": [
         { // Question 1
             "q": "Waar is Rembrandt geboren??",
@@ -84,7 +79,11 @@ quizJSON = {
             ],
             "correct": "<p><span>Nice!</span> Schiphol is het juiste antwoord.</p>",
             "incorrect": "<p><span>Nee.</span> Schiphol is het juiste antwoord.</p>" // no comma here
-        },
+        }
+    ]};      
+}else if(Session.get('TriviaLevelTwo')){
+    quizJSON = {
+    "questions": [
          { // Question 6
             "q": "Een huishouden van '...'?",
             "a": [
@@ -145,7 +144,7 @@ quizJSON = {
             "correct": "<p><span>Correct!</span></p>",
             "incorrect": "<p><span>Incorrect.</span> Het goede antwoord moet zijn: 'Wijk bij Duurstede'.</p>" // no comma here
         },
-         { // Question 12
+         /*{ // Question 12
             "q": "Hoe staat het Straatje ook wel bekend?",
             "a": [
                 {"option": "Gezicht op huizen in Delft",        "correct": true},
@@ -194,9 +193,14 @@ quizJSON = {
             ],
             "correct": "<p><span>Goed zo!</span></p>",
             "incorrect": "<p><span>Fout.</span> Het Rijksmuseum heeft 24 liften.</p>" // no comma here
-        }
+        }*/
     ]
-};	
+};      
+}else{
+    Meteor.Router.to('/');
+}
+
+
 var questions = quizJSON.questions;
 
 	function setupQuiz(){
@@ -325,15 +329,27 @@ var questions = quizJSON.questions;
     }
 
     function completeQuiz(){
-        Meteor.call('insertHighscore', Meteor.userId(), 'trivia', 1, score, function (err, res){
-            Meteor.call('refreshUserScore', Meteor.userId());
-            if(storeLocal){
-              Meteor.call('getTotalUserscore', Meteor.userId(), function (err, res){
-                localStorage.setItem(Meteor.userId(), res);
-              });
-            }
-        });
-        setTimeout(function(){Meteor.Router.to('/viewscoretrivia')}, 1000);
+        if(Session.get('TriviaLevelOne')){
+            Meteor.call('insertHighscore', Meteor.userId(), 'trivia', 1, score, function (err, res){
+                Meteor.call('refreshUserScore', Meteor.userId());
+                if(storeLocal){
+                    Meteor.call('getTotalUserscore', Meteor.userId(), function (err, res){
+                    localStorage.setItem(Meteor.userId(), res);
+                });
+                }
+            });
+            setTimeout(function(){Meteor.Router.to('/viewscoretrivia')}, 1000);
+        }else{
+              Meteor.call('insertHighscore', Meteor.userId(), 'trivia', 2, score, function (err, res){
+                Meteor.call('refreshUserScore', Meteor.userId());
+                if(storeLocal){
+                    Meteor.call('getTotalUserscore', Meteor.userId(), function (err, res){
+                    localStorage.setItem(Meteor.userId(), res);
+                });
+                }
+            });
+            setTimeout(function(){Meteor.Router.to('/viewscoretrivia')}, 1000);
+        }
     }
 
     function startTrivia(){
@@ -357,16 +373,16 @@ var questions = quizJSON.questions;
     }
 }; 
 
-Template.viewscoretrivia.created = function(){
+Template.viewscoretrivialevel1.created = function(){
     Meteor.call('rankingLevelList', Meteor.userId(), 'trivia', 1, function (err, res){
         Session.set('userHighscoreLevelList', res);
     });
 }
 
-Template.viewscoretrivia.testUser = function(bool){
+Template.viewscoretrivialevel1.testUser = function(bool){
   return bool;
 }
-Template.viewscoretrivia.userlist = function(){
+Template.viewscoretrivialevel1.userlist = function(){
   // console.log('rankingLevelList');
   var data = Session.get('userHighscoreLevelList');
   if(!data){
@@ -380,7 +396,7 @@ Template.viewscoretrivia.userlist = function(){
 
 // Facebook share
 
-Template.viewscoretrivia.facebooklogin = function(){
+Template.viewscoretrivialevel1.facebooklogin = function(){
   if(Meteor.user() != null){
     if(Meteor.user().profile.picture){ 
       return true; 
@@ -389,7 +405,45 @@ Template.viewscoretrivia.facebooklogin = function(){
 }
 
 
-Template.viewscoretrivia.events({
+Template.viewscoretrivialevel1.events({
+  'click #publishwall': publish_to_wall
+});
+
+// -------------------------------- LEVEL 2 TEMPLATE FUNCTIONS -------------------------------//
+
+Template.viewscoretrivialevel2.created = function(){
+    Meteor.call('rankingLevelList', Meteor.userId(), 'trivia', 2, function (err, res){
+        Session.set('userHighscoreLevelList', res);
+    });
+}
+
+Template.viewscoretrivialevel2.testUser = function(bool){
+  return bool;
+}
+Template.viewscoretrivialevel2.userlist = function(){
+  // console.log('rankingLevelList');
+  var data = Session.get('userHighscoreLevelList');
+  if(!data){
+    Meteor.call('rankingLevelList', Meteor.userId(), 'trivia', 2, function (err, res){
+      Session.set('userHighscoreLevelList', res);
+    });
+  }
+  // console.log(data);
+  return data;
+}
+
+// Facebook share
+
+Template.viewscoretrivialevel2.facebooklogin = function(){
+  if(Meteor.user() != null){
+    if(Meteor.user().profile.picture){ 
+      return true; 
+    }else{ return false; }
+  }else{ return false; }
+}
+
+
+Template.viewscoretrivialevel2.events({
   'click #publishwall': publish_to_wall
 });
 
