@@ -338,7 +338,7 @@ var questions = quizJSON.questions;
                 });
                 }
             });
-            setTimeout(function(){Meteor.Router.to('/viewscoretrivia')}, 1000);
+            setTimeout(function(){Meteor.Router.to('/viewscoretrivia1')}, 1000);
         }else{
               Meteor.call('insertHighscore', Meteor.userId(), 'trivia', 2, score, function (err, res){
                 Meteor.call('refreshUserScore', Meteor.userId());
@@ -348,7 +348,7 @@ var questions = quizJSON.questions;
                 });
                 }
             });
-            setTimeout(function(){Meteor.Router.to('/viewscoretrivia')}, 1000);
+            setTimeout(function(){Meteor.Router.to('/viewscoretrivia2')}, 1000);
         }
     }
 
