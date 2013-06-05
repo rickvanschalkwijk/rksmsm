@@ -38,7 +38,7 @@ Template.logoutMenu.events({
 // on template create, for redirect if user already logged in
 Template.login.created = function(){
   if(Meteor.userId() != null){
-    localStorage.setItem(Meteor.userId(), 'totaal: 0');
+    localStorage.setItem(Meteor.userId(), '0');
     Session.set('logged_in', true);
     Meteor.Router.to('/');
   }else{
