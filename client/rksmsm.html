@@ -5,8 +5,8 @@
 </head>
 
 <body>
-  <div id="fb-root"></div>
-  {{renderPage}}
+  {{#isolate}}<div id="fb-root"></div>{{/isolate}}
+  {{#isolate}} {{renderPage}} {{/isolate}}
 </body>
 
 <template name="footer-white">

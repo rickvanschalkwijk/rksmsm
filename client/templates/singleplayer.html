@@ -127,10 +127,9 @@
         </a>
       </div>
       {{/if}}
-      
     {{else}}
     <div class="game arrow-grey locked">
-      <a href="/">
+      <a href="">
         <div>
         </div>
       </a>
@@ -139,64 +138,97 @@
 
 
     {{#if unlockedPuzzelOne}}
-    <div class="game cyaan puzzel arrow-grey">
-      <a href="/puzzel" class="gametitle">
-        <div>
-          <span class="game-title-white">Puzzel</span>
+      {{#if unlockedMemoryTwo}}
+        <div class="game cyaan puzzel arrow-red">
+          <a href="/puzzel" class="gametitle">
+            <div>
+              <span class="game-title-white">Puzzel</span>
+            </div>
+          </a>
         </div>
-      </a>
-    </div>
+      {{else}}
+        <div class="game cyaan puzzel arrow-grey">
+          <a href="/puzzel" class="gametitle">
+            <div>
+              <span class="game-title-white">Puzzel</span>
+            </div>
+          </a>
+        </div>
+      {{/if}}
     {{else}}
       <div class="game arrow-grey locked">
-        <a href="/">
+        <a href="">
           <div>
           </div>
         </a>
       </div>
     {{/if}}
+    
     {{#if unlockedMemoryTwo}}
+      {{#if unlockedTriviaTwo}}
         <div class="game cyaan memory arrow-red">
-      <a href="/memory_level2" class="gametitle">
-        <div>
-          <span class="game-title-white">Memory Level 2</span>
+          <a href="/memory_level2" class="gametitle">
+            <div>
+              <span class="game-title-white">Memory Level 2</span>
+            </div>
+          </a>
         </div>
-      </a>
-    </div>
+      {{else}}
+        <div class="game cyaan memory arrow-grey">
+          <a href="/memory_level2" class="gametitle">
+            <div>
+              <span class="game-title-white">Memory Level 2</span>
+            </div>
+          </a>
+        </div>
+      {{/if}}
     {{else}}
       <div class="game arrow-grey locked">
-        <a href="/">
+        <a href="">
           <div>
           </div>
         </a>
       </div>
     {{/if}}
-    {{#if unlockedPuzzelTwo}}
+    
+    {{#if unlockedTriviaTwo}}
+      {{#if unlockedPuzzelTwo}}
+        <div class="game cyaan trivia arrow-red">
+          <a id="trivialevel2" href="/" class="gametitle">
+            <div>
+              <span class="game-title-white">Trivia level 2</span>
+            </div>
+          </a>
+        </div>
+      {{else}}
+        <div class="game cyaan trivia arrow-grey">
+          <a id="trivialevel2" href="/" class="gametitle">
+            <div>
+              <span class="game-title-white">Trivia level 2</span>
+            </div>
+          </a>
+        </div>
+      {{/if}}
+    {{else}}
+      <div class="game arrow-grey locked">
+        <a href="">
+          <div>
+          </div>
+        </a>
+      </div>
+    {{/if}}
+
+     {{#if unlockedPuzzelTwo}}
       <div class="game cyaan puzzel arrow-grey">
-      <a href="/puzzel_level2" class="gametitle">
-        <div>
-          <span class="game-title-white">Puzzel level 2</span>
-        </div>
-      </a>
-    </div>
-    {{else}}
-      <div class="game arrow-grey locked">
-        <a href="/">
+        <a href="/puzzel_level2" class="gametitle">
           <div>
+            <span class="game-title-white">Puzzel level 2</span>
           </div>
         </a>
       </div>
-    {{/if}}
-     {{#if unlockedTriviaTwo}}
-      <div class="game cyaan trivia arrow-grey">
-      <a id="trivialevel2" href="/" class="gametitle">
-        <div>
-          <span class="game-title-white">Trivia level 2</span>
-        </div>
-      </a>
-    </div>
     {{else}}
-      <div class="game arrow-grey locked">
-        <a href="/">
+      <div class="game locked">
+        <a href="">
           <div>
           </div>
         </a>
