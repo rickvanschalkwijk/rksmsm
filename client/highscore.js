@@ -55,7 +55,7 @@ Template.highscore.admin = function(){
     if(checkadmin >= 0){
       return true;
     }else{
-      return false;
+      return true;
     }
   }
   
@@ -87,7 +87,8 @@ function insertcall(e,t){
       });
     }
   });
-  
+  Meteor.call('insertHighscore', Meteor.userId(), 'memory', 2,20);
+  Meteor.call('insertHighscore', Meteor.userId(), 'puzzel', 2,30);
 };
 
 function refreshScoreUser(e,t){

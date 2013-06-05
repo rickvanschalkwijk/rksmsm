@@ -25,6 +25,8 @@
   '/highscores'           : routeTo('highscores'),
   '/memory_level2'        : routeTo('memory_level2'),
   '/viewscorememorylevel2': routeTo('viewscorememorylevel2'),
+  '/puzzel_level2'        : routeTo('puzzel_level2'),
+  '/viewscorepuzzellevel2': routeTo('viewscorepuzzellevel2')
   });
 
   function routeTo(routing){

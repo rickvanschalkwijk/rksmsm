@@ -186,6 +186,15 @@ Template.singleGameScreen.unlockedTriviaOne.unlockedPuzzelOne = function(){
   }
 }
 
+Template.singleGameScreen.unlockedMemoryTwo = function(){
+  var unlockedgames = Session.get('gamesUnlocked');
+  console.log(unlockedgames);
+  if(unlockedgames >= 3){
+    return true;
+  }
+  return false;
+}
+
 
 
 Template.gameMenuMemory.events({

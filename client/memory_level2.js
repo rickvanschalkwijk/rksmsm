@@ -8,9 +8,6 @@ function storeLocal (){
   }
 }
 
-
-
-
 Template.memoryGame_level2.rendered = function(){
 	$('#my-memorygame_level2').quizyMemoryGame({
 		itemWidth: 80,
