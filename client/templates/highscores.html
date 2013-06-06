@@ -2,6 +2,7 @@
 	<div class=" highscoreWrap">
   <div class="wraphighscore">
   	<h3>Beste spelers</h3>
+    <hr />
     <ul class="userlist highscore">
     {{#each total}}
       {{#if testUser isUser}}
@@ -17,6 +18,8 @@
     </ul>
 
      <h3>Memory</h3>
+     <hr />
+     <h4 class="center_subtitle">Level 1</h4>
 	 <ul class="userlist highscore">
      {{#each memoryBest}}
       {{#if testUser isUser}}
@@ -30,10 +33,25 @@
     </li>
     {{/each}}
     </ul>
-
+    <h4 class="center_subtitle">Level 2</h4>
+    <ul class="userlist highscore">
+     {{#each memoryBestLevel2}}
+      {{#if testUser isUser}}
+    <li class="currentuser">
+      {{else}}
+    <li>
+      {{/if}}
+      <span class="rank">{{index}}</span>
+      <span class="name">{{username}}</span>
+      <span class="totscore">{{score}}</span>
+    </li>
+    {{/each}}
+    </ul>
     <h3>Schruifpuzzel</h3>
+    <hr />
+    <h4 class="center_subtitle">Level 1</h4>
      <ul class="userlist highscore">
-     {{#each SlidePuzzelBest}}
+     {{#each slidePuzzelBestLevel1}}
       {{#if testUser isUser}}
     <li class="currentuser">
       {{else}}
@@ -45,10 +63,25 @@
     </li>
     {{/each}}
     </ul>
-
+     <h4 class="center_subtitle">Level 2</h4>
+     <ul class="userlist highscore">
+     {{#each slidePuzzelBestLevel2}}
+      {{#if testUser isUser}}
+    <li class="currentuser">
+      {{else}}
+    <li>
+      {{/if}}
+      <span class="rank">{{index}}</span>
+      <span class="name">{{username}}</span>
+      <span class="totscore">{{score}}</span>
+    </li>
+    {{/each}}
+    </ul>
      <h3>Trivia</h3>
+     <hr />
+     <h4 class="center_subtitle">Level 1</h4>
      <ul class="userlist highscore">
-     {{#each triviaBest}}
+     {{#each triviaBestLevel1}}
       {{#if testUser isUser}}
     <li class="currentuser">
       {{else}}
@@ -60,7 +93,20 @@
     </li>
     {{/each}}
     </ul>
-  	
+  	<h4 class="center_subtitle">Level 2</h4>
+    <ul class="userlist highscore">
+     {{#each triviaBestLevel2}}
+      {{#if testUser isUser}}
+    <li class="currentuser">
+      {{else}}
+    <li>
+      {{/if}}
+      <span class="rank">{{index}}</span>
+      <span class="name">{{username}}</span>
+      <span class="totscore">{{score}}</span>
+    </li>
+    {{/each}}
+    </ul>
   </div>
 </div>
 {{> userMenu}}
