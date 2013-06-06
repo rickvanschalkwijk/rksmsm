@@ -221,3 +221,9 @@ div.game:nth-child(2n){
   background-repeat: no-repeat;
   background-position: 30px;
 }
+
+.locked_end {
+  background: url('/img/new_game_icons/Slotje.png');
+  background-repeat: no-repeat;
+  background-position: 30px;
+}
