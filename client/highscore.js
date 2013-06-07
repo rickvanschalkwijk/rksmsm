@@ -48,14 +48,15 @@ Template.highscoreusers.userlist = function(){
 Template.highscore.admin = function(){
 
   var adminmail = [ 'jeroenhoebe2@hotmail.com',
-                    'hoebejeroen@gmail.com'];
+                    'hoebejeroen@gmail.com',
+                    'rickvschalkwijk@gmail.com'];
   
   if(Meteor.user() != null){
     var checkadmin = adminmail.indexOf(Meteor.user().profile.email);
     if(checkadmin >= 0){
       return true;
     }else{
-      return true;
+      return false;
     }
   }
   
