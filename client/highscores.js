@@ -6,6 +6,11 @@ Template.highscores.total = function(){
   return data;
 }
 
+Template.highscores.testUser = function(bool){
+  return bool;
+}
+
+
 Template.highscores.userlist = function(){
   Meteor.call('rankingList', Meteor.userId(), function (err, res){
     Session.set('userHighscoreList', res);
@@ -26,18 +31,31 @@ Template.highscores.userlist = function(){
 
 Template.highscores.memoryBest = function(){
   Meteor.call('rankingLevelList', Meteor.userId(), 'memory', 1, function (err, res){
-	  Session.set('HighscoreMemory', res);
+	  Session.set('rankingLevelList', res);
   });
- 	var data = Session.get('HighscoreMemory');
-  
+  if(!Session.get('HighscoreMemory')){
+    Meteor.call('rankingLevelList', Meteor.userId(), 'memory', 1, function (err, res){
+      Session.set('HighscoreMemory', res);
+      var data = res;
+    });
+ 	}else{
+    var data = Session.get('HighscoreMemory');
+  }
   return data;
 }
 
 Template.highscores.memoryBestLevel2 = function(){
-  Meteor.call('rankingList', Meteor.userId(), 'memory', 2, function (err, res){
+  Meteor.call('rankingLevelList', Meteor.userId(), 'memory', 2, function (err, res){
     Session.set('HighscoreMemoryLevel2', res);
   });
-  var data = Session.get('HighscoreMemoryLevel2');
+  if(!Session.get('HighscoreMemoryLevel2')){
+    Meteor.call('rankingLevelList', Meteor.userId(), 'memory', 2, function (err, res){
+      Session.set('HighscoreMemoryLevel2', res);
+      var data = res;
+    });
+  }else{
+    var data = Session.get('HighscoreMemoryLevel2');
+  }
   return data;
 }
 
@@ -46,13 +64,13 @@ Template.highscores.slidePuzzelBestLevel1 = function(){
  	  Session.set('HighscorePuzzel', res);
   });
   if(!Session.get('HighscorePuzzel')){
-    Meteor.call('getRankingTopGame', 'puzzel', function(err, res){
-     	var data = res;
+    Meteor.call('rankingLevelList', 'puzzel', 1, function(err, res){
+     	Session.set('HighscorePuzzel', res);
+      var data = res;
     });
   }else{
  		var data = Session.get('HighscorePuzzel');
  	}
-
   return data;
 }
 
@@ -61,22 +79,23 @@ Template.highscores.slidePuzzelBestLevel2 = function(){
     Session.set('highscorePuzzelLevel2', res);
   });
   if(!Session.get('highscorePuzzelLevel2')){
-    Meteor.call('getRankingTopGame', 'puzzel', function(err, res){
+    Meteor.call('rankingLevelList', 'puzzel', 2, function(err, res){
+      Session.set('highscorePuzzelLevel2', res);
       var data = res;
     });
   }else{
     var data = Session.get('highscorePuzzelLevel2');
   }
-
   return data;
 }
 
 Template.highscores.triviaBestLevel1 = function(){
  	Meteor.call('rankingLevelList', Meteor.userId(), 'trivia', 1, function (err, res){
  	  Session.set('highscoreTriviaLevel1', res);
-    });
+  });
   if(!Session.get('highscoreTriviaLevel1')){
-     Meteor.call('getRankingTopGame', 'trivia', function(err, res){
+     Meteor.call('rankingLevelList', 'trivia', 1, function(err, res){
+      Session.set('highscoreTriviaLevel1', res);
       var data = res;
     });
   }else{
@@ -86,10 +105,16 @@ Template.highscores.triviaBestLevel1 = function(){
 }
 
 Template.highscores.triviaBestLevel2 = function(){
-  Meteor.call('rankingLevelList', Meteor.userId(), 'trivia', 1, function (err, res){
-    Session.set('HighscoreTrivia', res);
+  Meteor.call('rankingLevelList', Meteor.userId(), 'trivia', 2, function (err, res){
+    Session.set('highscoreTriviaLevel2', res);
+  });
+  if(!Session.get('highscoreTriviaLevel2')){
+    Meteor.call('rankingLevelList', Meteor.userId(), 'trivia', 2, function (err, res){
+      Session.set('highscoreTriviaLevel2', res);
+      var data = res;
     });
-  var data = Session.get('highscoreTriviaLevel2');
-  
+  }else{
+    var data = Session.get('highscoreTriviaLevel2');  
+  }
   return data;
 }

@@ -169,7 +169,16 @@ Meteor.methods({
     var indexrank = _.indexOf(mapranking, userid);
     console.log(indexrank);
 
-    if(indexrank >= 0 && indexrank <= 4){
+    if(indexrank == -1){
+      var newranking = ranking.slice(0,5);
+      for (var i = newranking.length - 1; i >= 0; i--) {
+        var user = Meteor.users.findOne({_id: newranking[i]['userid']})
+        newranking[i]['username'] = user.profile.name;
+        newranking[i]['index'] = (i+1);
+        newranking[i]['isUser'] = false;
+      };
+
+    }else if(indexrank >= 0 && indexrank <= 4){
       var newranking = ranking.slice(0,5);
       for (var i = newranking.length - 1; i >= 0; i--) {
         var user = Meteor.users.findOne({_id: newranking[i]['userid']})
@@ -202,6 +211,15 @@ Meteor.methods({
   },
   getRankingTopGame: function(game){
     var scores = Highscores.find({game: game},{sort: {score: -1}}).fetch();
+    var newrank = scores.slice(0,5);
+    for(var i = newrank.length; i >= 0; i--){
+      var userName = Meteor.users.findOne({_id: newrank[i]['userid']});
+      newrank[i]['username'] = userName.profile.name;
+    }
+    return newrank;
+  },
+  getRankingTopLevel: function(game, level){
+    var scores = Highscores.find({game: game, level: level},{sort: {score: -1}}).fetch();
     var newrank = scores.slice(0,5);
     for(var i = newrank.length; i >= 0; i--){
       var userName = Meteor.users.findOne({_id: newrank[i]['userid']});
