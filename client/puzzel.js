@@ -8,6 +8,17 @@ function storeLocal (){
   }
 }
 
+
+Template.viewscorepuzzel.texthigh = function(index){
+  if(index == 1){
+    return 'Zo te zien ben jij een puzzel fanaat!';
+  }else if(index >= 1 && index <= 5){
+    return 'Wowzers! Top 5';
+  }
+  return 'Bummer je staat niet in de top 5!';
+}
+
+
 Template.puzzelGame.rendered = function(){
   $(document).ready(function() {
     var images = new Array(

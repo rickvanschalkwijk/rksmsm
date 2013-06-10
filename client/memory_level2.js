@@ -8,6 +8,17 @@ function storeLocal (){
   }
 }
 
+Template.viewscorememorylevel2.texthigh = function(index){
+  if(index == 1){
+    return 'Wow! Jij bent goed!';
+  }else if(index >= 1 && index <= 5){
+    return 'Yeah! Je staat in de top 5!';
+  }
+  return 'Helaas, volgende keer iets beter!';
+}
+
+
+
 Template.memoryGame_level2.rendered = function(){
 	$('#my-memorygame_level2').quizyMemoryGame({
 		itemWidth: 80,

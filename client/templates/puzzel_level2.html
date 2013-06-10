@@ -16,6 +16,12 @@
 <template name="viewscorepuzzellevel2">
   <div id="wrap" class="wrap-white">
     <div class="wraphighscore">
+      {{#each userlist}}
+        {{#if testUser isUser}}
+          <h2 class="highsc">{{texthigh index}}</h2>
+        {{/if}}
+      {{/each}}
+      
       <ul class="userlist">
       {{#each userlist}}
         {{#if testUser isUser}}

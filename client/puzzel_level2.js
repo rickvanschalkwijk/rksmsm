@@ -8,6 +8,15 @@ function storeLocal (){
   }
 }
 
+Template.viewscorepuzzellevel2.texthigh = function(index){
+  if(index == 1){
+    return 'YOLO! Eerste, Awesome!';
+  }else if(index >= 1 && index <= 5){
+    return 'Oke! Top 5, NICE';
+  }
+  return 'Volgende keer beter!';
+}
+
 Template.puzzel_level2.rendered = function(){
   $(document).ready(function() {
     var images = new Array(

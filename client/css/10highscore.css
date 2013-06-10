@@ -3,6 +3,12 @@
   padding: 24px;
 }
 
+h2.highsc {
+  width: 100%;
+  text-align: center;
+  padding-bottom: 20px;
+}
+
 .userlist {
   display: block;
   

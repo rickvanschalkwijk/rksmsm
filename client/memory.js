@@ -8,6 +8,14 @@ function storeLocal (){
   }
 }
 
+Template.viewscorememory.texthigh = function(index){
+  if(index == 1){
+    return 'Fantastisch! Je bent eerste!';
+  }else if(index >= 1 && index <= 5){
+    return 'Bam! Je staat in de top 5!';
+  }
+  return 'Gefeliciteerd!';
+}
 
 
 

@@ -8,6 +8,25 @@ function storeLocal (){
   }
 }
 
+Template.viewscoretrivialevel1.texthigh = function(index){
+  if(index == 1){
+    return 'Holy Bananas! Je bent eerste!';
+  }else if(index >= 1 && index <= 5){
+    return 'KLABAM! Goed zo je staat '+index+'de!';
+  }
+  return 'Dit kan beter!';
+}
+
+Template.viewscoretrivialevel2.texthigh = function(index){
+  if(index == 1){
+    return 'YEAAAHHH! Je bent eerste!';
+  }else if(index >= 1 && index <= 5){
+    return 'NICE! Je staat in de top 5!';
+  }
+  return 'Volgende keer beter!';
+}
+
+
 Template.triviaGame.rendered = function(){
 var score = 0;
 var questionNbr = 1;
